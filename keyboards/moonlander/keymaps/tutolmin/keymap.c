@@ -54,7 +54,6 @@ enum custom_keycodes {
   HSV_103_255_163,
   HSV_43_235_219,
   HSV_0_255_255,
-  DOT_SPC_SFT,
   ST_MACRO_0,
   ST_MACRO_1,
   ST_MACRO_2,
@@ -74,15 +73,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_GRAVE,       KC_1,           KC_2,           KC_3,           KC_4,           KC_5,           TD(DANCE_0),                                    KC_NO,          KC_6,           KC_7,           KC_8,           KC_9,           KC_0,           KC_MINUS,       
     KC_TAB,         KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,           LCTL(KC_INSERT),                                CAPS_WORD,      KC_Y,           KC_U,           KC_I,           KC_O,           KC_P,           KC_BSLASH,      
     KC_BSPACE,      KC_A,           KC_S,           KC_D,           KC_F,           KC_G,           LSFT(KC_INSERT),                                                                KC_PIPE,        KC_H,           KC_J,           KC_K,           KC_L,           KC_SCOLON,      KC_QUOTE,       
-    KC_DELETE,      KC_Z,           KC_X,           KC_C,           KC_V,           KC_B,                                           KC_N,           KC_M,           KC_COMMA,       KC_DOT,         KC_SLASH,       ST_MACRO_1,     
+    KC_DELETE,      KC_Z,           KC_X,           KC_C,           KC_V,           KC_B,                                           KC_N,           KC_M,           KC_COMMA,       KC_DOT,         KC_SLASH,       ST_MACRO_0,     
     TO(2),          KC_NO,          KC_NO,          TO(1),          OSL(5),         KC_ESCAPE,                                                                                                      KC_LGUI,        OSL(4),         LCTL(LSFT(KC_0)),KC_NO,          KC_NO,          OSL(3),         
     OSM(MOD_LSFT),  KC_LCTRL,       KC_LALT,                        KC_APPLICATION, KC_ENTER,       KC_SPACE
   ),
   [1] = LAYOUT_moonlander(
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, TD(DANCE_1),    LSFT(KC_BSLASH),                                KC_BSLASH,      KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
     KC_TRANSPARENT, RU_SHTI,        RU_TSE,         RU_U,           RU_KA,          RU_IE,          KC_TRANSPARENT,                                 KC_TRANSPARENT, RU_EN,          RU_GHE,         RU_SHA,         RU_SHCH,        RU_ZE,          RU_HA,          
-    KC_TRANSPARENT, RU_EF,          RU_YERU,        RU_VE,          RU_A,           RU_PE,          KC_TRANSPARENT,                                                                 ST_MACRO_2,     RU_ER,          RU_O,           RU_EL,          RU_DE,          RU_ZHE,         RU_E,           
-    KC_TRANSPARENT, RU_YA,          RU_CHE,         RU_ES,          RU_EM,          RU_I,                                           RU_TE,          TD(DANCE_2),    RU_BE,          RU_YU,          KC_TRANSPARENT, KC_TRANSPARENT, 
+    KC_TRANSPARENT, RU_EF,          RU_YERU,        RU_VE,          RU_A,           RU_PE,          KC_TRANSPARENT,                                                                 ST_MACRO_1,     RU_ER,          RU_O,           RU_EL,          RU_DE,          RU_ZHE,         RU_E,           
+    KC_TRANSPARENT, RU_YA,          RU_CHE,         RU_ES,          RU_EM,          RU_I,                                           RU_TE,          TD(DANCE_2),    RU_BE,          RU_YU,          KC_TRANSPARENT, ST_MACRO_2,     
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                                                                                 KC_TRANSPARENT, KC_TRANSPARENT, TO(0),          KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT
   ),
@@ -123,15 +122,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 const uint16_t PROGMEM combo0[] = { KC_LGUI, KC_SPACE, COMBO_END};
 const uint16_t PROGMEM combo1[] = { KC_BSPACE, KC_LCTRL, COMBO_END};
 const uint16_t PROGMEM combo2[] = { KC_LCTRL, KC_ENTER, COMBO_END};
-const uint16_t PROGMEM combo3[] = { KC_ENTER, KC_SPACE, COMBO_END};
-const uint16_t PROGMEM combo4[] = { OSM(MOD_LSFT), KC_ENTER, COMBO_END};
+const uint16_t PROGMEM combo3[] = { OSM(MOD_LSFT), KC_ENTER, COMBO_END};
 
 combo_t key_combos[COMBO_COUNT] = {
     COMBO(combo0, LGUI(KC_SPACE)),
     COMBO(combo1, LCTL(KC_BSPACE)),
     COMBO(combo2, LCTL(KC_ENTER)),
-    COMBO(combo3, ST_MACRO_0),
-    COMBO(combo4, LSFT(KC_ENTER)),
+    COMBO(combo3, LSFT(KC_ENTER)),
 };
 
 
@@ -209,18 +206,19 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
     case ST_MACRO_0:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_DOT) SS_DELAY(100) SS_TAP(X_SPACE) SS_DELAY(100) SS_TAP(X_LSHIFT));
-    }
-    break;
-    case ST_MACRO_1:
-    if (record->event.pressed) {
       SEND_STRING(SS_TAP(X_DOT) SS_DELAY(100) SS_TAP(X_SPACE));
       set_oneshot_mods(MOD_LSFT);
     }
     break;
-    case ST_MACRO_2:
+    case ST_MACRO_1:
     if (record->event.pressed) {
       SEND_STRING(SS_TAP(X_6) SS_DELAY(100) SS_TAP(X_SPACE));
+    }
+    break;
+    case ST_MACRO_2:
+    if (record->event.pressed) {
+      SEND_STRING(SS_TAP(X_7) SS_DELAY(100) SS_TAP(X_SPACE));
+      set_oneshot_mods(MOD_LSFT);
     }
     break;
     case ST_MACRO_3:
@@ -230,7 +228,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     break;
 
     case TO(0): // this runs when TO(ENG) is pressed (the key to toggle layer 0 on)
-    case TG(2): // this runs when TG(COL) is pressed (the key to toggle layer 2 on)
+    case TO(2): // this runs when TO(COL) is pressed (the key to toggle layer 2 on)
     if (record->event.pressed) {
         register_code(KC_LCTRL);
         register_code(KC_LSFT);
@@ -240,21 +238,13 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     }
     break;
     
-    case TG(1): // this runs when TG(RUS) is pressed (the key to toggle layer 1 on)
+    case TO(1): // this runs when TO(RUS) is pressed (the key to toggle layer 1 on)
     if (record->event.pressed) {
         register_code(KC_LALT);
         register_code(KC_LSFT);
         tap_code(KC_0);
         unregister_code(KC_LSFT);
         unregister_code(KC_LALT);
-    }
-    break;
-
-    case DOT_SPC_SFT: // Enter dot, then space, then shift once
-    if (record->event.pressed) {
-        tap_code(KC_DOT);
-        tap_code(KC_SPC);
-	set_oneshot_mods(MOD_LSFT);
     }
     break;
 

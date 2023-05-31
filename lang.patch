@@ -1,19 +1,27 @@
---- keyboards/moonlander/keymaps/tutolmin/keymap.c.old	2023-05-31 10:46:40.000000000 +0300
-+++ keyboards/moonlander/keymaps/tutolmin/keymap.c	2023-05-31 17:17:43.198264121 +0300
-@@ -54,6 +54,7 @@
-   HSV_103_255_163,
-   HSV_43_235_219,
-   HSV_0_255_255,
-+  DOT_SPC_SFT,
-   ST_MACRO_0,
-   ST_MACRO_1,
-   ST_MACRO_2,
-@@ -227,6 +228,35 @@
+--- qmk_firmware/keyboards/moonlander/keymaps/tutolmin/keymap.c.bak	2023-05-31 21:56:34.462485812 +0300
++++ qmk_firmware/keyboards/moonlander/keymaps/tutolmin/keymap.c	2023-05-31 22:05:53.158618322 +0300
+@@ -207,6 +207,7 @@
+     case ST_MACRO_0:
+     if (record->event.pressed) {
+       SEND_STRING(SS_TAP(X_DOT) SS_DELAY(100) SS_TAP(X_SPACE));
++      set_oneshot_mods(MOD_LSFT);
+     }
+     break;
+     case ST_MACRO_1:
+@@ -217,6 +218,7 @@
+     case ST_MACRO_2:
+     if (record->event.pressed) {
+       SEND_STRING(SS_TAP(X_7) SS_DELAY(100) SS_TAP(X_SPACE));
++      set_oneshot_mods(MOD_LSFT);
+     }
+     break;
+     case ST_MACRO_3:
+@@ -225,6 +227,27 @@
      }
      break;
  
 +    case TO(0): // this runs when TO(ENG) is pressed (the key to toggle layer 0 on)
-+    case TG(2): // this runs when TG(COL) is pressed (the key to toggle layer 2 on)
++    case TO(2): // this runs when TO(COL) is pressed (the key to toggle layer 2 on)
 +    if (record->event.pressed) {
 +        register_code(KC_LCTRL);
 +        register_code(KC_LSFT);
@@ -23,21 +31,13 @@
 +    }
 +    break;
 +    
-+    case TG(1): // this runs when TG(RUS) is pressed (the key to toggle layer 1 on)
++    case TO(1): // this runs when TO(RUS) is pressed (the key to toggle layer 1 on)
 +    if (record->event.pressed) {
 +        register_code(KC_LALT);
 +        register_code(KC_LSFT);
 +        tap_code(KC_0);
 +        unregister_code(KC_LSFT);
 +        unregister_code(KC_LALT);
-+    }
-+    break;
-+
-+    case DOT_SPC_SFT: // Enter dot, then space, then shift once
-+    if (record->event.pressed) {
-+        tap_code(KC_DOT);
-+        tap_code(KC_SPC);
-+	set_oneshot_mods(MOD_LSFT);
 +    }
 +    break;
 +
