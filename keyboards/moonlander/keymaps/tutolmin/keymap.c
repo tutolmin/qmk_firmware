@@ -212,6 +212,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     break;
     case ST_MACRO_1:
     if (record->event.pressed) {
+      clear_oneshot_mods();
       SEND_STRING(SS_TAP(X_DOT) SS_DELAY(100) SS_TAP(X_SPACE));
       set_oneshot_mods(MOD_LSFT);
     }
@@ -223,6 +224,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     break;
     case ST_MACRO_3:
     if (record->event.pressed) {
+      clear_oneshot_mods();
       SEND_STRING(SS_TAP(X_7) SS_DELAY(100) SS_TAP(X_SPACE));
       set_oneshot_mods(MOD_LSFT);
     }
