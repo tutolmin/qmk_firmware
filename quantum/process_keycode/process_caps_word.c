@@ -13,7 +13,8 @@
 // limitations under the License.
 
 #include "process_caps_word.h"
-#include "keymap_russian.h"
+//#include "keymap_russian.h"
+#include "keymap_ru_type.h"
 
 bool process_caps_word(uint16_t keycode, keyrecord_t* record) {
     if (keycode == CAPSWRD) { // Pressing CAPSWRD toggles Caps Word.
@@ -171,13 +172,33 @@ __attribute__((weak)) bool caps_word_press_user(uint16_t keycode) {
     switch (keycode) {
         // Keycodes that continue Caps Word, with shift applied.
         case KC_A ... KC_Z:
+#ifdef RUT_RUBL
+        case RUT_HA:
+        case RUT_HARD:
+        case RUT_ZHE:
+        case RUT_E:
+        case RUT_BE:
+        case RUT_YU:
+        case RUT_YO:
+        case RUT_0:
+        case RUT_1:
+        case RUT_2:
+        case RUT_3:
+        case RUT_4:
+        case RUT_5:
+        case RUT_6:
+        case RUT_7:
+        case RUT_8:
+        case RUT_9:
+#endif // RU_RUBL
 #ifdef RU_RUBL
-	case RU_HA:
-	case RU_HARD:
-	case RU_ZHE:
-	case RU_E:
-	case RU_BE:
-	case RU_YU:
+        case RU_HA:
+        case RU_HARD:
+        case RU_ZHE:
+        case RU_E:
+        case RU_BE:
+        case RU_YU:
+        case RU_YO:
 #endif // RU_RUBL
         case KC_MINS:
             add_weak_mods(MOD_BIT(KC_LSFT)); // Apply shift to next key.

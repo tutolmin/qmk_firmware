@@ -1,5 +1,6 @@
 #include QMK_KEYBOARD_H
 #include "version.h"
+/*
 #include "keymap_german.h"
 #include "keymap_nordic.h"
 #include "keymap_french.h"
@@ -22,7 +23,6 @@
 #include "keymap_czech.h"
 #include "keymap_romanian.h"
 #include "keymap_russian.h"
-#include "keymap_ru_type.h"
 #include "keymap_uk.h"
 #include "keymap_estonian.h"
 #include "keymap_belgian.h"
@@ -30,6 +30,8 @@
 #include "keymap_croatian.h"
 #include "keymap_turkish_q.h"
 #include "keymap_slovak.h"
+*/
+#include "keymap_ru_type.h"
 
 #define KC_MAC_UNDO LGUI(KC_Z)
 #define KC_MAC_CUT LGUI(KC_X)
