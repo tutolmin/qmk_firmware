@@ -256,6 +256,90 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     }
     break;
 
+    case TO(0): // this runs when TO(ENG) is pressed (the key to toggle layer 0 on)
+    case TO(2): // this runs when TO(COL) is pressed (the key to toggle layer 2 on)
+    if (record->event.pressed) {
+        register_code(KC_LCTRL);
+        register_code(KC_LSFT);
+        tap_code(KC_0);
+        unregister_code(KC_LSFT);
+        unregister_code(KC_LCTRL);
+    }
+    break;
+    
+    case TO(1): // this runs when TO(RUS) is pressed (the key to toggle layer 1 on)
+    if (record->event.pressed) {
+        register_code(KC_LALT);
+        register_code(KC_LSFT);
+        tap_code(KC_0);
+        unregister_code(KC_LSFT);
+        unregister_code(KC_LALT);
+    }
+    break;
+
+    case TO(0): // this runs when TO(ENG) is pressed (the key to toggle layer 0 on)
+    case TO(2): // this runs when TO(COL) is pressed (the key to toggle layer 2 on)
+    if (record->event.pressed) {
+        register_code(KC_LCTRL);
+        register_code(KC_LSFT);
+        tap_code(KC_0);
+        unregister_code(KC_LSFT);
+        unregister_code(KC_LCTRL);
+    }
+    break;
+    
+    case TO(1): // this runs when TO(RUS) is pressed (the key to toggle layer 1 on)
+    if (record->event.pressed) {
+        register_code(KC_LALT);
+        register_code(KC_LSFT);
+        tap_code(KC_0);
+        unregister_code(KC_LSFT);
+        unregister_code(KC_LALT);
+    }
+    break;
+
+    case TO(0): // this runs when TO(ENG) is pressed (the key to toggle layer 0 on)
+    case TO(2): // this runs when TO(COL) is pressed (the key to toggle layer 2 on)
+    if (record->event.pressed) {
+        register_code(KC_LCTRL);
+        register_code(KC_LSFT);
+        tap_code(KC_0);
+        unregister_code(KC_LSFT);
+        unregister_code(KC_LCTRL);
+    }
+    break;
+    
+    case TO(1): // this runs when TO(RUS) is pressed (the key to toggle layer 1 on)
+    if (record->event.pressed) {
+        register_code(KC_LALT);
+        register_code(KC_LSFT);
+        tap_code(KC_0);
+        unregister_code(KC_LSFT);
+        unregister_code(KC_LALT);
+    }
+    break;
+
+    case TO(0): // this runs when TO(ENG) is pressed (the key to toggle layer 0 on)
+    case TO(2): // this runs when TO(COL) is pressed (the key to toggle layer 2 on)
+    if (record->event.pressed) {
+        register_code(KC_LCTRL);
+        register_code(KC_LSFT);
+        tap_code(KC_0);
+        unregister_code(KC_LSFT);
+        unregister_code(KC_LCTRL);
+    }
+    break;
+    
+    case TO(1): // this runs when TO(RUS) is pressed (the key to toggle layer 1 on)
+    if (record->event.pressed) {
+        register_code(KC_LALT);
+        register_code(KC_LSFT);
+        tap_code(KC_0);
+        unregister_code(KC_LSFT);
+        unregister_code(KC_LALT);
+    }
+    break;
+
     case RGB_SLD:
         if (rawhid_state.rgb_control) {
             return false;

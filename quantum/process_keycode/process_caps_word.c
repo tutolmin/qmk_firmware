@@ -13,7 +13,6 @@
 // limitations under the License.
 
 #include "process_caps_word.h"
-//#include "keymap_russian.h"
 #include "keymap_ru_type.h"
 
 bool process_caps_word(uint16_t keycode, keyrecord_t* record) {
@@ -170,9 +169,10 @@ bool process_caps_word(uint16_t keycode, keyrecord_t* record) {
 
 __attribute__((weak)) bool caps_word_press_user(uint16_t keycode) {
     switch (keycode) {
-        // Keycodes that continue Caps Word, with shift applied.
-        case KC_A ... KC_Z:
+
 #ifdef RUT_RUBL
+
+        // Russian typewriter keycodes that continue Caps Word, with shift applied.
         case RUT_HA:
         case RUT_HARD:
         case RUT_ZHE:
@@ -180,36 +180,31 @@ __attribute__((weak)) bool caps_word_press_user(uint16_t keycode) {
         case RUT_BE:
         case RUT_YU:
         case RUT_YO:
-        case RUT_0:
-        case RUT_1:
-        case RUT_2:
-        case RUT_3:
-        case RUT_4:
-        case RUT_5:
-        case RUT_6:
-        case RUT_7:
-        case RUT_8:
-        case RUT_9:
-#endif // RU_RUBL
-#ifdef RU_RUBL
-        case RU_HA:
-        case RU_HARD:
-        case RU_ZHE:
-        case RU_E:
-        case RU_BE:
-        case RU_YU:
-        case RU_YO:
-#endif // RU_RUBL
+            // TODO: Only do this if Russian layer is active
+            add_weak_mods(MOD_BIT(KC_LSFT)); // Apply shift to next key.
+            send_keyboard_report();
+            return true;
+
+#endif // RUT_RUBL
+
+        // Keycodes that continue Caps Word, with shift applied.
+        case KC_A ... KC_Z:
         case KC_MINS:
+            // TODO: KC_MINS in Russian layout should stop Caps Word
+            // TODO: Only do this if Russian layer is active
             add_weak_mods(MOD_BIT(KC_LSFT)); // Apply shift to next key.
             send_keyboard_report();
             return true;
 
         // Keycodes that continue Caps Word, without shifting.
         case KC_1 ... KC_0:
+            // TODO: KC_1..0 in Russian layout should send shifted codes
+            // TODO: Only do this if Russian layer is active
         case KC_BSPC:
         case KC_DEL:
         case KC_UNDS:
+            // TODO: KC_UNDS in Russian layout should stop Caps Word
+            // TODO: Only do this if Russian layer is active
             return true;
 
         default:

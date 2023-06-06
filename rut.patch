@@ -16,30 +16,6 @@
  
  #define KC_MAC_UNDO LGUI(KC_Z)
  #define KC_MAC_CUT LGUI(KC_X)
-@@ -79,10 +82,10 @@
-     OSM(MOD_LSFT),  KC_LCTRL,       KC_LALT,                        KC_APPLICATION, KC_ENTER,       KC_SPACE
-   ),
-   [1] = LAYOUT_moonlander(
--    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, TD(DANCE_1),    LSFT(KC_BSLASH),                                KC_BSLASH,      KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
--    KC_TRANSPARENT, RU_SHTI,        RU_TSE,         RU_U,           RU_KA,          RU_IE,          KC_TRANSPARENT,                                 KC_TRANSPARENT, RU_EN,          RU_GHE,         RU_SHA,         RU_SHCH,        RU_ZE,          RU_HA,          
--    KC_TRANSPARENT, RU_EF,          RU_YERU,        RU_VE,          RU_A,           RU_PE,          KC_TRANSPARENT,                                                                 KC_NO,          RU_ER,          RU_O,           RU_EL,          RU_DE,          RU_ZHE,         RU_E,           
--    ST_MACRO_2,     RU_YA,          RU_CHE,         RU_ES,          RU_EM,          RU_I,                                           RU_TE,          TD(DANCE_2),    RU_BE,          RU_YU,          KC_TRANSPARENT, ST_MACRO_3,     
-+    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, TD(DANCE_1),    RUT_LPRN,                                RUT_RPRN,      KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
-+    KC_TRANSPARENT, RUT_SHTI,        RUT_TSE,         RUT_U,           RUT_KA,          RUT_IE,          KC_TRANSPARENT,                                 KC_TRANSPARENT, RUT_EN,          RUT_GHE,         RUT_SHA,         RUT_SHCH,        RUT_ZE,          RUT_HA,          
-+    KC_TRANSPARENT, RUT_EF,          RUT_YERU,        RUT_VE,          RUT_A,           RUT_PE,          KC_TRANSPARENT,                                                                 KC_NO,          RUT_ER,          RUT_O,           RUT_EL,          RUT_DE,          RUT_ZHE,         RUT_E,           
-+    ST_MACRO_2,     RUT_YA,          RUT_CHE,         RUT_ES,          RUT_EM,          RUT_I,                                           RUT_TE,          TD(DANCE_2),    RUT_BE,          RUT_YU,          RUT_YO, ST_MACRO_3,     
-     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                                                                                 KC_TRANSPARENT, KC_TRANSPARENT, TO(0),          KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
-     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT
-   ),
-@@ -114,7 +117,7 @@
-     KC_NO,          KC_NO,          KC_NO,          KC_NO,          LALT(KC_F4),    KC_NO,          KC_NO,                                          KC_PSCREEN,     KC_NO,          KC_NUMLOCK,     KC_KP_SLASH,    KC_KP_ASTERISK, KC_KP_MINUS,    KC_NO,          
-     KC_TRANSPARENT, KC_NO,          LGUI(KC_1),     LGUI(KC_2),     LGUI(KC_3),     LALT(KC_TAB),   KC_TRANSPARENT,                                 KC_SCROLLLOCK,  KC_CIRC,        KC_KP_7,        KC_KP_8,        KC_KP_9,        KC_KP_PLUS,     KC_NO,          
-     KC_TRANSPARENT, KC_LALT,        LGUI(KC_4),     LGUI(KC_5),     LGUI(KC_6),     KC_TAB,         KC_TRANSPARENT,                                                                 KC_PAUSE,       KC_DLR,         KC_KP_4,        KC_KP_5,        KC_KP_6,        KC_KP_EQUAL,    KC_EQUAL,       
--    KC_NO,          KC_NO,          LGUI(KC_7),     LGUI(KC_8),     LGUI(KC_9),     LSFT(KC_TAB),                                   RU_RUBL,        KC_KP_1,        KC_KP_2,        KC_KP_3,        KC_KP_ENTER,    KC_NO,          
-+    KC_NO,          KC_NO,          LGUI(KC_7),     LGUI(KC_8),     LGUI(KC_9),     LSFT(KC_TAB),                                   RUT_RUBL,        KC_KP_1,        KC_KP_2,        KC_KP_3,        KC_KP_ENTER,    KC_NO,          
-     KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_TRANSPARENT, KC_TRANSPARENT,                                                                                                 KC_TRANSPARENT, KC_KP_0,        ST_MACRO_4,     KC_KP_DOT,      KC_KP_ENTER,    KC_NO,          
-     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT
-   ),
 @@ -375,30 +378,30 @@
  
  void on_dance_1(qk_tap_dance_state_t *state, void *user_data) {
@@ -83,7 +59,7 @@
  }
 @@ -408,30 +411,30 @@
  
- void on_dance_2(qk_tap_dance_state_t *state, void *user_data) {
+ void on_dance_3(qk_tap_dance_state_t *state, void *user_data) {
      if(state->count == 3) {
 -        tap_code16(RU_SOFT);
 -        tap_code16(RU_SOFT);
@@ -98,9 +74,9 @@
      }
  }
  
- void dance_2_finished(qk_tap_dance_state_t *state, void *user_data) {
-     dance_state[2].step = dance_step(state);
-     switch (dance_state[2].step) {
+ void dance_3_finished(qk_tap_dance_state_t *state, void *user_data) {
+     dance_state[3].step = dance_step(state);
+     switch (dance_state[3].step) {
 -        case SINGLE_TAP: register_code16(RU_SOFT); break;
 -        case DOUBLE_TAP: register_code16(RU_HARD); break;
 -        case DOUBLE_SINGLE_TAP: tap_code16(RU_SOFT); register_code16(RU_SOFT);
@@ -110,9 +86,9 @@
      }
  }
  
- void dance_2_reset(qk_tap_dance_state_t *state, void *user_data) {
+ void dance_3_reset(qk_tap_dance_state_t *state, void *user_data) {
      wait_ms(10);
-     switch (dance_state[2].step) {
+     switch (dance_state[3].step) {
 -        case SINGLE_TAP: unregister_code16(RU_SOFT); break;
 -        case DOUBLE_TAP: unregister_code16(RU_HARD); break;
 -        case DOUBLE_SINGLE_TAP: unregister_code16(RU_SOFT); break;
@@ -120,5 +96,5 @@
 +        case DOUBLE_TAP: unregister_code16(RUT_HARD); break;
 +        case DOUBLE_SINGLE_TAP: unregister_code16(RUT_SOFT); break;
      }
-     dance_state[2].step = 0;
+     dance_state[3].step = 0;
  }
