@@ -1,5 +1,5 @@
 --- keyboards/moonlander/keymaps/rututolmin/keymap.c.bak	2023-06-13 17:06:48.980092455 +0300
-+++ keyboards/moonlander/keymaps/rututolmin/keymap.c	2023-06-13 17:20:46.808560193 +0300
++++ keyboards/moonlander/keymaps/rututolmin/keymap.c	2023-06-13 18:43:26.545386520 +0300
 @@ -1,5 +1,6 @@
  #include QMK_KEYBOARD_H
  #include "version.h"
@@ -25,3 +25,17 @@
      KC_TRANSPARENT, RU_SHTI,        RU_TSE,         RU_U,           RU_KA,          RU_IE,          KC_TRANSPARENT,                                 KC_TRANSPARENT, RU_EN,          RU_GHE,         RU_SHA,         RU_SHCH,        RU_ZE,          RU_HA,          
      KC_TRANSPARENT, RU_EF,          RU_YERU,        RU_VE,          RU_A,           RU_PE,          KC_TRANSPARENT,                                                                 KC_NO,          RU_ER,          RU_O,           RU_EL,          RU_DE,          RU_ZHE,         RU_E,           
      ST_MACRO_2,     RU_YA,          RU_CHE,         RU_ES,          RU_EM,          RU_I,                                           RU_TE,          TD(DANCE_5),    RU_BE,          RU_YU,          RU_YO,          ST_MACRO_3,     
+@@ -242,6 +245,13 @@
+     }
+     break;
+ 
++    case RU_MINS: // - in Russian should NOT be shifted
++    case RU_DQUO: // \" in Russian should NOT be shifted
++    if (biton32(layer_state) == 1) {
++      clear_oneshot_mods();
++    }
++    break;
++
+     case TO(0): // this runs when TO(ENG) is pressed (the key to toggle layer 0 on)
+     case TO(2): // this runs when TO(COL) is pressed (the key to toggle layer 2 on)
+     if (record->event.pressed) {
