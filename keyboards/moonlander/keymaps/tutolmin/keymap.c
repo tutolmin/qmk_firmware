@@ -1,5 +1,6 @@
 #include QMK_KEYBOARD_H
 #include "version.h"
+/*
 #include "keymap_german.h"
 #include "keymap_nordic.h"
 #include "keymap_french.h"
@@ -29,6 +30,8 @@
 #include "keymap_croatian.h"
 #include "keymap_turkish_q.h"
 #include "keymap_slovak.h"
+*/
+#include "keymap_ru_type.h"
 
 #define KC_MAC_UNDO LGUI(KC_Z)
 #define KC_MAC_CUT LGUI(KC_X)
@@ -459,30 +462,30 @@ void dance_1_reset(qk_tap_dance_state_t *state, void *user_data);
 
 void on_dance_1(qk_tap_dance_state_t *state, void *user_data) {
     if(state->count == 3) {
-        tap_code16(KC_5);
-        tap_code16(KC_5);
-        tap_code16(KC_5);
+        tap_code16(RUT_COLN);
+        tap_code16(RUT_COLN);
+        tap_code16(RUT_COLN);
     }
     if(state->count > 3) {
-        tap_code16(KC_5);
+        tap_code16(RUT_COLN);
     }
 }
 
 void dance_1_finished(qk_tap_dance_state_t *state, void *user_data) {
     dance_state[1].step = dance_step(state);
     switch (dance_state[1].step) {
-        case SINGLE_TAP: register_code16(KC_5); break;
-        case DOUBLE_TAP: register_code16(KC_EQUAL); break;
-        case DOUBLE_SINGLE_TAP: tap_code16(KC_5); register_code16(KC_5);
+        case SINGLE_TAP: register_code16(RUT_COLN); break;
+        case DOUBLE_TAP: register_code16(RUT_SCLN); break;
+        case DOUBLE_SINGLE_TAP: tap_code16(RUT_COLN); register_code16(RUT_COLN);
     }
 }
 
 void dance_1_reset(qk_tap_dance_state_t *state, void *user_data) {
     wait_ms(10);
     switch (dance_state[1].step) {
-        case SINGLE_TAP: unregister_code16(KC_5); break;
-        case DOUBLE_TAP: unregister_code16(KC_EQUAL); break;
-        case DOUBLE_SINGLE_TAP: unregister_code16(KC_5); break;
+        case SINGLE_TAP: unregister_code16(RUT_COLN); break;
+        case DOUBLE_TAP: unregister_code16(RUT_SCLN); break;
+        case DOUBLE_SINGLE_TAP: unregister_code16(RUT_COLN); break;
     }
     dance_state[1].step = 0;
 }

@@ -1,5 +1,6 @@
 #include QMK_KEYBOARD_H
 #include "version.h"
+/*
 #include "keymap_german.h"
 #include "keymap_nordic.h"
 #include "keymap_french.h"
@@ -29,6 +30,8 @@
 #include "keymap_croatian.h"
 #include "keymap_turkish_q.h"
 #include "keymap_slovak.h"
+*/
+#include "keymap_ru_type.h"
 
 #define KC_MAC_UNDO LGUI(KC_Z)
 #define KC_MAC_CUT LGUI(KC_X)
@@ -82,7 +85,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     OSM(MOD_LSFT),  KC_LCTRL,       KC_LALT,                        KC_APPLICATION, KC_ENTER,       KC_SPACE
   ),
   [1] = LAYOUT_moonlander(
-    KC_TRANSPARENT, RU_NUM,         RU_MINS,        TD(DANCE_1),    RU_DQUO,        TD(DANCE_2),    RU_LPRN,                                        RU_RPRN,        RU_COMM,        RU_DOT,         TD(DANCE_4),    RU_QUES,        RU_PERC,        RU_EXLM,        
+    RU_PIPE, RU_NUM,         RU_MINS,        TD(DANCE_1),    RU_DQUO,        TD(DANCE_2),    RU_LPRN,                                        RU_RPRN,        RU_COMM,        RU_DOT,         TD(DANCE_4),    RU_QUES,        RU_PERC,        RU_EXLM,        
     KC_TRANSPARENT, RU_SHTI,        RU_TSE,         RU_U,           RU_KA,          RU_IE,          KC_TRANSPARENT,                                 KC_TRANSPARENT, RU_EN,          RU_GHE,         RU_SHA,         RU_SHCH,        RU_ZE,          RU_HA,          
     KC_TRANSPARENT, RU_EF,          RU_YERU,        RU_VE,          RU_A,           RU_PE,          KC_TRANSPARENT,                                                                 KC_NO,          RU_ER,          RU_O,           RU_EL,          RU_DE,          RU_ZHE,         RU_E,           
     ST_MACRO_2,     RU_YA,          RU_CHE,         RU_ES,          RU_EM,          RU_I,                                           RU_TE,          TD(DANCE_5),    RU_BE,          RU_YU,          RU_YO,          ST_MACRO_3,     

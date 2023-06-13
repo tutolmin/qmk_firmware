@@ -1,5 +1,5 @@
---- keyboards/moonlander/keymaps/tutolmin/keymap.c	2023-06-02 08:44:02.572632079 +0300
-+++ keyboards/moonlander/keymaps/rututolmin/keymap.c	2023-06-02 13:51:54.699320547 +0300
+--- keyboards/moonlander/keymaps/rututolmin/keymap.c.bak	2023-06-13 17:06:48.980092455 +0300
++++ keyboards/moonlander/keymaps/rututolmin/keymap.c	2023-06-13 17:20:46.808560193 +0300
 @@ -1,5 +1,6 @@
  #include QMK_KEYBOARD_H
  #include "version.h"
@@ -16,85 +16,12 @@
  
  #define KC_MAC_UNDO LGUI(KC_Z)
  #define KC_MAC_CUT LGUI(KC_X)
-@@ -375,30 +378,30 @@
- 
- void on_dance_1(qk_tap_dance_state_t *state, void *user_data) {
-     if(state->count == 3) {
--        tap_code16(KC_5);
--        tap_code16(KC_5);
--        tap_code16(KC_5);
-+        tap_code16(RUT_COLN);
-+        tap_code16(RUT_COLN);
-+        tap_code16(RUT_COLN);
-     }
-     if(state->count > 3) {
--        tap_code16(KC_5);
-+        tap_code16(RUT_COLN);
-     }
- }
- 
- void dance_1_finished(qk_tap_dance_state_t *state, void *user_data) {
-     dance_state[1].step = dance_step(state);
-     switch (dance_state[1].step) {
--        case SINGLE_TAP: register_code16(KC_5); break;
--        case DOUBLE_TAP: register_code16(KC_EQUAL); break;
--        case DOUBLE_SINGLE_TAP: tap_code16(KC_5); register_code16(KC_5);
-+        case SINGLE_TAP: register_code16(RUT_COLN); break;
-+        case DOUBLE_TAP: register_code16(RUT_SCLN); break;
-+        case DOUBLE_SINGLE_TAP: tap_code16(RUT_COLN); register_code16(RUT_COLN);
-     }
- }
- 
- void dance_1_reset(qk_tap_dance_state_t *state, void *user_data) {
-     wait_ms(10);
-     switch (dance_state[1].step) {
--        case SINGLE_TAP: unregister_code16(KC_5); break;
--        case DOUBLE_TAP: unregister_code16(KC_EQUAL); break;
--        case DOUBLE_SINGLE_TAP: unregister_code16(KC_5); break;
-+        case SINGLE_TAP: unregister_code16(RUT_COLN); break;
-+        case DOUBLE_TAP: unregister_code16(RUT_SCLN); break;
-+        case DOUBLE_SINGLE_TAP: unregister_code16(RUT_COLN); break;
-     }
-     dance_state[1].step = 0;
- }
-@@ -408,30 +411,30 @@
- 
- void on_dance_3(qk_tap_dance_state_t *state, void *user_data) {
-     if(state->count == 3) {
--        tap_code16(RU_SOFT);
--        tap_code16(RU_SOFT);
--        tap_code16(RU_SOFT);
-+        tap_code16(RUT_SOFT);
-+        tap_code16(RUT_SOFT);
-+        tap_code16(RUT_SOFT);
-     }
-     if(state->count > 3) {
--        tap_code16(RU_SOFT);
-+        tap_code16(RUT_SOFT);
-     }
- }
- 
- void dance_3_finished(qk_tap_dance_state_t *state, void *user_data) {
-     dance_state[3].step = dance_step(state);
-     switch (dance_state[3].step) {
--        case SINGLE_TAP: register_code16(RU_SOFT); break;
--        case DOUBLE_TAP: register_code16(RU_HARD); break;
--        case DOUBLE_SINGLE_TAP: tap_code16(RU_SOFT); register_code16(RU_SOFT);
-+        case SINGLE_TAP: register_code16(RUT_SOFT); break;
-+        case DOUBLE_TAP: register_code16(RUT_HARD); break;
-+        case DOUBLE_SINGLE_TAP: tap_code16(RUT_SOFT); register_code16(RUT_SOFT);
-     }
- }
- 
- void dance_3_reset(qk_tap_dance_state_t *state, void *user_data) {
-     wait_ms(10);
-     switch (dance_state[3].step) {
--        case SINGLE_TAP: unregister_code16(RU_SOFT); break;
--        case DOUBLE_TAP: unregister_code16(RU_HARD); break;
--        case DOUBLE_SINGLE_TAP: unregister_code16(RU_SOFT); break;
-+        case SINGLE_TAP: unregister_code16(RUT_SOFT); break;
-+        case DOUBLE_TAP: unregister_code16(RUT_HARD); break;
-+        case DOUBLE_SINGLE_TAP: unregister_code16(RUT_SOFT); break;
-     }
-     dance_state[3].step = 0;
- }
+@@ -82,7 +85,7 @@
+     OSM(MOD_LSFT),  KC_LCTRL,       KC_LALT,                        KC_APPLICATION, KC_ENTER,       KC_SPACE
+   ),
+   [1] = LAYOUT_moonlander(
+-    KC_TRANSPARENT, RU_NUM,         RU_MINS,        TD(DANCE_1),    RU_DQUO,        TD(DANCE_2),    RU_LPRN,                                        RU_RPRN,        RU_COMM,        RU_DOT,         TD(DANCE_4),    RU_QUES,        RU_PERC,        RU_EXLM,        
++    RU_PIPE, RU_NUM,         RU_MINS,        TD(DANCE_1),    RU_DQUO,        TD(DANCE_2),    RU_LPRN,                                        RU_RPRN,        RU_COMM,        RU_DOT,         TD(DANCE_4),    RU_QUES,        RU_PERC,        RU_EXLM,        
+     KC_TRANSPARENT, RU_SHTI,        RU_TSE,         RU_U,           RU_KA,          RU_IE,          KC_TRANSPARENT,                                 KC_TRANSPARENT, RU_EN,          RU_GHE,         RU_SHA,         RU_SHCH,        RU_ZE,          RU_HA,          
+     KC_TRANSPARENT, RU_EF,          RU_YERU,        RU_VE,          RU_A,           RU_PE,          KC_TRANSPARENT,                                                                 KC_NO,          RU_ER,          RU_O,           RU_EL,          RU_DE,          RU_ZHE,         RU_E,           
+     ST_MACRO_2,     RU_YA,          RU_CHE,         RU_ES,          RU_EM,          RU_I,                                           RU_TE,          TD(DANCE_5),    RU_BE,          RU_YU,          RU_YO,          ST_MACRO_3,     
