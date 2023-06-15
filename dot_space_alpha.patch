@@ -1,22 +1,32 @@
---- /media/torrents/moonlander/keymap.c	2023-06-01 07:11:52.000000000 +0300
-+++ qmk_firmware/keyboards/moonlander/keymaps/tutolmin/keymap.c	2023-06-02 05:50:47.187075711 +0300
-@@ -212,7 +212,9 @@
+--- /media/torrents/moonlander/keymap.c	2023-06-14 10:03:34.000000000 +0300
++++ keyboards/moonlander/keymaps/rututolmin/keymap.c	2023-06-14 13:35:49.636406692 +0300
+@@ -226,7 +226,9 @@
      break;
-     case ST_MACRO_1:
+     case ST_MACRO_2:
      if (record->event.pressed) {
 +      clear_oneshot_mods();
        SEND_STRING(SS_TAP(X_DOT) SS_DELAY(100) SS_TAP(X_SPACE));
 +      set_oneshot_mods(MOD_LSFT);
      }
      break;
-     case ST_MACRO_2:
-@@ -222,7 +224,9 @@
-     break;
      case ST_MACRO_3:
+@@ -236,7 +238,9 @@
+     break;
+     case ST_MACRO_4:
+     if (record->event.pressed) {
++      clear_oneshot_mods();
+       SEND_STRING(SS_TAP(X_KP_MINUS) SS_DELAY(100) SS_TAP(X_SPACE));
++      set_oneshot_mods(MOD_LSFT);
+     }
+     break;
+     case ST_MACRO_5:
+@@ -246,7 +250,9 @@
+     break;
+     case ST_MACRO_6:
      if (record->event.pressed) {
 +      clear_oneshot_mods();
        SEND_STRING(SS_TAP(X_7) SS_DELAY(100) SS_TAP(X_SPACE));
 +      set_oneshot_mods(MOD_LSFT);
      }
      break;
-     case ST_MACRO_4:
+     case ST_MACRO_7:
