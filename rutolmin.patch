@@ -1,0 +1,106 @@
+--- /media/torrents/moonlander/keymap.c	2023-06-17 19:38:12.000000000 +0300
++++ keyboards/moonlander/keymaps/rututolmin/keymap.c	2023-06-18 11:28:35.853535372 +0300
+@@ -1,5 +1,6 @@
+ #include QMK_KEYBOARD_H
+ #include "version.h"
++/*
+ #include "keymap_german.h"
+ #include "keymap_nordic.h"
+ #include "keymap_french.h"
+@@ -29,6 +30,8 @@
+ #include "keymap_croatian.h"
+ #include "keymap_turkish_q.h"
+ #include "keymap_slovak.h"
++*/
++#include "keymap_ru_type.h"
+ 
+ #define KC_MAC_UNDO LGUI(KC_Z)
+ #define KC_MAC_CUT LGUI(KC_X)
+@@ -224,7 +227,9 @@
+     break;
+     case ST_MACRO_1:
+     if (record->event.pressed) {
++      clear_oneshot_mods();
+       SEND_STRING(SS_TAP(X_DOT) SS_DELAY(100) SS_TAP(X_SPACE));
++      set_oneshot_mods(MOD_LSFT);
+     }
+     break;
+     case ST_MACRO_2:
+@@ -244,12 +249,16 @@
+     break;
+     case ST_MACRO_5:
+     if (record->event.pressed) {
++      clear_oneshot_mods();
+       SEND_STRING(SS_TAP(X_KP_MINUS) SS_DELAY(100) SS_TAP(X_SPACE));
++      set_oneshot_mods(MOD_LSFT);
+     }
+     break;
+     case ST_MACRO_6:
+     if (record->event.pressed) {
++      clear_oneshot_mods();
+       SEND_STRING(SS_TAP(X_7) SS_DELAY(100) SS_TAP(X_SPACE));
++      set_oneshot_mods(MOD_LSFT);
+     }
+     break;
+     case ST_MACRO_7:
+@@ -258,6 +267,34 @@
+     }
+     break;
+ 
++    case RU_MINS: // - in Russian should NOT be shifted
++    case RU_DQUO: // \" in Russian should NOT be shifted
++    if (biton32(layer_state) == 1) {
++      clear_oneshot_mods();
++    }
++    break;
++
++    case TO(0): // this runs when TO(ENG) is pressed (the key to toggle layer 0 on)
++    case TO(2): // this runs when TO(COL) is pressed (the key to toggle layer 2 on)
++    if (record->event.pressed) {
++        register_code(KC_LCTRL);
++        register_code(KC_LSFT);
++        tap_code(KC_0);
++        unregister_code(KC_LSFT);
++        unregister_code(KC_LCTRL);
++    }
++    break;
++    
++    case TO(1): // this runs when TO(RUS) is pressed (the key to toggle layer 1 on)
++    if (record->event.pressed) {
++        register_code(KC_LALT);
++        register_code(KC_LSFT);
++        tap_code(KC_0);
++        unregister_code(KC_LSFT);
++        unregister_code(KC_LALT);
++    }
++    break;
++
+     case RGB_SLD:
+         if (rawhid_state.rgb_control) {
+             return false;
+@@ -390,7 +427,7 @@
+     dance_state[1].step = dance_step(state);
+     switch (dance_state[1].step) {
+         case SINGLE_TAP: register_code16(LCTL(LSFT(KC_0))); break;
+-        case DOUBLE_TAP: layer_move(2); break;
++        case DOUBLE_TAP: tap_code16(LCTL(LSFT(KC_0))); layer_move(2); break;
+         case DOUBLE_SINGLE_TAP: tap_code16(LCTL(LSFT(KC_0))); register_code16(LCTL(LSFT(KC_0)));
+     }
+ }
+@@ -475,7 +512,7 @@
+ void dance_4_finished(qk_tap_dance_state_t *state, void *user_data) {
+     dance_state[4].step = dance_step(state);
+     switch (dance_state[4].step) {
+-        case DOUBLE_TAP: layer_move(0); break;
++        case DOUBLE_TAP: tap_code16(LCTL(LSFT(KC_0))); layer_move(0); break;
+     }
+ }
+ 
+@@ -556,6 +593,7 @@
+ 
+ void dance_7_finished(qk_tap_dance_state_t *state, void *user_data) {
+     dance_state[7].step = dance_step(state);
++    tap_code16(LCTL(LSFT(KC_0)));
+     switch (dance_state[7].step) {
+         case SINGLE_TAP: layer_move(0); break;
+         case DOUBLE_TAP: layer_move(2); break;
