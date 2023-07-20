@@ -1,5 +1,5 @@
---- /media/torrents/moonlander/keymap.c	2023-06-17 19:38:12.000000000 +0300
-+++ keyboards/moonlander/keymaps/rututolmin/keymap.c	2023-06-18 11:28:35.853535372 +0300
+--- /media/torrents/moonlander/keymap.c	2023-07-19 21:29:40.000000000 +0300
++++ keyboards/moonlander/keymaps/rututolmin/keymap.c	2023-07-20 07:38:00.846861145 +0300
 @@ -1,5 +1,6 @@
  #include QMK_KEYBOARD_H
  #include "version.h"
@@ -16,7 +16,13 @@
  
  #define KC_MAC_UNDO LGUI(KC_Z)
  #define KC_MAC_CUT LGUI(KC_X)
-@@ -224,7 +227,9 @@
+@@ -257,17 +260,22 @@
+   switch (keycode) {
+     case ST_MACRO_0:
+     if (record->event.pressed) {
++      clear_oneshot_mods();
+       SEND_STRING(SS_TAP(X_COMMA) SS_DELAY(100) SS_TAP(X_SPACE));
+     }
      break;
      case ST_MACRO_1:
      if (record->event.pressed) {
@@ -26,27 +32,81 @@
      }
      break;
      case ST_MACRO_2:
-@@ -244,12 +249,16 @@
-     break;
-     case ST_MACRO_5:
      if (record->event.pressed) {
 +      clear_oneshot_mods();
        SEND_STRING(SS_TAP(X_KP_MINUS) SS_DELAY(100) SS_TAP(X_SPACE));
 +      set_oneshot_mods(MOD_LSFT);
      }
      break;
-     case ST_MACRO_6:
+     case ST_MACRO_3:
+@@ -282,6 +290,7 @@
+     break;
+     case ST_MACRO_5:
+     if (record->event.pressed) {
++      clear_oneshot_mods();
+       SEND_STRING(SS_TAP(X_6) SS_DELAY(100) SS_TAP(X_SPACE));
+     }
+     break;
+@@ -307,7 +316,9 @@
+     break;
+     case ST_MACRO_10:
      if (record->event.pressed) {
 +      clear_oneshot_mods();
        SEND_STRING(SS_TAP(X_7) SS_DELAY(100) SS_TAP(X_SPACE));
 +      set_oneshot_mods(MOD_LSFT);
      }
      break;
-     case ST_MACRO_7:
-@@ -258,6 +267,34 @@
+     case ST_MACRO_11:
+@@ -367,7 +378,7 @@
+     break;
+     case ST_MACRO_22:
+     if (record->event.pressed) {
+-      SEND_STRING(SS_TAP(X_C) SS_DELAY(100) SS_TAP(X_R) SS_DELAY(100) SS_TAP(X_F) SS_DELAY(100) SS_TAP(X_P) SS_DELAY(100) SS_TAP(X_F));
++      SEND_STRING(SS_TAP(X_C) SS_DELAY(100) SS_TAP(X_R) SS_DELAY(100) SS_TAP(X_F) SS_DELAY(100) SS_TAP(X_P) SS_DELAY(100) SS_TAP(X_F) SS_DELAY(100) SS_TAP(X_K));
+     }
+     break;
+     case ST_MACRO_23:
+@@ -392,7 +403,7 @@
+     break;
+     case ST_MACRO_27:
+     if (record->event.pressed) {
+-      SEND_STRING(SS_TAP(X_X) SS_DELAY(100) SS_TAP(X_N) SS_DELAY(100) SS_TAP(X_J) SS_DELAY(100) SS_TAP(X_COMMA) SS_DELAY(100) SS_TAP(X_S));
++      SEND_STRING(SS_TAP(X_X) SS_DELAY(100) SS_TAP(X_N) SS_DELAY(100) SS_TAP(X_J) SS_DELAY(100) SS_TAP(X_COMMA) SS_DELAY(100) SS_TAP(X_S) SS_DELAY(100) SS_TAP(X_SPACE));
+     }
+     break;
+     case ST_MACRO_28:
+@@ -402,7 +413,7 @@
+     break;
+     case ST_MACRO_29:
+     if (record->event.pressed) {
+-      SEND_STRING(SS_TAP(X_N) SS_DELAY(100) SS_TAP(X_T) SS_DELAY(100) SS_TAP(X_G) SS_DELAY(100) SS_TAP(X_T) SS_DELAY(100) SS_TAP(X_H));
++      SEND_STRING(SS_TAP(X_N) SS_DELAY(100) SS_TAP(X_T) SS_DELAY(100) SS_TAP(X_G) SS_DELAY(100) SS_TAP(X_T) SS_DELAY(100) SS_TAP(X_H) SS_DELAY(100) SS_TAP(X_M) SS_DELAY(100) SS_TAP(X_SPACE));
+     }
+     break;
+     case ST_MACRO_30:
+@@ -417,7 +428,7 @@
+     break;
+     case ST_MACRO_32:
+     if (record->event.pressed) {
+-      SEND_STRING(SS_TAP(X_R) SS_DELAY(100) SS_TAP(X_J) SS_DELAY(100) SS_TAP(X_U) SS_DELAY(100) SS_TAP(X_L) SS_DELAY(100) SS_TAP(X_F));
++      SEND_STRING(SS_TAP(X_R) SS_DELAY(100) SS_TAP(X_J) SS_DELAY(100) SS_TAP(X_U) SS_DELAY(100) SS_TAP(X_L) SS_DELAY(100) SS_TAP(X_F) SS_DELAY(100) SS_TAP(X_SPACE));
+     }
+     break;
+     case ST_MACRO_33:
+@@ -427,7 +438,7 @@
+     break;
+     case ST_MACRO_34:
+     if (record->event.pressed) {
+-      SEND_STRING(SS_TAP(X_N) SS_DELAY(100) SS_TAP(X_J) SS_DELAY(100) SS_TAP(X_K) SS_DELAY(100) SS_TAP(X_M) SS_DELAY(100) SS_TAP(X_R));
++      SEND_STRING(SS_TAP(X_N) SS_DELAY(100) SS_TAP(X_J) SS_DELAY(100) SS_TAP(X_K) SS_DELAY(100) SS_TAP(X_M) SS_DELAY(100) SS_TAP(X_R) SS_DELAY(100) SS_TAP(X_J) SS_TAP(X_SPACE));
      }
      break;
  
+@@ -475,6 +486,27 @@
+             rgblight_sethsv(0,255,255);
+         }
+         return false;
++
 +    case RU_MINS: // - in Russian should NOT be shifted
 +    case RU_DQUO: // \" in Russian should NOT be shifted
 +    if (biton32(layer_state) == 1) {
@@ -57,28 +117,20 @@
 +    case TO(0): // this runs when TO(ENG) is pressed (the key to toggle layer 0 on)
 +    case TO(2): // this runs when TO(COL) is pressed (the key to toggle layer 2 on)
 +    if (record->event.pressed) {
-+        register_code(KC_LCTRL);
-+        register_code(KC_LSFT);
-+        tap_code(KC_0);
-+        unregister_code(KC_LSFT);
-+        unregister_code(KC_LCTRL);
-+    }
-+    break;
-+    
-+    case TO(1): // this runs when TO(RUS) is pressed (the key to toggle layer 1 on)
-+    if (record->event.pressed) {
-+        register_code(KC_LALT);
-+        register_code(KC_LSFT);
-+        tap_code(KC_0);
-+        unregister_code(KC_LSFT);
-+        unregister_code(KC_LALT);
++        tap_code16(LCTL(LSFT(KC_0)));
 +    }
 +    break;
 +
-     case RGB_SLD:
-         if (rawhid_state.rgb_control) {
-             return false;
-@@ -390,7 +427,7 @@
++    case TO(1): // this runs when TO(RUS) is pressed (the key to toggle layer 1 on)
++    if (record->event.pressed) {
++        tap_code16(LALT(LSFT(KC_0)));
++    }
++    break;
++
+     }
+   return true;
+ }
+@@ -563,7 +595,7 @@
      dance_state[1].step = dance_step(state);
      switch (dance_state[1].step) {
          case SINGLE_TAP: register_code16(LCTL(LSFT(KC_0))); break;
@@ -87,20 +139,25 @@
          case DOUBLE_SINGLE_TAP: tap_code16(LCTL(LSFT(KC_0))); register_code16(LCTL(LSFT(KC_0)));
      }
  }
-@@ -475,7 +512,7 @@
- void dance_4_finished(qk_tap_dance_state_t *state, void *user_data) {
-     dance_state[4].step = dance_step(state);
-     switch (dance_state[4].step) {
+@@ -595,7 +627,7 @@
+     dance_state[2].step = dance_step(state);
+     switch (dance_state[2].step) {
+         case SINGLE_TAP: register_code16(LALT(LSFT(KC_0))); break;
 -        case DOUBLE_TAP: layer_move(0); break;
 +        case DOUBLE_TAP: tap_code16(LCTL(LSFT(KC_0))); layer_move(0); break;
+         case DOUBLE_SINGLE_TAP: tap_code16(LALT(LSFT(KC_0))); register_code16(LALT(LSFT(KC_0)));
+     }
+ }
+@@ -614,9 +646,9 @@
+ void dance_3_finished(qk_tap_dance_state_t *state, void *user_data) {
+     dance_state[3].step = dance_step(state);
+     switch (dance_state[3].step) {
+-        case SINGLE_TAP: layer_move(0); break;
+-        case DOUBLE_TAP: layer_move(2); break;
+-        case DOUBLE_SINGLE_TAP: layer_move(0); break;
++        case SINGLE_TAP: tap_code16(LCTL(LSFT(KC_0))); layer_move(0); break;
++        case DOUBLE_TAP: tap_code16(LCTL(LSFT(KC_0))); layer_move(2); break;
++        case DOUBLE_SINGLE_TAP: tap_code16(LCTL(LSFT(KC_0))); layer_move(0); break;
      }
  }
  
-@@ -556,6 +593,7 @@
- 
- void dance_7_finished(qk_tap_dance_state_t *state, void *user_data) {
-     dance_state[7].step = dance_step(state);
-+    tap_code16(LCTL(LSFT(KC_0)));
-     switch (dance_state[7].step) {
-         case SINGLE_TAP: layer_move(0); break;
-         case DOUBLE_TAP: layer_move(2); break;
