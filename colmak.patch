@@ -1,0 +1,95 @@
+--- keyboards/moonlander/keymaps/rututolmin/keymap.c.orig	2023-09-15 11:26:54.129880449 +0300
++++ keyboards/moonlander/keymaps/rututolmin/keymap.c	2023-09-15 11:47:02.372941514 +0300
+@@ -1,5 +1,6 @@
+ #include QMK_KEYBOARD_H
+ #include "version.h"
++/*
+ #include "keymap_german.h"
+ #include "keymap_nordic.h"
+ #include "keymap_french.h"
+@@ -29,6 +30,8 @@
+ #include "keymap_croatian.h"
+ #include "keymap_turkish_q.h"
+ #include "keymap_slovak.h"
++*/
++#include "keymap_ru_type.h"
+ 
+ #define KC_MAC_UNDO LGUI(KC_Z)
+ #define KC_MAC_CUT LGUI(KC_X)
+@@ -257,12 +260,16 @@
+     break;
+     case ST_MACRO_1:
+     if (record->event.pressed) {
++      clear_oneshot_mods();
+       SEND_STRING(SS_TAP(X_DOT) SS_DELAY(100) SS_TAP(X_SPACE));
++      set_oneshot_mods(MOD_LSFT);
+     }
+     break;
+     case ST_MACRO_2:
+     if (record->event.pressed) {
++      clear_oneshot_mods();
+       SEND_STRING(SS_TAP(X_KP_MINUS) SS_DELAY(100) SS_TAP(X_SPACE));
++      set_oneshot_mods(MOD_LSFT);
+     }
+     break;
+     case ST_MACRO_3:
+@@ -302,7 +309,9 @@
+     break;
+     case ST_MACRO_10:
+     if (record->event.pressed) {
++      clear_oneshot_mods();
+       SEND_STRING(SS_TAP(X_7) SS_DELAY(100) SS_TAP(X_SPACE));
++      set_oneshot_mods(MOD_LSFT);
+     }
+     break;
+     case ST_MACRO_11:
+@@ -427,12 +436,47 @@
+     break;
+     case ST_MACRO_35:
+     if (record->event.pressed) {
+-      SEND_STRING(SS_TAP(X_E) SS_DELAY(100) SS_TAP(X_A) SS_DELAY(100) SS_TAP(X_S) SS_DELAY(100) SS_TAP(X_Y));
++      SEND_STRING(SS_TAP(X_E) SS_TAP(X_A) SS_TAP(X_S) SS_TAP(X_Y) SS_LSFT(SS_TAP(X_B)) SS_TAP(X_U) SS_TAP(X_S) SS_TAP(X_Y) SS_TAP(X_J) SS_TAP(X_AT) SS_TAP(X_P) SS_TAP(X_A) SS_TAP(X_N) SS_TAP(X_3) SS_TAP(X_S) SS_TAP(X_E));
+     }
+     break;
+     case ST_MACRO_36:
+     if (record->event.pressed) {
+-      SEND_STRING(SS_TAP(X_H) SS_DELAY(100) SS_TAP(X_A) SS_DELAY(100) SS_TAP(X_C) SS_DELAY(100) SS_TAP(X_K));
++      SEND_STRING(SS_TAP(X_H) SS_TAP(X_A) SS_TAP(X_C) SS_TAP(X_K) SS_LSFT(SS_TAP(X_M)) SS_TAP(X_E) SS_TAP(X_1) SS_TAP(X_F) SS_TAP(X_Y) SS_TAP(X_O) SS_TAP(X_U) SS_TAP(X_C) SS_TAP(X_AT) SS_TAP(X_N));
++    }
++    break;
++
++    case RU_MINS: // - in Russian should NOT be shifted
++    case RU_DQUO: // \" in Russian should NOT be shifted
++    if (biton32(layer_state) == 1) {
++      clear_oneshot_mods();
++    }
++    break;
++
++    case TO(0): // this runs when TO(ENG) is pressed (the key to toggle layer 0 on)
++    if (record->event.pressed) {
++        register_code(KC_LALT);
++        register_code(KC_LGUI);
++        register_code(KC_LCTRL);
++        register_code(KC_LSFT);
++        tap_code(KC_E);
++        unregister_code(KC_LSFT);
++        unregister_code(KC_LCTRL);
++        unregister_code(KC_LGUI);
++        unregister_code(KC_LALT);
++    }
++    break;
++    
++    case TO(1): // this runs when TO(RUS) is pressed (the key to toggle layer 1 on)
++    if (record->event.pressed) {
++        register_code(KC_LALT);
++        register_code(KC_LGUI);
++        register_code(KC_LALT);
++        register_code(KC_LSFT);
++        tap_code(KC_R);
++        unregister_code(KC_LSFT);
++        unregister_code(KC_LALT);
++        unregister_code(KC_LGUI);
++        unregister_code(KC_LALT);
+     }
+     break;
+ 
