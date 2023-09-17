@@ -104,7 +104,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TAB,         KC_Q,           KC_W,           KC_F,           KC_P,           KC_G,           LCTL(KC_INSERT),                                KC_EQUAL,       OSL(6),         KC_L,           KC_U,           KC_Y,           KC_SCOLON,      KC_DQUO,        
     KC_BSPACE,      KC_A,           KC_R,           KC_S,           KC_T,           KC_D,           LSFT(KC_INSERT),                                                                KC_MINUS,       KC_H,           KC_N,           KC_E,           KC_I,           KC_O,           KC_QUOTE,       
     ST_MACRO_0,     KC_Z,           KC_X,           KC_C,           KC_V,           KC_B,                                           KC_K,           KC_M,           KC_COMMA,       KC_DOT,         KC_SLASH,       ST_MACRO_1,     
-    KC_NO,          KC_NO,          KC_NO,          LALT(LGUI(LCTL(LSFT(KC_E)))),OSL(4),         KC_ESCAPE,                                                                                                      KC_LGUI,        OSL(3),         TO(1),          OSL(2),         KC_NO,          KC_NO,          
+    KC_NO,          KC_NO,          KC_NO,          LCTL(LSFT(LALT(LGUI(KC_E)))),OSL(4),         KC_ESCAPE,                                                                                                      KC_LGUI,        OSL(3),         TO(1),          OSL(2),         KC_NO,          KC_NO,          
     OSM(MOD_LSFT),  KC_LCTRL,       KC_LALT,                        KC_APPLICATION, KC_ENTER,       KC_SPACE
   ),
   [1] = LAYOUT_moonlander(
@@ -112,7 +112,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TRANSPARENT, RU_SHTI,        RU_TSE,         RU_U,           RU_KA,          RU_IE,          KC_TRANSPARENT,                                 KC_NO,          RU_EN,          RU_GHE,         RU_SHA,         RU_SHCH,        RU_ZE,          RU_HA,          
     KC_TRANSPARENT, RU_EF,          RU_YERU,        RU_VE,          RU_A,           RU_PE,          KC_TRANSPARENT,                                                                 RU_MINS,        RU_ER,          RU_O,           RU_EL,          RU_DE,          RU_ZHE,         OSL(5),         
     ST_MACRO_5,     RU_YA,          RU_CHE,         RU_ES,          RU_EM,          RU_I,                                           RU_TE,          RU_SOFT,        RU_BE,          RU_YU,          RU_YO,          ST_MACRO_10,    
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_NO,          TO(0),          KC_TRANSPARENT, KC_TRANSPARENT,                                                                                                 KC_TRANSPARENT, KC_TRANSPARENT, LALT(LGUI(LCTL(LSFT(KC_R)))),KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
+    KC_TRANSPARENT, KC_TRANSPARENT, KC_NO,          TO(0),          KC_TRANSPARENT, KC_TRANSPARENT,                                                                                                 KC_TRANSPARENT, KC_TRANSPARENT, LCTL(LSFT(LALT(LGUI(KC_R)))),KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT
   ),
   [2] = LAYOUT_moonlander(
@@ -371,7 +371,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     break;
     case ST_MACRO_22:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_C) SS_TAP(X_R) SS_TAP(X_F) SS_TAP(X_P) SS_TAP(X_F));
+      SEND_STRING(SS_TAP(X_C) SS_TAP(X_R) SS_TAP(X_F) SS_TAP(X_P) SS_TAP(X_F) SS_TAP(X_K));
     }
     break;
     case ST_MACRO_23:
@@ -396,7 +396,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     break;
     case ST_MACRO_27:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_X) SS_TAP(X_N) SS_TAP(X_J) SS_TAP(X_COMMA) SS_TAP(X_S));
+      SEND_STRING(SS_TAP(X_X) SS_TAP(X_N) SS_TAP(X_J) SS_TAP(X_COMMA) SS_TAP(X_S) SS_TAP(X_SPACE));
     }
     break;
     case ST_MACRO_28:
@@ -406,7 +406,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     break;
     case ST_MACRO_29:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_N) SS_TAP(X_T) SS_TAP(X_G) SS_TAP(X_T) SS_TAP(X_H));
+      SEND_STRING(SS_TAP(X_N) SS_TAP(X_T) SS_TAP(X_G) SS_TAP(X_T) SS_TAP(X_H) SS_TAP(X_M) SS_TAP(X_SPACE));
     }
     break;
     case ST_MACRO_30:
@@ -421,7 +421,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     break;
     case ST_MACRO_32:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_R) SS_TAP(X_J) SS_TAP(X_U) SS_TAP(X_L) SS_TAP(X_F));
+      SEND_STRING(SS_TAP(X_R) SS_TAP(X_J) SS_TAP(X_U) SS_TAP(X_L) SS_TAP(X_F) SS_TAP(X_SPACE));
     }
     break;
     case ST_MACRO_33:
@@ -431,12 +431,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     break;
     case ST_MACRO_34:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_N) SS_TAP(X_J) SS_TAP(X_K) SS_TAP(X_M) SS_TAP(X_R));
+      SEND_STRING(SS_TAP(X_N) SS_TAP(X_J) SS_TAP(X_K) SS_TAP(X_M) SS_TAP(X_R) SS_TAP(X_J) SS_TAP(X_SPACE));
     }
     break;
     case ST_MACRO_35:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_E) SS_TAP(X_A) SS_TAP(X_S) SS_TAP(X_Y) SS_LSFT(SS_TAP(X_B)) SS_TAP(X_U) SS_TAP(X_S) SS_TAP(X_Y) SS_TAP(X_J) SS_LSFT(SS_TAP(X_2)) SS_TAP(X_P) SS_TAP(X_A) SS_TAP(X_N) SS_TAP(X_3) SS_TAP(X_S) SS_TAP(X_E));
+      SEND_STRING(SS_TAP(X_E) SS_TAP(X_A) SS_TAP(X_S) SS_TAP(X_Y) SS_TAP(X_8) SS_TAP(X_U) SS_TAP(X_S) SS_TAP(X_Y) SS_LSFT(SS_TAP(X_J)) SS_TAP(X_A) SS_TAP(X_P) SS_TAP(X_A) SS_TAP(X_N) SS_TAP(X_E) SS_LSFT(SS_TAP(X_4)) SS_TAP(X_E));
     }
     break;
     case ST_MACRO_36:
@@ -454,29 +454,29 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
     case TO(0): // this runs when TO(ENG) is pressed (the key to toggle layer 0 on)
     if (record->event.pressed) {
-        register_code(KC_LALT);
-        register_code(KC_LGUI);
         register_code(KC_LCTRL);
         register_code(KC_LSFT);
+        register_code(KC_LALT);
+        register_code(KC_LGUI);
         tap_code(KC_E);
-        unregister_code(KC_LSFT);
-        unregister_code(KC_LCTRL);
         unregister_code(KC_LGUI);
         unregister_code(KC_LALT);
+        unregister_code(KC_LSFT);
+        unregister_code(KC_LCTRL);
     }
     break;
     
     case TO(1): // this runs when TO(RUS) is pressed (the key to toggle layer 1 on)
     if (record->event.pressed) {
+        register_code(KC_LCTRL);
+        register_code(KC_LSFT);
         register_code(KC_LALT);
         register_code(KC_LGUI);
-        register_code(KC_LALT);
-        register_code(KC_LSFT);
         tap_code(KC_R);
-        unregister_code(KC_LSFT);
-        unregister_code(KC_LALT);
         unregister_code(KC_LGUI);
         unregister_code(KC_LALT);
+        unregister_code(KC_LSFT);
+        unregister_code(KC_LCTRL);
     }
     break;
 
