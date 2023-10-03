@@ -1,5 +1,5 @@
---- /media/torrents/moonlander/keymap.c	2023-09-17 05:44:16.000000000 +0300
-+++ keyboards/moonlander/keymaps/rututolmin/keymap.c	2023-09-17 08:42:20.437296533 +0300
+--- /media/torrents/moonlander/keymap.c	2023-10-03 09:09:02.000000000 +0300
++++ keyboards/moonlander/keymaps/rututolmin/keymap.c	2023-10-03 12:26:43.228462599 +0300
 @@ -1,5 +1,6 @@
  #include QMK_KEYBOARD_H
  #include "version.h"
@@ -16,25 +16,26 @@
  
  #define KC_MAC_UNDO LGUI(KC_Z)
  #define KC_MAC_CUT LGUI(KC_X)
-@@ -101,7 +104,7 @@
+@@ -101,7 +104,8 @@
      KC_TAB,         KC_Q,           KC_W,           KC_F,           KC_P,           KC_G,           LCTL(KC_INSERT),                                KC_EQUAL,       OSL(6),         KC_L,           KC_U,           KC_Y,           KC_SCOLON,      KC_DQUO,        
      KC_BSPACE,      KC_A,           KC_R,           KC_S,           KC_T,           KC_D,           LSFT(KC_INSERT),                                                                KC_MINUS,       KC_H,           KC_N,           KC_E,           KC_I,           KC_O,           KC_QUOTE,       
      ST_MACRO_0,     KC_Z,           KC_X,           KC_C,           KC_V,           KC_B,                                           KC_K,           KC_M,           KC_COMMA,       KC_DOT,         KC_SLASH,       ST_MACRO_1,     
--    KC_NO,          KC_NO,          KC_NO,          LALT(LGUI(LCTL(LSFT(KC_E)))),OSL(4),         KC_ESCAPE,                                                                                                      KC_LGUI,        OSL(3),         TO(1),          OSL(2),         KC_NO,          KC_NO,          
-+    KC_NO,          KC_NO,          KC_NO,          LCTL(LSFT(LALT(LGUI(KC_E)))),OSL(4),         KC_ESCAPE,                                                                                                      KC_LGUI,        OSL(3),         TO(1),          OSL(2),         KC_NO,          KC_NO,          
+-    KC_NO,          KC_NO,          LALT(LCTL(KC_A)),LALT(LGUI(LCTL(LSFT(KC_E)))),OSL(4),         KC_ESCAPE,                                                                                                      KC_LGUI,        OSL(3),         TO(1),          OSL(2),         KC_NO,          KC_NO,          
++    KC_NO,          KC_NO,          LALT(LCTL(KC_A)),HYPR(KC_J),OSL(4),         KC_ESCAPE,                                                                                                      KC_LGUI,        OSL(3),    
++     TO(1),          OSL(2),         KC_NO,          KC_NO,    
      OSM(MOD_LSFT),  KC_LCTRL,       KC_LALT,                        KC_APPLICATION, KC_ENTER,       KC_SPACE
    ),
    [1] = LAYOUT_moonlander(
-@@ -109,7 +112,7 @@
+@@ -109,7 +113,7 @@
      KC_TRANSPARENT, RU_SHTI,        RU_TSE,         RU_U,           RU_KA,          RU_IE,          KC_TRANSPARENT,                                 KC_NO,          RU_EN,          RU_GHE,         RU_SHA,         RU_SHCH,        RU_ZE,          RU_HA,          
      KC_TRANSPARENT, RU_EF,          RU_YERU,        RU_VE,          RU_A,           RU_PE,          KC_TRANSPARENT,                                                                 RU_MINS,        RU_ER,          RU_O,           RU_EL,          RU_DE,          RU_ZHE,         OSL(5),         
      ST_MACRO_5,     RU_YA,          RU_CHE,         RU_ES,          RU_EM,          RU_I,                                           RU_TE,          RU_SOFT,        RU_BE,          RU_YU,          RU_YO,          ST_MACRO_10,    
 -    KC_TRANSPARENT, KC_TRANSPARENT, KC_NO,          TO(0),          KC_TRANSPARENT, KC_TRANSPARENT,                                                                                                 KC_TRANSPARENT, KC_TRANSPARENT, LALT(LGUI(LCTL(LSFT(KC_R)))),KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
-+    KC_TRANSPARENT, KC_TRANSPARENT, KC_NO,          TO(0),          KC_TRANSPARENT, KC_TRANSPARENT,                                                                                                 KC_TRANSPARENT, KC_TRANSPARENT, LCTL(LSFT(LALT(LGUI(KC_R)))),KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
++    KC_TRANSPARENT, KC_TRANSPARENT, KC_NO,          TO(0),          KC_TRANSPARENT, KC_TRANSPARENT,                                                                                                 KC_TRANSPARENT, KC_TRANSPARENT, HYPR(KC_Q),KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
      KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT
    ),
    [2] = LAYOUT_moonlander(
-@@ -252,187 +255,228 @@
+@@ -252,187 +256,228 @@
    switch (keycode) {
      case ST_MACRO_0:
      if (record->event.pressed) {
@@ -278,7 +279,7 @@
 +        register_code(KC_LSFT);
 +        register_code(KC_LALT);
 +        register_code(KC_LGUI);
-+        tap_code(KC_E);
++        tap_code(KC_J);
 +        unregister_code(KC_LGUI);
 +        unregister_code(KC_LALT);
 +        unregister_code(KC_LSFT);
@@ -292,7 +293,7 @@
 +        register_code(KC_LSFT);
 +        register_code(KC_LALT);
 +        register_code(KC_LGUI);
-+        tap_code(KC_R);
++        tap_code(KC_Q);
 +        unregister_code(KC_LGUI);
 +        unregister_code(KC_LALT);
 +        unregister_code(KC_LSFT);
