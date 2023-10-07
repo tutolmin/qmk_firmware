@@ -526,8 +526,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         unregister_code(KC_LALT);
         unregister_code(KC_LSFT);
         unregister_code(KC_LCTRL);
-     }
-     break;
+    }
+    break;
 
     case RGB_SLD:
         if (rawhid_state.rgb_control) {

@@ -1,5 +1,5 @@
 --- /media/torrents/moonlander/keymap.c	2023-10-07 06:56:18.000000000 +0300
-+++ keyboards/moonlander/keymaps/rututolmin/keymap.c	2023-10-07 10:13:05.686972784 +0300
++++ keyboards/moonlander/keymaps/rututolmin/keymap.c	2023-10-07 10:15:33.088932663 +0300
 @@ -1,5 +1,6 @@
  #include QMK_KEYBOARD_H
  #include "version.h"
@@ -35,7 +35,7 @@
      KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT
    ),
    [2] = LAYOUT_moonlander(
-@@ -260,230 +264,271 @@
+@@ -260,227 +264,268 @@
    switch (keycode) {
      case ST_MACRO_0:
      if (record->event.pressed) {
@@ -311,9 +311,9 @@
      if (record->event.pressed) {
 -      SEND_STRING(SS_TAP(X_N) SS_DELAY(100) SS_TAP(X_O) SS_DELAY(100) SS_TAP(X_T) SS_DELAY(100) SS_TAP(X_SPACE));
 +      SEND_STRING(SS_TAP(X_N) SS_TAP(X_O) SS_TAP(X_T) SS_TAP(X_SPACE));
-     }
-     break;
- 
++    }
++    break;
++
 +    case RU_MINS: // - in Russian should NOT be shifted
 +    case RU_DQUO: // \" in Russian should NOT be shifted
 +    if (biton32(layer_state) == 1) {
@@ -346,9 +346,6 @@
 +        unregister_code(KC_LALT);
 +        unregister_code(KC_LSFT);
 +        unregister_code(KC_LCTRL);
-+     }
-+     break;
-+
-     case RGB_SLD:
-         if (rawhid_state.rgb_control) {
-             return false;
+     }
+     break;
+ 
