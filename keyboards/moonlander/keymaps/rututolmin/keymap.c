@@ -94,6 +94,14 @@ enum custom_keycodes {
   ST_MACRO_34,
   ST_MACRO_35,
   ST_MACRO_36,
+  ST_MACRO_37,
+  ST_MACRO_38,
+  ST_MACRO_39,
+  ST_MACRO_40,
+  ST_MACRO_41,
+  ST_MACRO_42,
+  ST_MACRO_43,
+  ST_MACRO_44,
 };
 
 
@@ -150,9 +158,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
   [6] = LAYOUT_moonlander(
     KC_TRANSPARENT, KC_1,           KC_2,           KC_3,           KC_4,           KC_5,           KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_6,           KC_7,           KC_8,           KC_9,           KC_0,           KC_TRANSPARENT, 
-    KC_TRANSPARENT, KC_J,           KC_TRANSPARENT, KC_TRANSPARENT, ST_MACRO_35,    KC_TRANSPARENT, KC_NO,                                          KC_TRANSPARENT, TO(0),          KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
-    KC_TRANSPARENT, LALT(LCTL(KC_A)),KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, LALT(LCTL(KC_DELETE)),                                                                KC_TRANSPARENT, ST_MACRO_36,    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
-    KC_NO,          LALT(LCTL(KC_Z)),KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_NO,          
+    KC_TRANSPARENT, KC_J,           ST_MACRO_35,    ST_MACRO_36,    ST_MACRO_37,    LALT(LCTL(KC_A)),LALT(LCTL(KC_Z)),                                KC_TRANSPARENT, TO(0),          KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
+    KC_TRANSPARENT, ST_MACRO_38,    ST_MACRO_39,    ST_MACRO_40,    ST_MACRO_41,    ST_MACRO_42,    LALT(LCTL(KC_DELETE)),                                                                KC_TRANSPARENT, ST_MACRO_43,    ST_MACRO_44,    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
+    KC_NO,          KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_NO,          
     KC_TRANSPARENT, KC_TRANSPARENT, KC_NO,          KC_TRANSPARENT, KC_NO,          KC_TRANSPARENT,                                                                                                 KC_TRANSPARENT, KC_NO,          KC_TRANSPARENT, KC_NO,          KC_TRANSPARENT, KC_TRANSPARENT, 
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT
   ),
@@ -197,7 +205,7 @@ const uint8_t PROGMEM ledmap[][DRIVER_LED_TOTAL][3] = {
 
     [5] = { {0,0,0}, {0,255,255}, {0,255,255}, {0,0,0}, {0,0,0}, {41,255,255}, {172,255,255}, {215,255,128}, {215,255,128}, {0,0,0}, {41,255,255}, {215,255,128}, {172,255,255}, {172,255,255}, {0,0,0}, {41,255,255}, {215,255,128}, {172,255,255}, {172,255,255}, {0,0,255}, {41,255,255}, {172,255,255}, {215,255,128}, {172,255,255}, {0,0,0}, {215,255,128}, {172,255,255}, {215,255,128}, {215,255,128}, {41,255,255}, {0,0,0}, {0,0,0}, {129,255,255}, {129,255,255}, {129,255,255}, {0,255,255}, {41,255,255}, {129,255,255}, {129,255,255}, {0,0,0}, {0,0,0}, {41,255,255}, {129,255,255}, {129,255,255}, {129,255,255}, {0,0,0}, {41,255,255}, {215,255,128}, {215,255,128}, {129,255,255}, {0,0,0}, {41,255,255}, {172,255,255}, {215,255,128}, {129,255,255}, {129,255,255}, {41,255,255}, {172,255,255}, {215,255,128}, {215,255,128}, {0,0,0}, {41,255,255}, {215,255,128}, {215,255,128}, {215,255,128}, {41,255,255}, {0,0,0}, {41,255,255}, {129,255,255}, {129,255,255}, {129,255,255}, {0,255,255} },
 
-    [6] = { {41,255,255}, {0,255,255}, {0,255,255}, {0,0,0}, {0,0,0}, {215,255,128}, {215,255,128}, {172,255,255}, {172,255,255}, {0,0,0}, {215,255,128}, {0,0,255}, {0,0,255}, {0,0,255}, {0,0,0}, {215,255,128}, {0,0,255}, {0,0,255}, {0,0,255}, {0,0,255}, {215,255,128}, {172,255,255}, {0,0,255}, {0,0,255}, {0,0,0}, {215,255,128}, {0,0,255}, {0,0,255}, {0,0,255}, {0,0,0}, {0,0,0}, {0,255,255}, {0,0,255}, {0,0,255}, {0,0,255}, {0,255,255}, {41,255,255}, {41,255,255}, {41,255,255}, {0,0,0}, {0,0,0}, {215,255,128}, {41,255,255}, {0,0,255}, {41,255,255}, {0,0,0}, {215,255,128}, {0,0,255}, {0,0,255}, {41,255,255}, {0,0,0}, {215,255,128}, {0,0,255}, {0,0,255}, {41,255,255}, {129,255,255}, {215,255,128}, {0,0,255}, {0,0,255}, {0,0,255}, {0,0,0}, {215,255,128}, {0,0,255}, {172,255,255}, {0,0,255}, {0,0,0}, {41,255,255}, {41,255,255}, {0,0,255}, {0,0,255}, {0,0,255}, {0,255,255} },
+    [6] = { {41,255,255}, {0,255,255}, {0,255,255}, {0,0,0}, {0,0,0}, {215,255,128}, {215,255,128}, {172,255,255}, {0,0,255}, {0,0,0}, {215,255,128}, {172,255,255}, {172,255,255}, {0,0,255}, {0,0,0}, {215,255,128}, {172,255,255}, {172,255,255}, {0,0,255}, {0,0,255}, {215,255,128}, {172,255,255}, {172,255,255}, {0,0,255}, {0,0,0}, {215,255,128}, {172,255,255}, {172,255,255}, {0,0,255}, {0,0,0}, {172,255,255}, {0,255,255}, {0,0,255}, {0,0,255}, {0,0,255}, {0,255,255}, {41,255,255}, {41,255,255}, {41,255,255}, {0,0,0}, {0,0,0}, {215,255,128}, {41,255,255}, {0,0,255}, {41,255,255}, {0,0,0}, {215,255,128}, {0,0,255}, {0,0,255}, {41,255,255}, {0,0,0}, {215,255,128}, {0,0,255}, {0,0,255}, {41,255,255}, {129,255,255}, {215,255,128}, {0,0,255}, {172,255,255}, {0,0,255}, {0,0,0}, {215,255,128}, {0,0,255}, {172,255,255}, {0,0,255}, {0,0,0}, {41,255,255}, {41,255,255}, {0,0,255}, {0,0,255}, {0,0,255}, {0,255,255} },
 
 };
 
@@ -372,7 +380,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     break;
     case ST_MACRO_22:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_C) SS_TAP(X_R) SS_TAP(X_F) SS_TAP(X_P) SS_TAP(X_F) SS_TAP(X_K));
+      SEND_STRING(SS_TAP(X_C) SS_TAP(X_R) SS_TAP(X_F) SS_TAP(X_P) SS_TAP(X_F));
     }
     break;
     case ST_MACRO_23:
@@ -442,7 +450,47 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     break;
     case ST_MACRO_36:
     if (record->event.pressed) {
+      SEND_STRING(SS_TAP(X_F) SS_TAP(X_O) SS_TAP(X_R) SS_TAP(X_SPACE));
+    }
+    break;
+    case ST_MACRO_37:
+    if (record->event.pressed) {
       SEND_STRING(SS_TAP(X_H) SS_TAP(X_A) SS_TAP(X_C) SS_TAP(X_K) SS_LSFT(SS_TAP(X_M)) SS_TAP(X_E) SS_TAP(X_1) SS_TAP(X_F) SS_TAP(X_Y) SS_TAP(X_O) SS_TAP(X_U) SS_TAP(X_C) SS_LSFT(SS_TAP(X_2)) SS_TAP(X_N));
+    }
+    break;
+    case ST_MACRO_38:
+    if (record->event.pressed) {
+      SEND_STRING(SS_TAP(X_A) SS_TAP(X_N) SS_TAP(X_D) SS_TAP(X_SPACE));
+    }
+    break;
+    case ST_MACRO_39:
+    if (record->event.pressed) {
+      SEND_STRING(SS_TAP(X_A) SS_TAP(X_R) SS_TAP(X_E) SS_TAP(X_SPACE));
+    }
+    break;
+    case ST_MACRO_40:
+    if (record->event.pressed) {
+      SEND_STRING(SS_TAP(X_W) SS_TAP(X_A) SS_TAP(X_S) SS_TAP(X_SPACE));
+    }
+    break;
+    case ST_MACRO_41:
+    if (record->event.pressed) {
+      SEND_STRING(SS_TAP(X_T) SS_TAP(X_H) SS_TAP(X_E) SS_TAP(X_SPACE));
+    }
+    break;
+    case ST_MACRO_42:
+    if (record->event.pressed) {
+      SEND_STRING(SS_TAP(X_H) SS_TAP(X_A) SS_LSFT(SS_TAP(X_C)) SS_TAP(X_K));
+    }
+    break;
+    case ST_MACRO_43:
+    if (record->event.pressed) {
+      SEND_STRING(SS_TAP(X_T) SS_TAP(X_H) SS_TAP(X_A) SS_TAP(X_T) SS_TAP(X_SPACE));
+    }
+    break;
+    case ST_MACRO_44:
+    if (record->event.pressed) {
+      SEND_STRING(SS_TAP(X_N) SS_TAP(X_O) SS_TAP(X_T) SS_TAP(X_SPACE));
     }
     break;
 
@@ -466,7 +514,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         unregister_code(KC_LCTRL);
     }
     break;
-    
+
     case TO(1): // this runs when TO(RUS) is pressed (the key to toggle layer 1 on)
     if (record->event.pressed) {
         register_code(KC_LCTRL);
@@ -478,8 +526,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         unregister_code(KC_LALT);
         unregister_code(KC_LSFT);
         unregister_code(KC_LCTRL);
-    }
-    break;
+     }
+     break;
 
     case RGB_SLD:
         if (rawhid_state.rgb_control) {
