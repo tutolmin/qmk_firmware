@@ -1,16 +1,10 @@
---- /media/torrents/moonlander/keymap.c	2023-10-10 05:51:10.000000000 +0300
-+++ keyboards/moonlander/keymaps/rututolmin/keymap.c	2023-10-10 13:36:46.820816868 +0300
+--- /home/andrei/Downloads/moonlander_colemak-only_source/keymap.c	2023-10-11 13:38:32.000000000 +0300
++++ keyboards/moonlander/keymaps/rututolmin/keymap.c	2023-10-11 16:44:04.507387232 +0300
 @@ -2,0 +3 @@
 +/*
 @@ -31,0 +33,2 @@
 +*/
 +#include "keymap_ru_type.h"
-@@ -112 +115 @@
--    KC_NO,          KC_NO,          LALT(LCTL(KC_A)),LALT(LGUI(LCTL(LSFT(KC_0)))),OSL(4),         KC_ESCAPE,                                                                                                      KC_LGUI,        OSL(3),         TO(1),          OSL(2),         KC_NO,          KC_NO,          
-+    KC_NO,          KC_NO,          LALT(LCTL(KC_A)),HYPR(KC_0),OSL(4),         KC_ESCAPE,                                                                                                      KC_LGUI,        OSL(3),         TO(1),          OSL(2),         KC_NO,          KC_NO,          
-@@ -120 +123 @@
--    KC_TRANSPARENT, KC_TRANSPARENT, KC_NO,          TO(0),          KC_TRANSPARENT, KC_TRANSPARENT,                                                                                                 KC_TRANSPARENT, KC_TRANSPARENT, LALT(LGUI(LCTL(LSFT(KC_1)))),KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
-+    KC_TRANSPARENT, KC_TRANSPARENT, KC_NO,          TO(0),          KC_TRANSPARENT, KC_TRANSPARENT,                                                                                                 KC_TRANSPARENT, KC_TRANSPARENT, HYPR(KC_1),KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
 @@ -263 +266 @@
 -      SEND_STRING(SS_TAP(X_COMMA) SS_DELAY(100) SS_TAP(X_SPACE));
 +      SEND_STRING(SS_TAP(X_COMMA) SS_TAP(X_SPACE));
@@ -149,7 +143,7 @@
 @@ -478 +487 @@
 -      SEND_STRING(SS_TAP(X_T) SS_DELAY(100) SS_TAP(X_H) SS_DELAY(100) SS_TAP(X_A) SS_DELAY(100) SS_TAP(X_T) SS_DELAY(100) SS_TAP(X_SPACE));
 +      SEND_STRING(SS_TAP(X_T) SS_TAP(X_H) SS_TAP(X_A) SS_TAP(X_T) SS_TAP(X_SPACE));
-@@ -483 +492,36 @@
+@@ -483 +492,28 @@
 -      SEND_STRING(SS_TAP(X_N) SS_DELAY(100) SS_TAP(X_O) SS_DELAY(100) SS_TAP(X_T) SS_DELAY(100) SS_TAP(X_SPACE));
 +      SEND_STRING(SS_TAP(X_N) SS_TAP(X_O) SS_TAP(X_T) SS_TAP(X_SPACE));
 +    }
@@ -164,26 +158,18 @@
 +
 +    case TO(0): // this runs when TO(ENG) is pressed (the key to toggle layer 0 on)
 +    if (record->event.pressed) {
-+        register_code(KC_LCTRL);
-+        register_code(KC_LSFT);
 +        register_code(KC_LALT);
-+        register_code(KC_LGUI);
++        register_code(KC_LSFT);
 +        tap_code(KC_0);
-+        unregister_code(KC_LGUI);
-+        unregister_code(KC_LALT);
 +        unregister_code(KC_LSFT);
-+        unregister_code(KC_LCTRL);
++        unregister_code(KC_LALT);
 +    }
 +    break;
 +
 +    case TO(1): // this runs when TO(RUS) is pressed (the key to toggle layer 1 on)
 +    if (record->event.pressed) {
-+        register_code(KC_LCTRL);
-+        register_code(KC_LSFT);
 +        register_code(KC_LALT);
-+        register_code(KC_LGUI);
++        register_code(KC_LSFT);
 +        tap_code(KC_1);
-+        unregister_code(KC_LGUI);
-+        unregister_code(KC_LALT);
 +        unregister_code(KC_LSFT);
-+        unregister_code(KC_LCTRL);
++        unregister_code(KC_LALT);
