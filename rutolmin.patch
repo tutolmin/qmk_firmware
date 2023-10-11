@@ -1,319 +1,160 @@
---- /media/torrents/moonlander/keymap.c	2023-10-07 06:56:18.000000000 +0300
-+++ keyboards/moonlander/keymaps/rututolmin/keymap.c	2023-10-07 10:15:33.088932663 +0300
-@@ -1,5 +1,6 @@
- #include QMK_KEYBOARD_H
- #include "version.h"
+--- /media/torrents/moonlander/keymap.c	2023-10-10 05:51:10.000000000 +0300
++++ keyboards/moonlander/keymaps/rututolmin/keymap.c	2023-10-10 13:36:46.820816868 +0300
+@@ -2,0 +3 @@
 +/*
- #include "keymap_german.h"
- #include "keymap_nordic.h"
- #include "keymap_french.h"
-@@ -29,6 +30,8 @@
- #include "keymap_croatian.h"
- #include "keymap_turkish_q.h"
- #include "keymap_slovak.h"
+@@ -31,0 +33,2 @@
 +*/
 +#include "keymap_ru_type.h"
- 
- #define KC_MAC_UNDO LGUI(KC_Z)
- #define KC_MAC_CUT LGUI(KC_X)
-@@ -109,7 +112,8 @@
-     KC_TAB,         KC_Q,           KC_W,           KC_F,           KC_P,           KC_G,           LCTL(KC_INSERT),                                KC_EQUAL,       OSL(6),         KC_L,           KC_U,           KC_Y,           KC_SCOLON,      KC_DQUO,        
-     KC_BSPACE,      KC_A,           KC_R,           KC_S,           KC_T,           KC_D,           LSFT(KC_INSERT),                                                                KC_MINUS,       KC_H,           KC_N,           KC_E,           KC_I,           KC_O,           KC_QUOTE,       
-     ST_MACRO_0,     KC_Z,           KC_X,           KC_C,           KC_V,           KC_B,                                           KC_K,           KC_M,           KC_COMMA,       KC_DOT,         KC_SLASH,       ST_MACRO_1,     
--    KC_NO,          KC_NO,          LALT(LCTL(KC_A)),LALT(LGUI(LCTL(LSFT(KC_E)))),OSL(4),         KC_ESCAPE,                                                                                                      KC_LGUI,        OSL(3),         TO(1),          OSL(2),         KC_NO,          KC_NO,          
-+    KC_NO,          KC_NO,          LALT(LCTL(KC_A)),HYPR(KC_J),OSL(4),         KC_ESCAPE,                                                                                                      KC_LGUI,        OSL(3),    
-+     TO(1),          OSL(2),         KC_NO,          KC_NO,    
-     OSM(MOD_LSFT),  KC_LCTRL,       KC_LALT,                        KC_APPLICATION, KC_ENTER,       KC_SPACE
-   ),
-   [1] = LAYOUT_moonlander(
-@@ -117,7 +121,7 @@
-     KC_TRANSPARENT, RU_SHTI,        RU_TSE,         RU_U,           RU_KA,          RU_IE,          KC_TRANSPARENT,                                 KC_NO,          RU_EN,          RU_GHE,         RU_SHA,         RU_SHCH,        RU_ZE,          RU_HA,          
-     KC_TRANSPARENT, RU_EF,          RU_YERU,        RU_VE,          RU_A,           RU_PE,          KC_TRANSPARENT,                                                                 RU_MINS,        RU_ER,          RU_O,           RU_EL,          RU_DE,          RU_ZHE,         OSL(5),         
-     ST_MACRO_5,     RU_YA,          RU_CHE,         RU_ES,          RU_EM,          RU_I,                                           RU_TE,          RU_SOFT,        RU_BE,          RU_YU,          RU_YO,          ST_MACRO_10,    
--    KC_TRANSPARENT, KC_TRANSPARENT, KC_NO,          TO(0),          KC_TRANSPARENT, KC_TRANSPARENT,                                                                                                 KC_TRANSPARENT, KC_TRANSPARENT, LALT(LGUI(LCTL(LSFT(KC_R)))),KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
-+    KC_TRANSPARENT, KC_TRANSPARENT, KC_NO,          TO(0),          KC_TRANSPARENT, KC_TRANSPARENT,                                                                                                 KC_TRANSPARENT, KC_TRANSPARENT, HYPR(KC_Q),KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
-     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT
-   ),
-   [2] = LAYOUT_moonlander(
-@@ -260,227 +264,268 @@
-   switch (keycode) {
-     case ST_MACRO_0:
-     if (record->event.pressed) {
+@@ -112 +115 @@
+-    KC_NO,          KC_NO,          LALT(LCTL(KC_A)),LALT(LGUI(LCTL(LSFT(KC_0)))),OSL(4),         KC_ESCAPE,                                                                                                      KC_LGUI,        OSL(3),         TO(1),          OSL(2),         KC_NO,          KC_NO,          
++    KC_NO,          KC_NO,          LALT(LCTL(KC_A)),HYPR(KC_0),OSL(4),         KC_ESCAPE,                                                                                                      KC_LGUI,        OSL(3),         TO(1),          OSL(2),         KC_NO,          KC_NO,          
+@@ -120 +123 @@
+-    KC_TRANSPARENT, KC_TRANSPARENT, KC_NO,          TO(0),          KC_TRANSPARENT, KC_TRANSPARENT,                                                                                                 KC_TRANSPARENT, KC_TRANSPARENT, LALT(LGUI(LCTL(LSFT(KC_1)))),KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
++    KC_TRANSPARENT, KC_TRANSPARENT, KC_NO,          TO(0),          KC_TRANSPARENT, KC_TRANSPARENT,                                                                                                 KC_TRANSPARENT, KC_TRANSPARENT, HYPR(KC_1),KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
+@@ -263 +266 @@
 -      SEND_STRING(SS_TAP(X_COMMA) SS_DELAY(100) SS_TAP(X_SPACE));
 +      SEND_STRING(SS_TAP(X_COMMA) SS_TAP(X_SPACE));
-     }
-     break;
-     case ST_MACRO_1:
-     if (record->event.pressed) {
+@@ -268 +271,3 @@
 -      SEND_STRING(SS_TAP(X_DOT) SS_DELAY(100) SS_TAP(X_SPACE));
 +      clear_oneshot_mods();
 +      SEND_STRING(SS_TAP(X_DOT) SS_TAP(X_SPACE));
 +      set_oneshot_mods(MOD_LSFT);
-     }
-     break;
-     case ST_MACRO_2:
-     if (record->event.pressed) {
+@@ -273 +278,3 @@
 -      SEND_STRING(SS_TAP(X_KP_MINUS) SS_DELAY(100) SS_TAP(X_SPACE));
 +      clear_oneshot_mods();
 +      SEND_STRING(SS_TAP(X_KP_MINUS) SS_TAP(X_SPACE));
 +      set_oneshot_mods(MOD_LSFT);
-     }
-     break;
-     case ST_MACRO_3:
-     if (record->event.pressed) {
+@@ -278 +285 @@
 -      SEND_STRING(SS_TAP(X_Y) SS_DELAY(100) SS_TAP(X_F) SS_DELAY(100) SS_TAP(X_SPACE));
 +      SEND_STRING(SS_TAP(X_Y) SS_TAP(X_F) SS_TAP(X_SPACE));
-     }
-     break;
-     case ST_MACRO_4:
-     if (record->event.pressed) {
+@@ -283 +290 @@
 -      SEND_STRING(SS_TAP(X_Y) SS_DELAY(100) SS_TAP(X_J) SS_DELAY(100) SS_TAP(X_SPACE));
 +      SEND_STRING(SS_TAP(X_Y) SS_TAP(X_J) SS_TAP(X_SPACE));
-     }
-     break;
-     case ST_MACRO_5:
-     if (record->event.pressed) {
+@@ -288 +295 @@
 -      SEND_STRING(SS_TAP(X_6) SS_DELAY(100) SS_TAP(X_SPACE));
 +      SEND_STRING(SS_TAP(X_6) SS_TAP(X_SPACE));
-     }
-     break;
-     case ST_MACRO_6:
-     if (record->event.pressed) {
+@@ -293 +300 @@
 -      SEND_STRING(SS_TAP(X_N) SS_DELAY(100) SS_TAP(X_J) SS_DELAY(100) SS_TAP(X_SPACE));
 +      SEND_STRING(SS_TAP(X_N) SS_TAP(X_J) SS_TAP(X_SPACE));
-     }
-     break;
-     case ST_MACRO_7:
-     if (record->event.pressed) {
+@@ -298 +305 @@
 -      SEND_STRING(SS_TAP(X_J) SS_DELAY(100) SS_TAP(X_Y) SS_DELAY(100) SS_TAP(X_SPACE));
 +      SEND_STRING(SS_TAP(X_J) SS_TAP(X_Y) SS_TAP(X_SPACE));
-     }
-     break;
-     case ST_MACRO_8:
-     if (record->event.pressed) {
+@@ -303 +310 @@
 -      SEND_STRING(SS_TAP(X_Y) SS_DELAY(100) SS_TAP(X_T) SS_DELAY(100) SS_TAP(X_SPACE));
 +      SEND_STRING(SS_TAP(X_Y) SS_TAP(X_T) SS_TAP(X_SPACE));
-     }
-     break;
-     case ST_MACRO_9:
-     if (record->event.pressed) {
--      SEND_STRING(SS_TAP(X_N) SS_DELAY(100) SS_TAP(X_J) SS_DELAY(100) SS_TAP(X_SPACE));
-+      SEND_STRING(SS_TAP(X_N) SS_TAP(X_J) SS_TAP(X_SPACE));
-     }
-     break;
-     case ST_MACRO_10:
-     if (record->event.pressed) {
+@@ -308 +315 @@
+-      SEND_STRING(SS_TAP(X_J) SS_DELAY(100) SS_TAP(X_N) SS_DELAY(100) SS_TAP(X_SPACE));
++      SEND_STRING(SS_TAP(X_J) SS_TAP(X_N) SS_TAP(X_SPACE));
+@@ -313 +320,3 @@
 -      SEND_STRING(SS_TAP(X_7) SS_DELAY(100) SS_TAP(X_SPACE));
 +      clear_oneshot_mods();
 +      SEND_STRING(SS_TAP(X_7) SS_TAP(X_SPACE));
 +      set_oneshot_mods(MOD_LSFT);
-     }
-     break;
-     case ST_MACRO_11:
-     if (record->event.pressed) {
+@@ -318 +327 @@
 -      SEND_STRING(SS_TAP(X_KP_0) SS_DELAY(100) SS_TAP(X_KP_0));
 +      SEND_STRING(SS_TAP(X_KP_0) SS_TAP(X_KP_0));
-     }
-     break;
-     case ST_MACRO_12:
-     if (record->event.pressed) {
+@@ -323 +332 @@
 -      SEND_STRING(SS_TAP(X_QUOTE) SS_DELAY(100) SS_TAP(X_N) SS_DELAY(100) SS_TAP(X_J) SS_DELAY(100) SS_TAP(X_SPACE));
 +      SEND_STRING(SS_TAP(X_QUOTE) SS_TAP(X_N) SS_TAP(X_J) SS_TAP(X_SPACE));
-     }
-     break;
-     case ST_MACRO_13:
-     if (record->event.pressed) {
+@@ -328 +337 @@
 -      SEND_STRING(SS_TAP(X_T) SS_DELAY(100) SS_TAP(X_V) SS_DELAY(100) SS_TAP(X_E) SS_DELAY(100) SS_TAP(X_SPACE));
 +      SEND_STRING(SS_TAP(X_T) SS_TAP(X_V) SS_TAP(X_E) SS_TAP(X_SPACE));
-     }
-     break;
-     case ST_MACRO_14:
-     if (record->event.pressed) {
+@@ -333 +342 @@
 -      SEND_STRING(SS_TAP(X_R) SS_DELAY(100) SS_TAP(X_F) SS_DELAY(100) SS_TAP(X_R) SS_DELAY(100) SS_TAP(X_SPACE));
 +      SEND_STRING(SS_TAP(X_R) SS_TAP(X_F) SS_TAP(X_R) SS_TAP(X_SPACE));
-     }
-     break;
-     case ST_MACRO_15:
-     if (record->event.pressed) {
+@@ -338 +347 @@
 -      SEND_STRING(SS_TAP(X_T) SS_DELAY(100) SS_TAP(X_U) SS_DELAY(100) SS_TAP(X_J) SS_DELAY(100) SS_TAP(X_SPACE));
 +      SEND_STRING(SS_TAP(X_T) SS_TAP(X_U) SS_TAP(X_J) SS_TAP(X_SPACE));
-     }
-     break;
-     case ST_MACRO_16:
-     if (record->event.pressed) {
+@@ -343 +352 @@
 -      SEND_STRING(SS_TAP(X_COMMA) SS_DELAY(100) SS_TAP(X_S) SS_DELAY(100) SS_TAP(X_K) SS_DELAY(100) SS_TAP(X_J) SS_DELAY(100) SS_TAP(X_SPACE));
 +      SEND_STRING(SS_TAP(X_COMMA) SS_TAP(X_S) SS_TAP(X_K) SS_TAP(X_J) SS_TAP(X_SPACE));
-     }
-     break;
-     case ST_MACRO_17:
-     if (record->event.pressed) {
+@@ -348 +357 @@
 -      SEND_STRING(SS_TAP(X_D) SS_DELAY(100) SS_TAP(X_C) SS_DELAY(100) SS_TAP(X_T) SS_DELAY(100) SS_TAP(X_SPACE));
 +      SEND_STRING(SS_TAP(X_D) SS_TAP(X_C) SS_TAP(X_T) SS_TAP(X_SPACE));
-     }
-     break;
-     case ST_MACRO_18:
-     if (record->event.pressed) {
+@@ -353 +362 @@
 -      SEND_STRING(SS_TAP(X_J) SS_DELAY(100) SS_TAP(X_Y) SS_DELAY(100) SS_TAP(X_F) SS_DELAY(100) SS_TAP(X_SPACE));
 +      SEND_STRING(SS_TAP(X_J) SS_TAP(X_Y) SS_TAP(X_F) SS_TAP(X_SPACE));
-     }
-     break;
-     case ST_MACRO_19:
-     if (record->event.pressed) {
+@@ -358 +367 @@
 -      SEND_STRING(SS_TAP(X_N) SS_DELAY(100) SS_TAP(X_F) SS_DELAY(100) SS_TAP(X_R) SS_DELAY(100) SS_TAP(X_SPACE));
 +      SEND_STRING(SS_TAP(X_N) SS_TAP(X_F) SS_TAP(X_R) SS_TAP(X_SPACE));
-     }
-     break;
-     case ST_MACRO_20:
-     if (record->event.pressed) {
+@@ -363 +372 @@
 -      SEND_STRING(SS_TAP(X_V) SS_DELAY(100) SS_TAP(X_T) SS_DELAY(100) SS_TAP(X_Y) SS_DELAY(100) SS_TAP(X_Z) SS_DELAY(100) SS_TAP(X_SPACE));
 +      SEND_STRING(SS_TAP(X_V) SS_TAP(X_T) SS_TAP(X_Y) SS_TAP(X_Z) SS_TAP(X_SPACE));
-     }
-     break;
-     case ST_MACRO_21:
-     if (record->event.pressed) {
+@@ -368 +377 @@
 -      SEND_STRING(SS_TAP(X_X) SS_DELAY(100) SS_TAP(X_N) SS_DELAY(100) SS_TAP(X_J) SS_DELAY(100) SS_TAP(X_SPACE));
 +      SEND_STRING(SS_TAP(X_X) SS_TAP(X_N) SS_TAP(X_J) SS_TAP(X_SPACE));
-     }
-     break;
-     case ST_MACRO_22:
-     if (record->event.pressed) {
+@@ -373 +382 @@
 -      SEND_STRING(SS_TAP(X_C) SS_DELAY(100) SS_TAP(X_R) SS_DELAY(100) SS_TAP(X_F) SS_DELAY(100) SS_TAP(X_P) SS_DELAY(100) SS_TAP(X_F));
 +      SEND_STRING(SS_TAP(X_C) SS_TAP(X_R) SS_TAP(X_F) SS_TAP(X_P) SS_TAP(X_F));
-     }
-     break;
-     case ST_MACRO_23:
-     if (record->event.pressed) {
+@@ -378 +387 @@
 -      SEND_STRING(SS_TAP(X_V) SS_DELAY(100) SS_TAP(X_Y) SS_DELAY(100) SS_TAP(X_T) SS_DELAY(100) SS_TAP(X_SPACE));
 +      SEND_STRING(SS_TAP(X_V) SS_TAP(X_Y) SS_TAP(X_T) SS_TAP(X_SPACE));
-     }
-     break;
-     case ST_MACRO_24:
-     if (record->event.pressed) {
+@@ -383 +392 @@
 -      SEND_STRING(SS_TAP(X_J) SS_DELAY(100) SS_TAP(X_Y) SS_DELAY(100) SS_TAP(X_B) SS_DELAY(100) SS_TAP(X_SPACE));
 +      SEND_STRING(SS_TAP(X_J) SS_TAP(X_Y) SS_TAP(X_B) SS_TAP(X_SPACE));
-     }
-     break;
-     case ST_MACRO_25:
-     if (record->event.pressed) {
+@@ -388 +397 @@
 -      SEND_STRING(SS_TAP(X_Y) SS_DELAY(100) SS_TAP(X_T) SS_DELAY(100) SS_TAP(X_U) SS_DELAY(100) SS_TAP(X_J) SS_DELAY(100) SS_TAP(X_SPACE));
 +      SEND_STRING(SS_TAP(X_Y) SS_TAP(X_T) SS_TAP(X_U) SS_TAP(X_J) SS_TAP(X_SPACE));
-     }
-     break;
-     case ST_MACRO_26:
-     if (record->event.pressed) {
+@@ -393 +402 @@
 -      SEND_STRING(SS_TAP(X_U) SS_DELAY(100) SS_TAP(X_J) SS_DELAY(100) SS_TAP(X_D) SS_DELAY(100) SS_TAP(X_J) SS_DELAY(100) SS_TAP(X_H));
 +      SEND_STRING(SS_TAP(X_U) SS_TAP(X_J) SS_TAP(X_D) SS_TAP(X_J) SS_TAP(X_H));
-     }
-     break;
-     case ST_MACRO_27:
-     if (record->event.pressed) {
+@@ -398 +407 @@
 -      SEND_STRING(SS_TAP(X_X) SS_DELAY(100) SS_TAP(X_N) SS_DELAY(100) SS_TAP(X_J) SS_DELAY(100) SS_TAP(X_COMMA) SS_DELAY(100) SS_TAP(X_S));
 +      SEND_STRING(SS_TAP(X_X) SS_TAP(X_N) SS_TAP(X_J) SS_TAP(X_COMMA) SS_TAP(X_S) SS_TAP(X_SPACE));
-     }
-     break;
-     case ST_MACRO_28:
-     if (record->event.pressed) {
+@@ -403 +412 @@
 -      SEND_STRING(SS_TAP(X_T) SS_DELAY(100) SS_TAP(X_O) SS_DELAY(100) SS_TAP(X_SLASH) SS_DELAY(100) SS_TAP(X_SPACE));
 +      SEND_STRING(SS_TAP(X_T) SS_TAP(X_O) SS_TAP(X_SLASH) SS_TAP(X_SPACE));
-     }
-     break;
-     case ST_MACRO_29:
-     if (record->event.pressed) {
+@@ -408 +417 @@
 -      SEND_STRING(SS_TAP(X_N) SS_DELAY(100) SS_TAP(X_T) SS_DELAY(100) SS_TAP(X_G) SS_DELAY(100) SS_TAP(X_T) SS_DELAY(100) SS_TAP(X_H));
 +      SEND_STRING(SS_TAP(X_N) SS_TAP(X_T) SS_TAP(X_G) SS_TAP(X_T) SS_TAP(X_H) SS_TAP(X_M) SS_TAP(X_SPACE));
-     }
-     break;
-     case ST_MACRO_30:
-     if (record->event.pressed) {
+@@ -413 +422 @@
 -      SEND_STRING(SS_TAP(X_R) SS_DELAY(100) SS_TAP(X_J) SS_DELAY(100) SS_TAP(X_N) SS_DELAY(100) SS_TAP(X_J) SS_DELAY(100) SS_TAP(X_H));
 +      SEND_STRING(SS_TAP(X_R) SS_TAP(X_J) SS_TAP(X_N) SS_TAP(X_J) SS_TAP(X_H));
-     }
-     break;
-     case ST_MACRO_31:
-     if (record->event.pressed) {
+@@ -418 +427 @@
 -      SEND_STRING(SS_TAP(X_T) SS_DELAY(100) SS_TAP(X_C) SS_DELAY(100) SS_TAP(X_K) SS_DELAY(100) SS_TAP(X_B) SS_DELAY(100) SS_TAP(X_SPACE));
 +      SEND_STRING(SS_TAP(X_T) SS_TAP(X_C) SS_TAP(X_K) SS_TAP(X_B) SS_TAP(X_SPACE));
-     }
-     break;
-     case ST_MACRO_32:
-     if (record->event.pressed) {
+@@ -423 +432 @@
 -      SEND_STRING(SS_TAP(X_R) SS_DELAY(100) SS_TAP(X_J) SS_DELAY(100) SS_TAP(X_U) SS_DELAY(100) SS_TAP(X_L) SS_DELAY(100) SS_TAP(X_F));
 +      SEND_STRING(SS_TAP(X_R) SS_TAP(X_J) SS_TAP(X_U) SS_TAP(X_L) SS_TAP(X_F) SS_TAP(X_SPACE));
-     }
-     break;
-     case ST_MACRO_33:
-     if (record->event.pressed) {
+@@ -428 +437 @@
 -      SEND_STRING(SS_TAP(X_N) SS_DELAY(100) SS_TAP(X_J) SS_DELAY(100) SS_TAP(X_U) SS_DELAY(100) SS_TAP(X_J) SS_DELAY(100) SS_TAP(X_SPACE));
 +      SEND_STRING(SS_TAP(X_N) SS_TAP(X_J) SS_TAP(X_U) SS_TAP(X_J) SS_TAP(X_SPACE));
-     }
-     break;
-     case ST_MACRO_34:
-     if (record->event.pressed) {
+@@ -433 +442 @@
 -      SEND_STRING(SS_TAP(X_N) SS_DELAY(100) SS_TAP(X_J) SS_DELAY(100) SS_TAP(X_K) SS_DELAY(100) SS_TAP(X_M) SS_DELAY(100) SS_TAP(X_R));
 +      SEND_STRING(SS_TAP(X_N) SS_TAP(X_J) SS_TAP(X_K) SS_TAP(X_M) SS_TAP(X_R) SS_TAP(X_J) SS_TAP(X_SPACE));
-     }
-     break;
-     case ST_MACRO_35:
-     if (record->event.pressed) {
+@@ -438 +447 @@
 -      SEND_STRING(SS_TAP(X_W) SS_DELAY(100) SS_TAP(X_I) SS_DELAY(100) SS_TAP(X_T) SS_DELAY(100) SS_TAP(X_H) SS_DELAY(100) SS_TAP(X_SPACE));
-+      SEND_STRING(SS_TAP(X_E) SS_TAP(X_A) SS_TAP(X_S) SS_TAP(X_Y) SS_TAP(X_8) SS_TAP(X_U) SS_TAP(X_S) SS_TAP(X_Y) SS_LSFT(SS_TAP(X_J)) SS_TAP(X_A) SS_TAP(X_P) SS_TAP(X_A) SS_TAP(X_N) SS_TAP(X_E) SS_LSFT(SS_TAP(X_4)) SS_TAP(X_E));
-     }
-     break;
-     case ST_MACRO_36:
-     if (record->event.pressed) {
++      SEND_STRING(SS_TAP(X_W) SS_TAP(X_I) SS_TAP(X_T) SS_TAP(X_H) SS_TAP(X_SPACE));
+@@ -443 +452 @@
 -      SEND_STRING(SS_TAP(X_F) SS_DELAY(100) SS_TAP(X_O) SS_DELAY(100) SS_TAP(X_R) SS_DELAY(100) SS_TAP(X_SPACE));
 +      SEND_STRING(SS_TAP(X_F) SS_TAP(X_O) SS_TAP(X_R) SS_TAP(X_SPACE));
-     }
-     break;
-     case ST_MACRO_37:
-     if (record->event.pressed) {
+@@ -448 +457 @@
 -      SEND_STRING(SS_TAP(X_E) SS_DELAY(100) SS_TAP(X_A) SS_DELAY(100) SS_TAP(X_S) SS_DELAY(100) SS_TAP(X_Y));
-+      SEND_STRING(SS_TAP(X_H) SS_TAP(X_A) SS_TAP(X_C) SS_TAP(X_K) SS_LSFT(SS_TAP(X_M)) SS_TAP(X_E) SS_TAP(X_1) SS_TAP(X_F) SS_TAP(X_Y) SS_TAP(X_O) SS_TAP(X_U) SS_TAP(X_C) SS_LSFT(SS_TAP(X_2)) SS_TAP(X_N));
-     }
-     break;
-     case ST_MACRO_38:
-     if (record->event.pressed) {
++      SEND_STRING(SS_TAP(X_E) SS_TAP(X_A) SS_TAP(X_S) SS_TAP(X_Y) SS_TAP(X_8) SS_TAP(X_U) SS_TAP(X_S) SS_TAP(X_Y) SS_LSFT(SS_TAP(X_J)) SS_TAP(X_A) SS_TAP(X_P) SS_TAP(X_A) SS_TAP(X_N) SS_TAP(X_E) SS_LSFT(SS_TAP(X_4)) SS_TAP(X_E));
+@@ -453 +462 @@
 -      SEND_STRING(SS_TAP(X_A) SS_DELAY(100) SS_TAP(X_N) SS_DELAY(100) SS_TAP(X_D) SS_DELAY(100) SS_TAP(X_SPACE));
 +      SEND_STRING(SS_TAP(X_A) SS_TAP(X_N) SS_TAP(X_D) SS_TAP(X_SPACE));
-     }
-     break;
-     case ST_MACRO_39:
-     if (record->event.pressed) {
+@@ -458 +467 @@
 -      SEND_STRING(SS_TAP(X_A) SS_DELAY(100) SS_TAP(X_R) SS_DELAY(100) SS_TAP(X_E) SS_DELAY(100) SS_TAP(X_SPACE));
 +      SEND_STRING(SS_TAP(X_A) SS_TAP(X_R) SS_TAP(X_E) SS_TAP(X_SPACE));
-     }
-     break;
-     case ST_MACRO_40:
-     if (record->event.pressed) {
+@@ -463 +472 @@
 -      SEND_STRING(SS_TAP(X_W) SS_DELAY(100) SS_TAP(X_A) SS_DELAY(100) SS_TAP(X_S) SS_DELAY(100) SS_TAP(X_SPACE));
 +      SEND_STRING(SS_TAP(X_W) SS_TAP(X_A) SS_TAP(X_S) SS_TAP(X_SPACE));
-     }
-     break;
-     case ST_MACRO_41:
-     if (record->event.pressed) {
+@@ -468 +477 @@
 -      SEND_STRING(SS_TAP(X_T) SS_DELAY(100) SS_TAP(X_H) SS_DELAY(100) SS_TAP(X_E) SS_DELAY(100) SS_TAP(X_SPACE));
 +      SEND_STRING(SS_TAP(X_T) SS_TAP(X_H) SS_TAP(X_E) SS_TAP(X_SPACE));
-     }
-     break;
-     case ST_MACRO_42:
-     if (record->event.pressed) {
+@@ -473 +482 @@
 -      SEND_STRING(SS_TAP(X_H) SS_DELAY(100) SS_TAP(X_A) SS_DELAY(100) SS_LSFT(SS_TAP(X_C)) SS_DELAY(100) SS_TAP(X_K));
-+      SEND_STRING(SS_TAP(X_H) SS_TAP(X_A) SS_LSFT(SS_TAP(X_C)) SS_TAP(X_K));
-     }
-     break;
-     case ST_MACRO_43:
-     if (record->event.pressed) {
++      SEND_STRING(SS_TAP(X_H) SS_TAP(X_A) SS_TAP(X_C) SS_TAP(X_K) SS_LSFT(SS_TAP(X_M)) SS_TAP(X_E) SS_TAP(X_1) SS_TAP(X_F) SS_TAP(X_Y) SS_TAP(X_O) SS_TAP(X_U) SS_TAP(X_C) SS_LSFT(SS_TAP(X_2)) SS_TAP(X_N));
+@@ -478 +487 @@
 -      SEND_STRING(SS_TAP(X_T) SS_DELAY(100) SS_TAP(X_H) SS_DELAY(100) SS_TAP(X_A) SS_DELAY(100) SS_TAP(X_T) SS_DELAY(100) SS_TAP(X_SPACE));
 +      SEND_STRING(SS_TAP(X_T) SS_TAP(X_H) SS_TAP(X_A) SS_TAP(X_T) SS_TAP(X_SPACE));
-     }
-     break;
-     case ST_MACRO_44:
-     if (record->event.pressed) {
+@@ -483 +492,36 @@
 -      SEND_STRING(SS_TAP(X_N) SS_DELAY(100) SS_TAP(X_O) SS_DELAY(100) SS_TAP(X_T) SS_DELAY(100) SS_TAP(X_SPACE));
 +      SEND_STRING(SS_TAP(X_N) SS_TAP(X_O) SS_TAP(X_T) SS_TAP(X_SPACE));
 +    }
 +    break;
-+
++    
 +    case RU_MINS: // - in Russian should NOT be shifted
 +    case RU_DQUO: // \" in Russian should NOT be shifted
 +    if (biton32(layer_state) == 1) {
@@ -327,7 +168,7 @@
 +        register_code(KC_LSFT);
 +        register_code(KC_LALT);
 +        register_code(KC_LGUI);
-+        tap_code(KC_J);
++        tap_code(KC_0);
 +        unregister_code(KC_LGUI);
 +        unregister_code(KC_LALT);
 +        unregister_code(KC_LSFT);
@@ -341,11 +182,8 @@
 +        register_code(KC_LSFT);
 +        register_code(KC_LALT);
 +        register_code(KC_LGUI);
-+        tap_code(KC_Q);
++        tap_code(KC_1);
 +        unregister_code(KC_LGUI);
 +        unregister_code(KC_LALT);
 +        unregister_code(KC_LSFT);
 +        unregister_code(KC_LCTRL);
-     }
-     break;
- 
