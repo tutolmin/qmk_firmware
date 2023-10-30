@@ -1,5 +1,5 @@
---- /home/andrei/Downloads/moonlander_colemak-only_source/keymap.c	2023-10-23 11:52:14.000000000 +0300
-+++ keyboards/moonlander/keymaps/rututolmin/keymap.c	2023-10-23 14:56:27.585718857 +0300
+--- /home/andrei/Downloads/moonlander_colemak-only_source/keymap.c	2023-10-30 08:41:02.000000000 +0300
++++ keyboards/moonlander/keymaps/rututolmin/keymap.c	2023-10-30 11:44:52.633322639 +0300
 @@ -2,0 +3 @@
 +/*
 @@ -31,0 +33,2 @@
@@ -115,7 +115,7 @@
 +      SEND_STRING(SS_TAP(X_N) SS_TAP(X_J) SS_TAP(X_K) SS_TAP(X_M) SS_TAP(X_R) SS_TAP(X_J) SS_TAP(X_SPACE));
 @@ -433 +442 @@
 -      SEND_STRING(SS_TAP(X_COMMA) SS_DELAY(100) SS_TAP(X_SPACE) SS_DELAY(100) SS_TAP(X_I) SS_DELAY(100) SS_TAP(X_N) SS_DELAY(100) SS_TAP(X_COMMA));
-+      SEND_STRING(SS_TAP(X_6) SS_TAP(X_SPACE) SS_TAP(X_L) SS_TAP(X_J) SS_TAP(X_COMMA) SS_TAP(X_H) SS_TAP(X_S) SS_TAP(X_Q) SS_TAP(X_SPACE) SS_TAP(X_L) SS_TAP(X_T) SS_TAP(X_Y) SS_TAP(X_M) SS_TAP(X_MINUS) SS_TAP(X_ENTER));
++      SEND_STRING(SS_TAP(X_6) SS_TAP(X_SPACE) SS_TAP(X_L) SS_TAP(X_J) SS_TAP(X_COMMA) SS_TAP(X_H) SS_TAP(X_S) SS_TAP(X_Q) SS_TAP(X_SPACE) SS_TAP(X_L) SS_TAP(X_T) SS_TAP(X_Y) SS_TAP(X_M) SS_TAP(X_MINUS));
 @@ -438 +447 @@
 -      SEND_STRING(SS_TAP(X_W) SS_DELAY(100) SS_TAP(X_I) SS_DELAY(100) SS_TAP(X_T) SS_DELAY(100) SS_TAP(X_H) SS_DELAY(100) SS_TAP(X_SPACE));
 +      SEND_STRING(SS_TAP(X_W) SS_TAP(X_I) SS_TAP(X_T) SS_TAP(X_H) SS_TAP(X_SPACE));
