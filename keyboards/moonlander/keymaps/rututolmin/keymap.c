@@ -29,6 +29,7 @@
 #include "keymap_us_international.h"
 #include "keymap_croatian.h"
 #include "keymap_turkish_q.h"
+#include "keymap_ru_type.h"
 #include "keymap_slovak.h"
 */
 #include "keymap_ru_type.h"
@@ -110,6 +111,11 @@ enum custom_keycodes {
   ST_MACRO_50,
   ST_MACRO_51,
   ST_MACRO_52,
+  ST_MACRO_53,
+  ST_MACRO_54,
+  ST_MACRO_55,
+  ST_MACRO_56,
+  ST_MACRO_57,
 };
 
 
@@ -165,9 +171,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
   [6] = LAYOUT_moonlander(
     KC_TRANSPARENT, KC_1,           KC_2,           KC_3,           KC_4,           KC_5,           KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_6,           KC_7,           KC_8,           KC_9,           KC_0,           KC_TRANSPARENT, 
-    KC_TRANSPARENT, ST_MACRO_36,    ST_MACRO_37,    ST_MACRO_38,    ST_MACRO_39,    LALT(LCTL(KC_A)),LALT(LCTL(KC_Z)),                                KC_TRANSPARENT, KC_J,           KC_TRANSPARENT, KC_TRANSPARENT, ST_MACRO_47,    KC_TRANSPARENT, KC_TRANSPARENT, 
-    KC_TRANSPARENT, ST_MACRO_40,    ST_MACRO_41,    ST_MACRO_42,    ST_MACRO_43,    ST_MACRO_44,    LALT(LCTL(KC_DELETE)),                                                                KC_TRANSPARENT, ST_MACRO_48,    ST_MACRO_49,    ST_MACRO_50,    ST_MACRO_51,    KC_TRANSPARENT, KC_TRANSPARENT, 
-    KC_NO,          KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, ST_MACRO_45,    ST_MACRO_46,                                    KC_TRANSPARENT, ST_MACRO_52,    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_NO,          
+    KC_TRANSPARENT, ST_MACRO_36,    ST_MACRO_37,    ST_MACRO_38,    ST_MACRO_39,    LALT(LCTL(KC_A)),LALT(LCTL(KC_Z)),                                KC_TRANSPARENT, KC_J,           ST_MACRO_49,    KC_TRANSPARENT, ST_MACRO_50,    KC_TRANSPARENT, KC_TRANSPARENT, 
+    KC_TRANSPARENT, ST_MACRO_40,    ST_MACRO_41,    ST_MACRO_42,    ST_MACRO_43,    ST_MACRO_44,    LALT(LCTL(KC_DELETE)),                                                                KC_TRANSPARENT, ST_MACRO_51,    ST_MACRO_52,    ST_MACRO_53,    ST_MACRO_54,    KC_TRANSPARENT, KC_TRANSPARENT, 
+    KC_NO,          ST_MACRO_45,    ST_MACRO_46,    KC_TRANSPARENT, ST_MACRO_47,    ST_MACRO_48,                                    KC_TRANSPARENT, ST_MACRO_55,    KC_TRANSPARENT, ST_MACRO_56,    ST_MACRO_57,    KC_NO,          
     KC_TRANSPARENT, KC_TRANSPARENT, KC_NO,          TO(0),          KC_NO,          KC_TRANSPARENT,                                                                                                 KC_TRANSPARENT, KC_NO,          TO(1),          KC_NO,          KC_TRANSPARENT, KC_TRANSPARENT, 
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT
   ),
@@ -212,7 +218,7 @@ const uint8_t PROGMEM ledmap[][DRIVER_LED_TOTAL][3] = {
 
     [5] = { {0,0,0}, {0,255,255}, {0,255,255}, {0,0,0}, {0,0,0}, {41,255,255}, {172,255,255}, {172,255,255}, {215,255,128}, {0,0,0}, {41,255,255}, {215,255,128}, {172,255,255}, {172,255,255}, {0,0,0}, {41,255,255}, {215,255,128}, {172,255,255}, {215,255,128}, {0,0,255}, {215,255,128}, {172,255,255}, {215,255,128}, {172,255,255}, {0,0,0}, {215,255,128}, {172,255,255}, {215,255,128}, {215,255,128}, {0,0,0}, {0,0,0}, {0,0,0}, {129,255,255}, {129,255,255}, {129,255,255}, {0,255,255}, {0,0,0}, {129,255,255}, {172,255,255}, {0,0,0}, {0,0,0}, {41,255,255}, {129,255,255}, {215,255,128}, {129,255,255}, {0,0,0}, {215,255,128}, {215,255,128}, {215,255,128}, {129,255,255}, {0,0,0}, {41,255,255}, {172,255,255}, {215,255,128}, {215,255,128}, {129,255,255}, {215,255,128}, {172,255,255}, {215,255,128}, {215,255,128}, {0,0,0}, {41,255,255}, {215,255,128}, {215,255,128}, {215,255,128}, {0,0,0}, {41,255,255}, {41,255,255}, {129,255,255}, {129,255,255}, {129,255,255}, {0,255,255} },
 
-    [6] = { {0,0,0}, {0,255,255}, {0,255,255}, {0,0,0}, {0,0,0}, {215,255,128}, {172,255,255}, {172,255,255}, {0,0,255}, {0,0,0}, {215,255,128}, {172,255,255}, {172,255,255}, {0,0,255}, {0,0,0}, {215,255,128}, {172,255,255}, {172,255,255}, {0,0,255}, {0,0,255}, {215,255,128}, {172,255,255}, {172,255,255}, {172,255,255}, {0,0,0}, {215,255,128}, {172,255,255}, {172,255,255}, {172,255,255}, {0,0,0}, {172,255,255}, {0,255,255}, {0,0,255}, {0,0,255}, {0,0,255}, {0,255,255}, {0,0,0}, {41,255,255}, {41,255,255}, {0,0,0}, {0,0,0}, {215,255,128}, {41,255,255}, {0,0,255}, {41,255,255}, {0,0,0}, {215,255,128}, {172,255,255}, {172,255,255}, {41,255,255}, {0,0,0}, {215,255,128}, {0,0,255}, {172,255,255}, {41,255,255}, {129,255,255}, {215,255,128}, {0,0,255}, {172,255,255}, {172,255,255}, {0,0,0}, {215,255,128}, {215,255,128}, {172,255,255}, {0,0,255}, {0,0,0}, {41,255,255}, {41,255,255}, {0,0,255}, {0,0,255}, {0,0,255}, {0,255,255} },
+    [6] = { {0,0,0}, {0,255,255}, {0,255,255}, {0,0,0}, {0,0,0}, {215,255,128}, {215,255,128}, {172,255,255}, {215,255,128}, {0,0,0}, {215,255,128}, {172,255,255}, {172,255,255}, {215,255,128}, {0,0,0}, {215,255,128}, {172,255,255}, {215,255,128}, {0,0,255}, {0,0,255}, {215,255,128}, {172,255,255}, {172,255,255}, {215,255,128}, {0,0,0}, {215,255,128}, {172,255,255}, {172,255,255}, {172,255,255}, {0,0,0}, {172,255,255}, {0,255,255}, {0,0,255}, {0,0,255}, {0,0,255}, {0,255,255}, {0,0,0}, {41,255,255}, {41,255,255}, {0,0,0}, {0,0,0}, {215,255,128}, {41,255,255}, {0,0,255}, {172,255,255}, {0,0,0}, {215,255,128}, {172,255,255}, {215,255,128}, {172,255,255}, {0,0,0}, {215,255,128}, {0,0,255}, {215,255,128}, {41,255,255}, {129,255,255}, {215,255,128}, {172,255,255}, {172,255,255}, {215,255,128}, {0,0,0}, {215,255,128}, {215,255,128}, {215,255,128}, {0,0,255}, {0,0,0}, {41,255,255}, {41,255,255}, {0,0,255}, {0,0,255}, {0,0,255}, {0,255,255} },
 
 };
 
@@ -457,8 +463,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     break;
     case ST_MACRO_36:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_DOT) SS_LSFT(SS_TAP(X_QUOTE)) SS_TAP(X_SPACE));
-      set_oneshot_mods(MOD_LSFT);
+      SEND_STRING(SS_TAP(X_W) SS_TAP(X_H) SS_TAP(X_A) SS_TAP(X_T) SS_TAP(X_SPACE));
     }
     break;
     case ST_MACRO_37:
@@ -503,30 +508,55 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     break;
     case ST_MACRO_45:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_H) SS_TAP(X_A) SS_TAP(X_V) SS_TAP(X_E) SS_TAP(X_SPACE));
+      SEND_STRING(SS_TAP(X_H) SS_TAP(X_I) SS_TAP(X_S) SS_TAP(X_SPACE));
     }
     break;
     case ST_MACRO_46:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_B) SS_TAP(X_U) SS_TAP(X_T) SS_TAP(X_SPACE));
+      SEND_STRING(SS_TAP(X_S) SS_TAP(X_H) SS_TAP(X_E) SS_TAP(X_SPACE));
     }
     break;
     case ST_MACRO_47:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_Y) SS_TAP(X_O) SS_TAP(X_U) SS_TAP(X_SPACE));
+      SEND_STRING(SS_TAP(X_H) SS_TAP(X_A) SS_TAP(X_V) SS_TAP(X_E) SS_TAP(X_SPACE));
     }
     break;
     case ST_MACRO_48:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_T) SS_TAP(X_H) SS_TAP(X_A) SS_TAP(X_T) SS_TAP(X_SPACE));
+      SEND_STRING(SS_TAP(X_B) SS_TAP(X_U) SS_TAP(X_T) SS_TAP(X_SPACE));
     }
     break;
     case ST_MACRO_49:
+    if (record->event.pressed) {
+      SEND_STRING(SS_TAP(X_A) SS_TAP(X_L) SS_TAP(X_L) SS_TAP(X_SPACE));
+    }
+    break;
+    case ST_MACRO_50:
+    if (record->event.pressed) {
+      SEND_STRING(SS_TAP(X_Y) SS_TAP(X_O) SS_TAP(X_U) SS_TAP(X_SPACE));
+    }
+    break;
+    case ST_MACRO_51:
+    if (record->event.pressed) {
+      SEND_STRING(SS_TAP(X_T) SS_TAP(X_H) SS_TAP(X_A) SS_TAP(X_T) SS_TAP(X_SPACE));
+    }
+    break;
+    case ST_MACRO_52:
     if (record->event.pressed) {
       SEND_STRING(SS_TAP(X_N) SS_TAP(X_O) SS_TAP(X_T) SS_TAP(X_SPACE));
     }
     break;
     
+    case KC_DQUO: // \" in English should keep OSM for the next char 
+    if (record->event.pressed) {
+      if (get_oneshot_mods() == MOD_BIT(KC_LSFT)) {
+	SEND_STRING(SS_TAP(X_QUOTE));
+        set_oneshot_mods(MOD_LSFT);
+        return false;
+      }
+    }
+    break;
+
     case RU_MINS: // - in Russian should NOT be shifted
     case RU_DQUO: // \" in Russian should NOT be shifted
     if (biton32(layer_state) == 1) {
@@ -553,19 +583,33 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         unregister_code(KC_LALT);
     }
     break;
-    case ST_MACRO_50:
+    case ST_MACRO_53:
     if (record->event.pressed) {
       SEND_STRING(SS_TAP(X_T) SS_TAP(X_H) SS_TAP(X_E) SS_TAP(X_Y) SS_TAP(X_SPACE));
     }
     break;
-    case ST_MACRO_51:
+    case ST_MACRO_54:
     if (record->event.pressed) {
       SEND_STRING(SS_TAP(X_T) SS_TAP(X_H) SS_TAP(X_I) SS_TAP(X_S) SS_TAP(X_SPACE));
     }
     break;
-    case ST_MACRO_52:
+    case ST_MACRO_55:
     if (record->event.pressed) {
       SEND_STRING(SS_TAP(X_F) SS_TAP(X_R) SS_TAP(X_O) SS_TAP(X_M) SS_TAP(X_SPACE));
+    }
+    break;
+    case ST_MACRO_56:
+    if (record->event.pressed) {
+      clear_oneshot_mods();
+      SEND_STRING(SS_TAP(X_DOT) SS_LSFT(SS_TAP(X_QUOTE)) SS_TAP(X_SPACE));
+      set_oneshot_mods(MOD_LSFT);
+    }
+    break;
+    case ST_MACRO_57:
+    if (record->event.pressed) {
+      clear_oneshot_mods();
+      SEND_STRING(SS_LSFT(SS_TAP(X_SLASH)) SS_LSFT(SS_TAP(X_QUOTE)) SS_TAP(X_SPACE));
+      set_oneshot_mods(MOD_LSFT);
     }
     break;
 
