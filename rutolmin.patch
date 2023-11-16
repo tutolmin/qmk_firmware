@@ -1,5 +1,5 @@
 --- /media/torrents/moonlander/keymap.c	2023-11-15 15:57:02.000000000 +0300
-+++ keyboards/moonlander/keymaps/rututolmin/keymap.c	2023-11-15 18:59:06.256237881 +0300
++++ keyboards/moonlander/keymaps/rututolmin/keymap.c	2023-11-16 10:19:28.006810981 +0300
 @@ -2,0 +3 @@
 +/*
 @@ -30,0 +32 @@
@@ -169,7 +169,7 @@
 @@ -531 +541 @@
 -      SEND_STRING(SS_TAP(X_T) SS_DELAY(100) SS_TAP(X_H) SS_DELAY(100) SS_TAP(X_A) SS_DELAY(100) SS_TAP(X_T) SS_DELAY(100) SS_TAP(X_SPACE));
 +      SEND_STRING(SS_TAP(X_T) SS_TAP(X_H) SS_TAP(X_A) SS_TAP(X_T) SS_TAP(X_SPACE));
-@@ -536 +546,38 @@
+@@ -536 +546,50 @@
 -      SEND_STRING(SS_TAP(X_N) SS_DELAY(100) SS_TAP(X_O) SS_DELAY(100) SS_TAP(X_T) SS_DELAY(100) SS_TAP(X_SPACE));
 +      SEND_STRING(SS_TAP(X_N) SS_TAP(X_O) SS_TAP(X_T) SS_TAP(X_SPACE));
 +    }
@@ -186,9 +186,21 @@
 +    break;
 +
 +    case RU_MINS: // - in Russian should NOT be shifted
-+    case RU_DQUO: // \" in Russian should NOT be shifted
 +    if (biton32(layer_state) == 1) {
 +      clear_oneshot_mods();
++    }
++    break;
++
++    case RU_DQUO: // \" in Russian should NOT be shifted, but should keep OSM
++    if (biton32(layer_state) == 1) {
++      if (record->event.pressed) {
++        if (get_oneshot_mods() == MOD_BIT(KC_LSFT)) {
++          clear_oneshot_mods();
++	  SEND_STRING(SS_TAP(X_4));
++          set_oneshot_mods(MOD_LSFT);
++          return false;
++        }
++      }
 +    }
 +    break;
 +
@@ -209,21 +221,21 @@
 +        tap_code(KC_5);
 +        unregister_code(KC_LSFT);
 +        unregister_code(KC_LALT);
-@@ -541 +588 @@
+@@ -541 +600 @@
 -      SEND_STRING(SS_TAP(X_T) SS_DELAY(100) SS_TAP(X_H) SS_DELAY(100) SS_TAP(X_E) SS_DELAY(100) SS_TAP(X_Y) SS_DELAY(100) SS_TAP(X_SPACE));
 +      SEND_STRING(SS_TAP(X_T) SS_TAP(X_H) SS_TAP(X_E) SS_TAP(X_Y) SS_TAP(X_SPACE));
-@@ -546 +593 @@
+@@ -546 +605 @@
 -      SEND_STRING(SS_TAP(X_T) SS_DELAY(100) SS_TAP(X_H) SS_DELAY(100) SS_TAP(X_I) SS_DELAY(100) SS_TAP(X_S) SS_DELAY(100) SS_TAP(X_SPACE));
 +      SEND_STRING(SS_TAP(X_T) SS_TAP(X_H) SS_TAP(X_I) SS_TAP(X_S) SS_TAP(X_SPACE));
-@@ -551 +598 @@
+@@ -551 +610 @@
 -      SEND_STRING(SS_TAP(X_F) SS_DELAY(100) SS_TAP(X_R) SS_DELAY(100) SS_TAP(X_O) SS_DELAY(100) SS_TAP(X_M) SS_DELAY(100) SS_TAP(X_SPACE));
 +      SEND_STRING(SS_TAP(X_F) SS_TAP(X_R) SS_TAP(X_O) SS_TAP(X_M) SS_TAP(X_SPACE));
-@@ -556 +603,3 @@
+@@ -556 +615,3 @@
 -      SEND_STRING(SS_TAP(X_DOT) SS_DELAY(100) SS_LSFT(SS_TAP(X_QUOTE)) SS_DELAY(100) SS_TAP(X_SPACE));
 +      clear_oneshot_mods();
 +      SEND_STRING(SS_TAP(X_DOT) SS_LSFT(SS_TAP(X_QUOTE)) SS_TAP(X_SPACE));
 +      set_oneshot_mods(MOD_LSFT);
-@@ -561 +610,3 @@
+@@ -561 +622,3 @@
 -      SEND_STRING(SS_LSFT(SS_TAP(X_SLASH)) SS_DELAY(100) SS_LSFT(SS_TAP(X_QUOTE)) SS_DELAY(100) SS_TAP(X_SPACE));
 +      clear_oneshot_mods();
 +      SEND_STRING(SS_LSFT(SS_TAP(X_SLASH)) SS_LSFT(SS_TAP(X_QUOTE)) SS_TAP(X_SPACE));

@@ -558,9 +558,21 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     break;
 
     case RU_MINS: // - in Russian should NOT be shifted
-    case RU_DQUO: // \" in Russian should NOT be shifted
     if (biton32(layer_state) == 1) {
       clear_oneshot_mods();
+    }
+    break;
+
+    case RU_DQUO: // \" in Russian should NOT be shifted, but should keep OSM
+    if (biton32(layer_state) == 1) {
+      if (record->event.pressed) {
+        if (get_oneshot_mods() == MOD_BIT(KC_LSFT)) {
+          clear_oneshot_mods();
+	  SEND_STRING(SS_TAP(X_4));
+          set_oneshot_mods(MOD_LSFT);
+          return false;
+        }
+      }
     }
     break;
 
