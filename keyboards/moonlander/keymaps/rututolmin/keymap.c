@@ -478,7 +478,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     break;
     case ST_MACRO_39:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_E) SS_TAP(X_A) SS_TAP(X_S) SS_TAP(X_Y) SS_TAP(X_8) SS_TAP(X_U) SS_TAP(X_S) SS_TAP(X_Y) SS_LSFT(SS_TAP(X_J)) SS_TAP(X_A) SS_TAP(X_P) SS_TAP(X_A) SS_TAP(X_N) SS_TAP(X_E) SS_LSFT(SS_TAP(X_4)) SS_TAP(X_E));
+      SEND_STRING(SS_TAP(X_E) SS_TAP(X_A) SS_TAP(X_S) SS_TAP(X_Y) SS_TAP(X_8) SS_TAP(X_U) SS_TAP(X_S) SS_TAP(X_Y) SS_LSFT(SS_TAP(X_J)) SS_TAP(X_A) SS_TAP(X_P) SS_TAP(X_A) SS_TAP(X_N) SS_TAP(X_E) SS_LSFT(SS_TAP(X_3)) SS_TAP(X_E));
     }
     break;
     case ST_MACRO_40:
