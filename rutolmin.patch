@@ -1,5 +1,5 @@
---- /home/andrei/Downloads/moonlander_colemak-only_source/keymap.c	2023-11-23 18:02:02.000000000 +0300
-+++ keyboards/moonlander/keymaps/rututolmin/keymap.c	2023-11-27 11:29:21.692379699 +0300
+--- /media/torrents/moonlander/keymap.c	2024-01-04 14:37:22.000000000 +0300
++++ keyboards/moonlander/keymaps/rututolmin/keymap.c	2024-01-05 11:06:21.495169991 +0300
 @@ -2,0 +3 @@
 +/*
 @@ -30,0 +32 @@
