@@ -1,6 +1,7 @@
 #include QMK_KEYBOARD_H
 #include "version.h"
-#include "i18n.h"
+//#include "i18n.h"
+#include "keymap_ru_type.h"
 #define MOON_LED_LEVEL LED_LEVEL
 
 enum custom_keycodes {
@@ -235,6 +236,15 @@ bool rgb_matrix_indicators_user(void) {
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
+    case TO(0): // this runs when TO(ENG) is pressed (the key to toggle layer 0 on)
+    if (record->event.pressed) {
+        register_code(KC_LALT);
+        register_code(KC_LSFT);
+        tap_code(KC_4);
+        unregister_code(KC_LSFT);
+        unregister_code(KC_LALT);
+    }
+    break;
     case ST_MACRO_0:
     if (record->event.pressed) {
       SEND_STRING(SS_TAP(X_COMMA) SS_DELAY(100) SS_TAP(X_SPACE));
