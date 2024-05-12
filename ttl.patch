@@ -1,5 +1,5 @@
 --- /home/lh/Downloads/moonlander_current_source/keymap.c	2024-05-12 18:45:56.000000000 +0300
-+++ keyboards/moonlander/keymaps/tutolmin/keymap.c	2024-05-12 21:55:35.020553178 +0300
++++ keyboards/moonlander/keymaps/tutolmin/keymap.c	2024-05-12 22:00:00.338547549 +0300
 @@ -3 +3,2 @@
 -#include "i18n.h"
 +//#include "i18n.h"
@@ -92,7 +92,7 @@
 +
 @@ -313 +367 @@
 -      SEND_STRING(SS_TAP(X_E) SS_DELAY(100) SS_TAP(X_A) SS_DELAY(100) SS_TAP(X_S) SS_DELAY(100) SS_TAP(X_Y));
-+      SEND_STRING(SS_TAP(X_E) SS_TAP(X_A) SS_TAP(X_S) SS_TAP(X_Y) SS_TAP(X_8) SS_TAP(X_U) SS_TAP(X_S) SS_TAP(X_Y) SS_LSFT(SS_TAP(X_J)) SS_TAP(X_A) SS_TAP(X_P) SS_TAP(X_A) SS_TAP(X_N) SS_TAP(X_E) SS_LSFT(SS_TAP(X_3)) SS_TAP(X_3));
++      SEND_STRING(SS_TAP(X_E) SS_TAP(X_A) SS_TAP(X_S) SS_TAP(X_Y) SS_TAP(X_8) SS_TAP(X_U) SS_TAP(X_S) SS_TAP(X_Y) SS_LSFT(SS_TAP(X_J)) SS_TAP(X_A) SS_TAP(X_P) SS_TAP(X_A) SS_TAP(X_N) SS_TAP(X_E) SS_LSFT(SS_TAP(X_4)) SS_TAP(X_3));
 @@ -318 +372 @@
 -      SEND_STRING(SS_TAP(X_E) SS_DELAY(100) SS_TAP(X_SCLN) SS_DELAY(100) SS_TAP(X_T) SS_DELAY(100) SS_TAP(X_SPACE));
 +      SEND_STRING(SS_TAP(X_E) SS_TAP(X_SCLN) SS_TAP(X_T) SS_TAP(X_SPACE));
@@ -310,3 +310,86 @@
 @@ -668 +726 @@
 -      SEND_STRING(SS_TAP(X_O) SS_DELAY(100) SS_TAP(X_U) SS_DELAY(100) SS_TAP(X_T) SS_DELAY(100) SS_TAP(X_SPACE));
 +      SEND_STRING(SS_TAP(X_O) SS_TAP(X_U) SS_TAP(X_T) SS_TAP(X_SPACE));
+@@ -673,7 +731,7 @@
+-        if (rawhid_state.rgb_control) {
+-            return false;
+-        }
+-        if (record->event.pressed) {
+-            rgblight_mode(1);
+-        }
+-        return false;
++    if (rawhid_state.rgb_control) {
++      return false;
++    }
++    if (record->event.pressed) {
++      rgblight_mode(1);
++    }
++    return false;
+@@ -681,8 +739,8 @@
+-        if (rawhid_state.rgb_control) {
+-            return false;
+-        }
+-        if (record->event.pressed) {
+-            rgblight_mode(1);
+-            rgblight_sethsv(0,255,255);
+-        }
+-        return false;
++    if (rawhid_state.rgb_control) {
++      return false;
++    }
++    if (record->event.pressed) {
++      rgblight_mode(1);
++      rgblight_sethsv(0,255,255);
++    }
++    return false;
+@@ -690,8 +748,8 @@
+-        if (rawhid_state.rgb_control) {
+-            return false;
+-        }
+-        if (record->event.pressed) {
+-            rgblight_mode(1);
+-            rgblight_sethsv(43,235,219);
+-        }
+-        return false;
++    if (rawhid_state.rgb_control) {
++      return false;
++    }
++    if (record->event.pressed) {
++      rgblight_mode(1);
++      rgblight_sethsv(43,235,219);
++    }
++    return false;
+@@ -699,8 +757,8 @@
+-        if (rawhid_state.rgb_control) {
+-            return false;
+-        }
+-        if (record->event.pressed) {
+-            rgblight_mode(1);
+-            rgblight_sethsv(103,255,163);
+-        }
+-        return false;
++    if (rawhid_state.rgb_control) {
++      return false;
++    }
++    if (record->event.pressed) {
++      rgblight_mode(1);
++      rgblight_sethsv(103,255,163);
++    }
++    return false;
+@@ -708,8 +766,8 @@
+-        if (rawhid_state.rgb_control) {
+-            return false;
+-        }
+-        if (record->event.pressed) {
+-            rgblight_mode(1);
+-            rgblight_sethsv(176,255,255);
+-        }
+-        return false;
++    if (rawhid_state.rgb_control) {
++      return false;
++    }
++    if (record->event.pressed) {
++      rgblight_mode(1);
++      rgblight_sethsv(176,255,255);
++    }
++    return false;

@@ -364,7 +364,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     break;
     case ST_MACRO_11:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_E) SS_TAP(X_A) SS_TAP(X_S) SS_TAP(X_Y) SS_TAP(X_8) SS_TAP(X_U) SS_TAP(X_S) SS_TAP(X_Y) SS_LSFT(SS_TAP(X_J)) SS_TAP(X_A) SS_TAP(X_P) SS_TAP(X_A) SS_TAP(X_N) SS_TAP(X_E) SS_LSFT(SS_TAP(X_3)) SS_TAP(X_3));
+      SEND_STRING(SS_TAP(X_E) SS_TAP(X_A) SS_TAP(X_S) SS_TAP(X_Y) SS_TAP(X_8) SS_TAP(X_U) SS_TAP(X_S) SS_TAP(X_Y) SS_LSFT(SS_TAP(X_J)) SS_TAP(X_A) SS_TAP(X_P) SS_TAP(X_A) SS_TAP(X_N) SS_TAP(X_E) SS_LSFT(SS_TAP(X_4)) SS_TAP(X_3));
     }
     break;
     case ST_MACRO_12:
@@ -728,49 +728,49 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     break;
 
     case RGB_SLD:
-        if (rawhid_state.rgb_control) {
-            return false;
-        }
-        if (record->event.pressed) {
-            rgblight_mode(1);
-        }
-        return false;
+    if (rawhid_state.rgb_control) {
+      return false;
+    }
+    if (record->event.pressed) {
+      rgblight_mode(1);
+    }
+    return false;
     case HSV_0_255_255:
-        if (rawhid_state.rgb_control) {
-            return false;
-        }
-        if (record->event.pressed) {
-            rgblight_mode(1);
-            rgblight_sethsv(0,255,255);
-        }
-        return false;
+    if (rawhid_state.rgb_control) {
+      return false;
+    }
+    if (record->event.pressed) {
+      rgblight_mode(1);
+      rgblight_sethsv(0,255,255);
+    }
+    return false;
     case HSV_43_235_219:
-        if (rawhid_state.rgb_control) {
-            return false;
-        }
-        if (record->event.pressed) {
-            rgblight_mode(1);
-            rgblight_sethsv(43,235,219);
-        }
-        return false;
+    if (rawhid_state.rgb_control) {
+      return false;
+    }
+    if (record->event.pressed) {
+      rgblight_mode(1);
+      rgblight_sethsv(43,235,219);
+    }
+    return false;
     case HSV_103_255_163:
-        if (rawhid_state.rgb_control) {
-            return false;
-        }
-        if (record->event.pressed) {
-            rgblight_mode(1);
-            rgblight_sethsv(103,255,163);
-        }
-        return false;
+    if (rawhid_state.rgb_control) {
+      return false;
+    }
+    if (record->event.pressed) {
+      rgblight_mode(1);
+      rgblight_sethsv(103,255,163);
+    }
+    return false;
     case HSV_176_255_255:
-        if (rawhid_state.rgb_control) {
-            return false;
-        }
-        if (record->event.pressed) {
-            rgblight_mode(1);
-            rgblight_sethsv(176,255,255);
-        }
-        return false;
+    if (rawhid_state.rgb_control) {
+      return false;
+    }
+    if (record->event.pressed) {
+      rgblight_mode(1);
+      rgblight_sethsv(176,255,255);
+    }
+    return false;
   }
   return true;
 }
