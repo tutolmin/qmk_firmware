@@ -93,9 +93,6 @@ enum custom_keycodes {
   ST_MACRO_80,
   ST_MACRO_81,
   ST_MACRO_82,
-  ST_MACRO_83,
-  ST_MACRO_84,
-  ST_MACRO_85,
 };
 
 
@@ -104,8 +101,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_ESCAPE,      KC_EXLM,        KC_AT,          KC_HASH,        KC_DLR,         KC_PERC,        KC_NO,                                          KC_NO,          KC_CIRC,        KC_AMPR,        KC_ASTR,        KC_PIPE,        KC_EQUAL,       KC_MINUS,       
     KC_TAB,         LT(2,KC_Q),     KC_W,           KC_F,           KC_P,           KC_G,           LCTL(KC_INSERT),                                KC_EQUAL,       OSL(6),         KC_L,           KC_U,           KC_Y,           KC_SCLN,        KC_DQUO,        
     MT(MOD_LGUI, KC_BSPC),KC_A,           KC_R,           KC_S,           KC_T,           KC_D,           LSFT(KC_INSERT),                                                                KC_MINUS,       KC_H,           KC_N,           KC_E,           KC_I,           KC_O,           KC_QUOTE,       
-    ST_MACRO_0,     KC_Z,           MT(MOD_LALT, KC_X),KC_C,           KC_V,           KC_B,                                           KC_K,           KC_M,           KC_COMMA,       MT(MOD_RALT, KC_DOT),KC_SLASH,       ST_MACRO_1,     
-    KC_NO,          KC_NO,          KC_NO,          LALT(LSFT(KC_4)),OSL(4),         KC_NO,                                                                                                          KC_NO,          OSL(3),         TO(1),          OSL(2),         KC_NO,          KC_NO,          
+    ST_MACRO_0,     MT(MOD_LSFT, KC_Z),MT(MOD_LALT, KC_X),KC_C,           KC_V,           KC_B,                                           KC_K,           KC_M,           KC_COMMA,       MT(MOD_RALT, KC_DOT),MT(MOD_RSFT, KC_SLASH),ST_MACRO_1,     
+    KC_NO,          KC_NO,          KC_NO,          LALT(LSFT(KC_4)),OSL(4),         KC_NO,                                                                                                          KC_NO,          OSL(3),         TO(1),          KC_NO,          KC_NO,          KC_NO,          
     OSM(MOD_LSFT),  KC_LEFT_CTRL,   KC_NO,                          KC_NO,          KC_ENTER,       KC_SPACE
   ),
   [1] = LAYOUT_moonlander(
@@ -117,10 +114,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TRANSPARENT, KC_LEFT_CTRL,   KC_TRANSPARENT,                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT
   ),
   [2] = LAYOUT_moonlander(
-    KC_NO,          KC_NO,          RGB_TOG,        TOGGLE_LAYER_COLOR,RGB_MODE_FORWARD,RGB_SLD,        KC_TRANSPARENT,                                 KC_TRANSPARENT, MU_NEXT,        AU_TOGG,        KC_HYPR,        KC_MEH,         KC_NO,          QK_BOOT,        
+    KC_NO,          KC_NO,          RGB_TOG,        TOGGLE_LAYER_COLOR,KC_NO,          KC_NO,          KC_TRANSPARENT,                                 KC_TRANSPARENT, MU_NEXT,        AU_TOGG,        KC_HYPR,        KC_MEH,         KC_NO,          QK_BOOT,        
     KC_NO,          KC_TRANSPARENT, RGB_VAD,        RGB_VAI,        ST_MACRO_10,    ST_MACRO_11,    KC_NO,                                          KC_NO,          KC_AUDIO_MUTE,  KC_AUDIO_VOL_DOWN,KC_MS_UP,       KC_AUDIO_VOL_UP,KC_CAPS,        KC_NO,          
     KC_NO,          KC_NO,          RGB_HUD,        RGB_HUI,        LALT(LCTL(KC_A)),LALT(LCTL(KC_DELETE)),KC_NO,                                                                          KC_NO,          MU_TOGG,        KC_MS_LEFT,     KC_MS_DOWN,     KC_MS_RIGHT,    KC_MS_BTN2,     KC_NO,          
-    KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,                                          MOON_LED_LEVEL, HSV_0_255_255,  HSV_43_235_219, HSV_103_255_163,HSV_176_255_255,KC_NO,          
+    KC_NO,          KC_NO,          KC_NO,          KC_NO,          RGB_MODE_FORWARD,RGB_SLD,                                        MOON_LED_LEVEL, HSV_0_255_255,  HSV_43_235_219, HSV_103_255_163,HSV_176_255_255,KC_NO,          
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_NO,          KC_APPLICATION, KC_NO,                                                                                                          KC_NO,          KC_MS_BTN1,     KC_NO,          KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
     KC_NO,          KC_NO,          KC_NO,                          KC_NO,          KC_NO,          KC_NO
   ),
@@ -129,7 +126,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TRANSPARENT, KC_NO,          KC_LABK,        KC_LBRC,        KC_RBRC,        KC_RABK,        KC_NO,                                          KC_NO,          KC_HOME,        KC_PGDN,        KC_PAGE_UP,     KC_END,         KC_F11,         KC_PSCR,        
     KC_DELETE,      KC_NO,          KC_GRAVE,       KC_LPRN,        KC_RPRN,        KC_PIPE,        KC_NO,                                                                          KC_NO,          KC_LEFT,        KC_DOWN,        KC_UP,          KC_RIGHT,       KC_F12,         KC_SCRL,        
     KC_NO,          KC_NO,          KC_TILD,        KC_LCBR,        KC_RCBR,        KC_BSLS,                                        LCTL(KC_LEFT),  LCTL(KC_DOWN),  LCTL(KC_UP),    LCTL(KC_RIGHT), KC_INSERT,      KC_PAUSE,       
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_NO,          KC_NO,          KC_TRANSPARENT,                                                                                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_NO,          KC_NO,          KC_TRANSPARENT, KC_TRANSPARENT, 
+    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_NO,          KC_NO,          KC_TRANSPARENT,                                                                                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_NO,          KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT
   ),
   [4] = LAYOUT_moonlander(
@@ -137,24 +134,24 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TRANSPARENT, LCTL(LSFT(KC_ESCAPE)),LGUI(KC_1),     LGUI(KC_2),     LGUI(KC_3),     LALT(KC_TAB),   KC_NO,                                          KC_NO,          KC_DLR,         KC_KP_7,        KC_KP_8,        KC_KP_9,        KC_KP_PLUS,     KC_NO,          
     KC_TRANSPARENT, KC_NO,          LGUI(KC_4),     LGUI(KC_5),     LGUI(KC_6),     KC_LEFT_ALT,    KC_NO,                                                                          KC_NO,          KC_PERC,        KC_KP_4,        KC_KP_5,        KC_KP_6,        KC_EQUAL,       KC_SPACE,       
     KC_ENTER,       KC_SPACE,       LGUI(KC_7),     LGUI(KC_8),     LGUI(KC_9),     LSFT(KC_TAB),                                   KC_COLN,        KC_KP_1,        KC_KP_2,        KC_KP_3,        KC_KP_DOT,      KC_KP_ENTER,    
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_NO,          KC_TRANSPARENT, KC_TRANSPARENT,                                                                                                 KC_TRANSPARENT, KC_KP_0,        ST_MACRO_12,    KC_NO,          KC_TRANSPARENT, KC_TRANSPARENT, 
+    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_NO,          KC_TRANSPARENT, KC_TRANSPARENT,                                                                                                 KC_TRANSPARENT, KC_KP_0,        KC_NO,          KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT
   ),
   [5] = LAYOUT_moonlander(
     KC_TRANSPARENT, RU_NUM,         RU_PLUS,        RU_SLSH,        RU_LPRN,        RU_SCLN,        KC_TRANSPARENT,                                 KC_TRANSPARENT, RU_COMM,        RU_RPRN,        RU_UNDS,        RU_BSLS,        RU_PERC,        RU_EQL,         
-    ST_MACRO_13,    ST_MACRO_14,    RU_HARD,        ST_MACRO_15,    ST_MACRO_16,    ST_MACRO_17,    KC_NO,                                          RU_EQL,         ST_MACRO_31,    ST_MACRO_32,    ST_MACRO_33,    ST_MACRO_34,    ST_MACRO_35,    KC_NO,          
-    ST_MACRO_18,    RU_EF,          ST_MACRO_19,    ST_MACRO_20,    ST_MACRO_21,    ST_MACRO_22,    KC_NO,                                                                          RU_MINS,        ST_MACRO_36,    ST_MACRO_37,    ST_MACRO_38,    ST_MACRO_39,    ST_MACRO_40,    RU_E,           
-    ST_MACRO_23,    ST_MACRO_24,    ST_MACRO_25,    ST_MACRO_26,    ST_MACRO_27,    ST_MACRO_28,                                    ST_MACRO_41,    ST_MACRO_42,    ST_MACRO_43,    ST_MACRO_44,    ST_MACRO_45,    KC_NO,          
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, TO(0),          ST_MACRO_29,    KC_TRANSPARENT,                                                                                                 KC_TRANSPARENT, ST_MACRO_46,    TO(1),          KC_NO,          KC_TRANSPARENT, KC_TRANSPARENT, 
-    ST_MACRO_30,    KC_TRANSPARENT, KC_TRANSPARENT,                 KC_TRANSPARENT, KC_TRANSPARENT, ST_MACRO_47
+    ST_MACRO_12,    ST_MACRO_13,    RU_HARD,        ST_MACRO_14,    ST_MACRO_15,    ST_MACRO_16,    KC_NO,                                          KC_NO,          ST_MACRO_30,    ST_MACRO_31,    ST_MACRO_32,    ST_MACRO_33,    ST_MACRO_34,    KC_NO,          
+    ST_MACRO_17,    RU_EF,          ST_MACRO_18,    ST_MACRO_19,    ST_MACRO_20,    ST_MACRO_21,    KC_NO,                                                                          KC_NO,          ST_MACRO_35,    ST_MACRO_36,    ST_MACRO_37,    ST_MACRO_38,    ST_MACRO_39,    RU_E,           
+    ST_MACRO_22,    ST_MACRO_23,    ST_MACRO_24,    ST_MACRO_25,    ST_MACRO_26,    ST_MACRO_27,                                    ST_MACRO_40,    ST_MACRO_41,    ST_MACRO_42,    ST_MACRO_43,    ST_MACRO_44,    KC_NO,          
+    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_NO,          ST_MACRO_28,    KC_TRANSPARENT,                                                                                                 KC_TRANSPARENT, ST_MACRO_45,    KC_NO,          KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
+    ST_MACRO_29,    KC_TRANSPARENT, KC_TRANSPARENT,                 KC_TRANSPARENT, KC_TRANSPARENT, ST_MACRO_46
   ),
   [6] = LAYOUT_moonlander(
     KC_TRANSPARENT, KC_1,           KC_2,           KC_3,           KC_4,           KC_5,           KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_6,           KC_7,           KC_8,           KC_9,           KC_0,           KC_NO,          
-    ST_MACRO_48,    ST_MACRO_49,    ST_MACRO_50,    ST_MACRO_51,    ST_MACRO_52,    ST_MACRO_53,    KC_NO,                                          ST_MACRO_68,    KC_J,           ST_MACRO_69,    ST_MACRO_70,    ST_MACRO_71,    ST_MACRO_72,    KC_NO,          
-    ST_MACRO_54,    ST_MACRO_55,    ST_MACRO_56,    ST_MACRO_57,    ST_MACRO_58,    ST_MACRO_59,    KC_NO,                                                                          ST_MACRO_73,    ST_MACRO_74,    ST_MACRO_75,    ST_MACRO_76,    ST_MACRO_77,    ST_MACRO_78,    KC_NO,          
-    ST_MACRO_60,    ST_MACRO_61,    ST_MACRO_62,    ST_MACRO_63,    ST_MACRO_64,    ST_MACRO_65,                                    ST_MACRO_79,    ST_MACRO_80,    ST_MACRO_81,    ST_MACRO_82,    ST_MACRO_83,    KC_NO,          
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, TO(0),          ST_MACRO_66,    KC_TRANSPARENT,                                                                                                 KC_TRANSPARENT, ST_MACRO_84,    TO(1),          KC_NO,          KC_TRANSPARENT, KC_TRANSPARENT, 
-    ST_MACRO_67,    KC_TRANSPARENT, KC_TRANSPARENT,                 KC_TRANSPARENT, KC_TRANSPARENT, ST_MACRO_85
+    ST_MACRO_47,    ST_MACRO_48,    ST_MACRO_49,    ST_MACRO_50,    ST_MACRO_51,    ST_MACRO_52,    KC_NO,                                          KC_NO,          KC_J,           ST_MACRO_67,    ST_MACRO_68,    ST_MACRO_69,    ST_MACRO_70,    KC_NO,          
+    ST_MACRO_53,    ST_MACRO_54,    ST_MACRO_55,    ST_MACRO_56,    ST_MACRO_57,    ST_MACRO_58,    KC_NO,                                                                          KC_NO,          ST_MACRO_71,    ST_MACRO_72,    ST_MACRO_73,    ST_MACRO_74,    ST_MACRO_75,    KC_NO,          
+    ST_MACRO_59,    ST_MACRO_60,    ST_MACRO_61,    ST_MACRO_62,    ST_MACRO_63,    ST_MACRO_64,                                    ST_MACRO_76,    ST_MACRO_77,    ST_MACRO_78,    ST_MACRO_79,    ST_MACRO_80,    KC_NO,          
+    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_NO,          ST_MACRO_65,    KC_TRANSPARENT,                                                                                                 KC_TRANSPARENT, ST_MACRO_81,    KC_NO,          KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
+    ST_MACRO_66,    KC_TRANSPARENT, KC_TRANSPARENT,                 KC_TRANSPARENT, KC_TRANSPARENT, ST_MACRO_82
   ),
 };
 const uint16_t PROGMEM combo0[] = { KC_C, KC_LEFT_CTRL, COMBO_END};
@@ -165,6 +162,7 @@ const uint16_t PROGMEM combo4[] = { RU_A, KC_LEFT_CTRL, COMBO_END};
 const uint16_t PROGMEM combo5[] = { MT(MOD_LALT, RU_CHE), KC_LEFT_CTRL, COMBO_END};
 const uint16_t PROGMEM combo6[] = { MT(MOD_LGUI, KC_BSPC), RU_GHE, COMBO_END};
 const uint16_t PROGMEM combo7[] = { RU_U, KC_LEFT_CTRL, COMBO_END};
+const uint16_t PROGMEM combo8[] = { RU_VE, KC_LEFT_CTRL, COMBO_END};
 
 combo_t key_combos[COMBO_COUNT] = {
     COMBO(combo0, LCTL(KC_INSERT)),
@@ -175,6 +173,7 @@ combo_t key_combos[COMBO_COUNT] = {
     COMBO(combo5, LCTL(KC_X)),
     COMBO(combo6, LGUI(KC_L)),
     COMBO(combo7, LCTL(KC_F)),
+    COMBO(combo8, LCTL(KC_S)),
 };
 
 extern rgb_config_t rgb_matrix_config;
@@ -185,19 +184,19 @@ void keyboard_post_init_user(void) {
 
 
 const uint8_t PROGMEM ledmap[][RGB_MATRIX_LED_COUNT][3] = {
-    [0] = { {0,255,255}, {0,255,255}, {0,255,255}, {172,255,255}, {0,0,0}, {41,255,255}, {0,0,255}, {0,0,255}, {0,0,255}, {0,0,0}, {41,255,255}, {0,0,255}, {0,0,255}, {0,0,255}, {0,0,0}, {41,255,255}, {0,0,255}, {0,0,255}, {0,0,255}, {0,0,255}, {41,255,255}, {0,0,255}, {0,0,255}, {0,0,255}, {86,255,255}, {41,255,255}, {0,0,255}, {0,0,255}, {0,0,255}, {0,0,0}, {172,255,255}, {172,255,255}, {0,0,255}, {0,0,255}, {0,0,255}, {0,255,255}, {41,255,255}, {215,255,128}, {41,255,255}, {172,255,255}, {0,0,0}, {215,255,128}, {41,255,255}, {0,0,255}, {41,255,255}, {0,0,0}, {215,255,128}, {0,0,255}, {0,0,255}, {41,255,255}, {23,252,180}, {41,255,255}, {0,0,255}, {0,0,255}, {41,255,255}, {129,255,255}, {41,255,255}, {0,0,255}, {0,0,255}, {0,0,255}, {0,255,255}, {41,255,255}, {215,255,128}, {0,0,255}, {0,0,255}, {0,0,0}, {41,255,255}, {41,255,255}, {0,0,255}, {0,0,255}, {0,0,255}, {0,255,255} },
+    [0] = { {0,255,255}, {0,255,255}, {0,255,255}, {172,255,255}, {0,0,0}, {41,255,255}, {0,0,255}, {0,0,255}, {0,0,255}, {0,0,0}, {41,255,255}, {0,0,255}, {0,0,255}, {0,0,255}, {0,0,0}, {41,255,255}, {0,0,255}, {0,0,255}, {0,0,255}, {0,0,255}, {41,255,255}, {0,0,255}, {0,0,255}, {0,0,255}, {86,255,255}, {41,255,255}, {0,0,255}, {0,0,255}, {0,0,255}, {0,0,0}, {172,255,255}, {172,255,255}, {0,0,255}, {0,0,255}, {0,0,255}, {0,255,255}, {41,255,255}, {215,255,128}, {41,255,255}, {172,255,255}, {0,0,0}, {215,255,128}, {41,255,255}, {0,0,255}, {41,255,255}, {0,0,0}, {215,255,128}, {0,0,255}, {0,0,255}, {41,255,255}, {0,0,0}, {41,255,255}, {0,0,255}, {0,0,255}, {41,255,255}, {129,255,255}, {41,255,255}, {0,0,255}, {0,0,255}, {0,0,255}, {0,255,255}, {41,255,255}, {215,255,128}, {0,0,255}, {0,0,255}, {0,0,0}, {41,255,255}, {41,255,255}, {0,0,255}, {0,0,255}, {0,0,255}, {0,255,255} },
 
-    [1] = { {0,255,255}, {0,255,255}, {0,255,255}, {172,255,255}, {0,0,0}, {172,255,255}, {129,255,255}, {172,255,255}, {129,255,255}, {0,0,0}, {41,255,255}, {129,255,255}, {129,255,255}, {129,255,255}, {0,0,0}, {172,255,255}, {129,255,255}, {129,255,255}, {129,255,255}, {0,0,255}, {41,255,255}, {129,255,255}, {129,255,255}, {129,255,255}, {86,255,255}, {41,255,255}, {129,255,255}, {129,255,255}, {129,255,255}, {0,0,0}, {172,255,255}, {172,255,255}, {129,255,255}, {129,255,255}, {129,255,255}, {0,255,255}, {41,255,255}, {129,255,255}, {215,255,128}, {172,255,255}, {0,0,0}, {172,255,255}, {129,255,255}, {129,255,255}, {129,255,255}, {0,0,0}, {41,255,255}, {129,255,255}, {129,255,255}, {129,255,255}, {23,252,180}, {172,255,255}, {129,255,255}, {129,255,255}, {129,255,255}, {129,255,255}, {41,255,255}, {129,255,255}, {129,255,255}, {129,255,255}, {0,255,255}, {172,255,255}, {129,255,255}, {129,255,255}, {129,255,255}, {0,0,0}, {41,255,255}, {41,255,255}, {129,255,255}, {129,255,255}, {129,255,255}, {0,255,255} },
+    [1] = { {0,255,255}, {0,255,255}, {0,255,255}, {172,255,255}, {0,0,0}, {172,255,255}, {129,255,255}, {172,255,255}, {129,255,255}, {0,0,0}, {41,255,255}, {129,255,255}, {129,255,255}, {129,255,255}, {0,0,0}, {172,255,255}, {129,255,255}, {129,255,255}, {129,255,255}, {0,0,255}, {41,255,255}, {129,255,255}, {129,255,255}, {129,255,255}, {86,255,255}, {41,255,255}, {129,255,255}, {129,255,255}, {129,255,255}, {0,0,0}, {172,255,255}, {172,255,255}, {129,255,255}, {129,255,255}, {129,255,255}, {0,255,255}, {41,255,255}, {129,255,255}, {215,255,128}, {172,255,255}, {0,0,0}, {172,255,255}, {129,255,255}, {129,255,255}, {129,255,255}, {0,0,0}, {41,255,255}, {129,255,255}, {129,255,255}, {129,255,255}, {0,0,0}, {172,255,255}, {129,255,255}, {129,255,255}, {129,255,255}, {129,255,255}, {41,255,255}, {129,255,255}, {129,255,255}, {129,255,255}, {0,255,255}, {172,255,255}, {129,255,255}, {129,255,255}, {129,255,255}, {0,0,0}, {41,255,255}, {41,255,255}, {129,255,255}, {129,255,255}, {129,255,255}, {0,255,255} },
 
     [2] = { {86,255,255}, {172,255,255}, {172,255,255}, {172,255,255}, {0,0,0}, {86,255,255}, {172,255,255}, {172,255,255}, {172,255,255}, {0,0,0}, {86,255,255}, {86,255,255}, {86,255,255}, {86,255,255}, {0,0,0}, {41,255,255}, {41,255,255}, {41,255,255}, {41,255,255}, {0,0,0}, {0,255,255}, {0,255,255}, {0,255,255}, {0,255,255}, {23,252,180}, {0,255,255}, {0,255,255}, {0,255,255}, {0,255,255}, {0,0,0}, {0,0,0}, {0,0,0}, {23,252,180}, {23,252,180}, {23,252,180}, {0,255,255}, {86,255,255}, {172,255,255}, {172,255,255}, {172,255,255}, {0,0,0}, {86,255,255}, {172,255,255}, {172,255,255}, {172,255,255}, {0,0,0}, {86,255,255}, {86,255,255}, {86,255,255}, {86,255,255}, {0,0,0}, {41,255,255}, {41,255,255}, {41,255,255}, {41,255,255}, {0,0,0}, {0,255,255}, {0,255,255}, {0,255,255}, {0,255,255}, {23,252,180}, {0,255,255}, {0,255,255}, {0,255,255}, {0,255,255}, {0,0,0}, {0,0,0}, {0,0,0}, {23,252,180}, {23,252,180}, {23,252,180}, {0,255,255} },
 
     [3] = { {0,255,255}, {0,255,255}, {0,255,255}, {0,0,0}, {0,0,0}, {0,255,255}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,255,255}, {41,255,255}, {41,255,255}, {41,255,255}, {0,0,0}, {0,255,255}, {41,255,255}, {41,255,255}, {41,255,255}, {0,0,0}, {0,255,255}, {41,255,255}, {41,255,255}, {41,255,255}, {0,0,0}, {0,255,255}, {41,255,255}, {41,255,255}, {41,255,255}, {0,0,0}, {0,0,0}, {0,0,0}, {0,255,255}, {0,255,255}, {0,255,255}, {0,255,255}, {0,0,0}, {0,255,255}, {0,255,255}, {0,255,255}, {0,0,0}, {0,255,255}, {0,255,255}, {0,255,255}, {0,255,255}, {0,0,0}, {0,255,255}, {0,255,255}, {0,255,255}, {172,255,255}, {0,0,0}, {0,255,255}, {0,255,255}, {0,255,255}, {172,255,255}, {0,0,0}, {0,255,255}, {0,255,255}, {0,255,255}, {172,255,255}, {0,255,255}, {0,255,255}, {0,255,255}, {0,255,255}, {172,255,255}, {0,0,0}, {0,0,0}, {0,0,0}, {0,255,255}, {0,255,255}, {0,255,255}, {0,255,255} },
 
-    [4] = { {0,255,255}, {0,255,255}, {0,255,255}, {0,255,255}, {0,0,0}, {0,0,0}, {172,255,255}, {0,0,0}, {86,255,255}, {0,0,0}, {0,0,0}, {172,255,255}, {172,255,255}, {172,255,255}, {0,0,0}, {0,0,0}, {172,255,255}, {172,255,255}, {172,255,255}, {0,0,0}, {172,255,255}, {172,255,255}, {172,255,255}, {172,255,255}, {86,255,255}, {0,0,0}, {172,255,255}, {86,255,255}, {172,255,255}, {0,0,0}, {0,0,0}, {0,0,0}, {86,255,255}, {86,255,255}, {86,255,255}, {0,255,255}, {0,0,0}, {0,0,0}, {86,255,255}, {0,255,255}, {0,0,0}, {41,255,255}, {41,255,255}, {41,255,255}, {41,255,255}, {0,0,0}, {41,255,255}, {86,255,255}, {86,255,255}, {86,255,255}, {0,0,0}, {41,255,255}, {86,255,255}, {86,255,255}, {86,255,255}, {172,255,255}, {0,255,255}, {86,255,255}, {86,255,255}, {86,255,255}, {86,255,255}, {0,0,0}, {41,255,255}, {41,255,255}, {41,255,255}, {0,0,0}, {0,0,0}, {0,0,0}, {86,255,255}, {86,255,255}, {86,255,255}, {0,255,255} },
+    [4] = { {0,255,255}, {0,255,255}, {0,255,255}, {0,255,255}, {0,0,0}, {0,0,0}, {172,255,255}, {0,0,0}, {86,255,255}, {0,0,0}, {0,0,0}, {172,255,255}, {172,255,255}, {172,255,255}, {0,0,0}, {0,0,0}, {172,255,255}, {172,255,255}, {172,255,255}, {0,0,0}, {172,255,255}, {172,255,255}, {172,255,255}, {172,255,255}, {86,255,255}, {0,0,0}, {172,255,255}, {86,255,255}, {172,255,255}, {0,0,0}, {0,0,0}, {0,0,0}, {86,255,255}, {86,255,255}, {86,255,255}, {0,255,255}, {0,0,0}, {0,0,0}, {86,255,255}, {0,255,255}, {0,0,0}, {41,255,255}, {41,255,255}, {41,255,255}, {41,255,255}, {0,0,0}, {41,255,255}, {86,255,255}, {86,255,255}, {86,255,255}, {0,0,0}, {41,255,255}, {86,255,255}, {86,255,255}, {86,255,255}, {0,0,0}, {0,255,255}, {86,255,255}, {86,255,255}, {86,255,255}, {86,255,255}, {0,0,0}, {41,255,255}, {41,255,255}, {41,255,255}, {0,0,0}, {0,0,0}, {0,0,0}, {86,255,255}, {86,255,255}, {86,255,255}, {0,255,255} },
 
-    [5] = { {0,255,255}, {215,255,128}, {215,255,128}, {215,255,128}, {0,0,0}, {41,255,255}, {172,255,255}, {172,255,255}, {215,255,128}, {0,0,0}, {215,255,128}, {215,255,128}, {172,255,255}, {172,255,255}, {0,0,0}, {41,255,255}, {215,255,128}, {172,255,255}, {215,255,128}, {0,0,255}, {215,255,128}, {172,255,255}, {215,255,128}, {172,255,255}, {215,255,128}, {215,255,128}, {172,255,255}, {215,255,128}, {215,255,128}, {0,0,0}, {0,0,0}, {0,0,0}, {215,255,128}, {129,255,255}, {129,255,255}, {0,255,255}, {215,255,128}, {0,0,0}, {172,255,255}, {0,0,0}, {0,0,0}, {41,255,255}, {215,255,128}, {215,255,128}, {215,255,128}, {0,0,0}, {215,255,128}, {172,255,255}, {215,255,128}, {215,255,128}, {0,0,0}, {41,255,255}, {172,255,255}, {215,255,128}, {215,255,128}, {129,255,255}, {215,255,128}, {172,255,255}, {215,255,128}, {215,255,128}, {215,255,128}, {41,255,255}, {172,255,255}, {215,255,128}, {215,255,128}, {0,0,0}, {41,255,255}, {41,255,255}, {129,255,255}, {129,255,255}, {129,255,255}, {0,255,255} },
+    [5] = { {0,255,255}, {215,255,128}, {215,255,128}, {215,255,128}, {0,0,0}, {41,255,255}, {172,255,255}, {172,255,255}, {215,255,128}, {0,0,0}, {215,255,128}, {215,255,128}, {172,255,255}, {172,255,255}, {0,0,0}, {41,255,255}, {215,255,128}, {172,255,255}, {215,255,128}, {0,0,0}, {215,255,128}, {172,255,255}, {215,255,128}, {172,255,255}, {215,255,128}, {215,255,128}, {172,255,255}, {215,255,128}, {215,255,128}, {0,0,0}, {0,0,0}, {0,0,0}, {129,255,255}, {129,255,255}, {129,255,255}, {0,255,255}, {215,255,128}, {0,0,0}, {172,255,255}, {0,0,0}, {0,0,0}, {41,255,255}, {215,255,128}, {215,255,128}, {215,255,128}, {0,0,0}, {215,255,128}, {172,255,255}, {215,255,128}, {215,255,128}, {0,0,0}, {41,255,255}, {172,255,255}, {215,255,128}, {215,255,128}, {0,0,0}, {215,255,128}, {172,255,255}, {215,255,128}, {215,255,128}, {215,255,128}, {41,255,255}, {172,255,255}, {215,255,128}, {215,255,128}, {0,0,0}, {0,0,0}, {0,0,0}, {129,255,255}, {129,255,255}, {129,255,255}, {0,255,255} },
 
-    [6] = { {0,255,255}, {215,255,128}, {215,255,128}, {215,255,128}, {0,0,0}, {215,255,128}, {215,255,128}, {172,255,255}, {215,255,128}, {0,0,0}, {215,255,128}, {172,255,255}, {172,255,255}, {215,255,128}, {0,0,0}, {215,255,128}, {172,255,255}, {215,255,128}, {215,255,128}, {0,0,255}, {215,255,128}, {215,255,128}, {172,255,255}, {215,255,128}, {215,255,128}, {215,255,128}, {215,255,128}, {215,255,128}, {172,255,255}, {0,0,0}, {0,0,0}, {0,0,0}, {215,255,128}, {0,0,255}, {0,0,255}, {0,255,255}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {215,255,128}, {215,255,128}, {172,255,255}, {172,255,255}, {0,0,0}, {215,255,128}, {172,255,255}, {215,255,128}, {172,255,255}, {0,0,0}, {215,255,128}, {215,255,128}, {215,255,128}, {172,255,255}, {129,255,255}, {215,255,128}, {172,255,255}, {172,255,255}, {215,255,128}, {215,255,128}, {215,255,128}, {215,255,128}, {215,255,128}, {215,255,128}, {0,0,0}, {172,255,255}, {172,255,255}, {215,255,128}, {0,0,255}, {0,0,255}, {0,255,255} },
+    [6] = { {0,255,255}, {215,255,128}, {215,255,128}, {215,255,128}, {0,0,0}, {215,255,128}, {215,255,128}, {172,255,255}, {215,255,128}, {0,0,0}, {215,255,128}, {172,255,255}, {172,255,255}, {215,255,128}, {0,0,0}, {215,255,128}, {172,255,255}, {215,255,128}, {215,255,128}, {0,0,0}, {215,255,128}, {215,255,128}, {172,255,255}, {215,255,128}, {215,255,128}, {215,255,128}, {215,255,128}, {215,255,128}, {172,255,255}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,255}, {0,0,255}, {0,0,255}, {0,255,255}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {215,255,128}, {215,255,128}, {172,255,255}, {172,255,255}, {0,0,0}, {215,255,128}, {172,255,255}, {215,255,128}, {172,255,255}, {0,0,0}, {215,255,128}, {215,255,128}, {215,255,128}, {172,255,255}, {0,0,0}, {215,255,128}, {172,255,255}, {172,255,255}, {215,255,128}, {215,255,128}, {215,255,128}, {215,255,128}, {215,255,128}, {215,255,128}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,255}, {0,0,255}, {0,0,255}, {0,255,255} },
 
 };
 
@@ -370,374 +369,359 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     break;
     case ST_MACRO_12:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_KP_0) SS_TAP(X_KP_0));
+      SEND_STRING(SS_TAP(X_E) SS_TAP(X_SCLN) SS_TAP(X_T) SS_TAP(X_SPACE));
     }
     break;
     case ST_MACRO_13:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_E) SS_TAP(X_SCLN) SS_TAP(X_T) SS_TAP(X_SPACE));
+      SEND_STRING(SS_TAP(X_QUOTE) SS_TAP(X_N) SS_TAP(X_J) SS_TAP(X_SPACE));
     }
     break;
     case ST_MACRO_14:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_QUOTE) SS_TAP(X_N) SS_TAP(X_J) SS_TAP(X_SPACE));
+      SEND_STRING(SS_TAP(X_T) SS_TAP(X_V) SS_TAP(X_E) SS_TAP(X_SPACE));
     }
     break;
     case ST_MACRO_15:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_T) SS_TAP(X_V) SS_TAP(X_E) SS_TAP(X_SPACE));
+      SEND_STRING(SS_TAP(X_R) SS_TAP(X_F) SS_TAP(X_R) SS_TAP(X_SPACE));
     }
     break;
     case ST_MACRO_16:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_R) SS_TAP(X_F) SS_TAP(X_R) SS_TAP(X_SPACE));
+      SEND_STRING(SS_TAP(X_T) SS_TAP(X_U) SS_TAP(X_J) SS_TAP(X_SPACE));
     }
     break;
     case ST_MACRO_17:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_T) SS_TAP(X_U) SS_TAP(X_J) SS_TAP(X_SPACE));
+      SEND_STRING(SS_TAP(X_COMMA) SS_TAP(X_S) SS_TAP(X_K) SS_TAP(X_SPACE));
     }
     break;
     case ST_MACRO_18:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_COMMA) SS_TAP(X_S) SS_TAP(X_K) SS_TAP(X_SPACE));
+      SEND_STRING(SS_TAP(X_COMMA) SS_TAP(X_S) SS_TAP(X_K) SS_TAP(X_J) SS_TAP(X_SPACE));
     }
     break;
     case ST_MACRO_19:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_COMMA) SS_TAP(X_S) SS_TAP(X_K) SS_TAP(X_J) SS_TAP(X_SPACE));
+      SEND_STRING(SS_TAP(X_D) SS_TAP(X_C) SS_TAP(X_T) SS_TAP(X_SPACE));
     }
     break;
     case ST_MACRO_20:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_D) SS_TAP(X_C) SS_TAP(X_T) SS_TAP(X_SPACE));
+      SEND_STRING(SS_TAP(X_J) SS_TAP(X_Y) SS_TAP(X_F) SS_TAP(X_SPACE));
     }
     break;
     case ST_MACRO_21:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_J) SS_TAP(X_Y) SS_TAP(X_F) SS_TAP(X_SPACE));
+      SEND_STRING(SS_TAP(X_N) SS_TAP(X_F) SS_TAP(X_R) SS_TAP(X_SPACE));
     }
     break;
     case ST_MACRO_22:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_N) SS_TAP(X_F) SS_TAP(X_R) SS_TAP(X_SPACE));
+      SEND_STRING(SS_TAP(X_D) SS_TAP(X_J) SS_TAP(X_N) SS_TAP(X_SPACE));
     }
     break;
     case ST_MACRO_23:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_D) SS_TAP(X_J) SS_TAP(X_N) SS_TAP(X_SPACE));
+      SEND_STRING(SS_TAP(X_V) SS_TAP(X_T) SS_TAP(X_Y) SS_TAP(X_Z) SS_TAP(X_SPACE));
     }
     break;
     case ST_MACRO_24:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_V) SS_TAP(X_T) SS_TAP(X_Y) SS_TAP(X_Z) SS_TAP(X_SPACE));
+      SEND_STRING(SS_TAP(X_X) SS_TAP(X_N) SS_TAP(X_J) SS_TAP(X_SPACE));
     }
     break;
     case ST_MACRO_25:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_X) SS_TAP(X_N) SS_TAP(X_J) SS_TAP(X_SPACE));
+      SEND_STRING(SS_TAP(X_G) SS_TAP(X_T) SS_TAP(X_H) SS_TAP(X_T));
     }
     break;
     case ST_MACRO_26:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_G) SS_TAP(X_T) SS_TAP(X_H) SS_TAP(X_T));
+      SEND_STRING(SS_TAP(X_V) SS_TAP(X_Y) SS_TAP(X_T) SS_TAP(X_SPACE));
     }
     break;
     case ST_MACRO_27:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_V) SS_TAP(X_Y) SS_TAP(X_T) SS_TAP(X_SPACE));
+      SEND_STRING(SS_TAP(X_J) SS_TAP(X_Y) SS_TAP(X_B) SS_TAP(X_SPACE));
     }
     break;
     case ST_MACRO_28:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_J) SS_TAP(X_Y) SS_TAP(X_B) SS_TAP(X_SPACE));
+      SEND_STRING(SS_TAP(X_L) SS_TAP(X_K) SS_TAP(X_Z) SS_TAP(X_SPACE));
     }
     break;
     case ST_MACRO_29:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_L) SS_TAP(X_K) SS_TAP(X_Z) SS_TAP(X_SPACE));
+      SEND_STRING(SS_TAP(X_B) SS_TAP(X_K) SS_TAP(X_B) SS_TAP(X_SPACE));
     }
     break;
     case ST_MACRO_30:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_B) SS_TAP(X_K) SS_TAP(X_B) SS_TAP(X_SPACE));
+      SEND_STRING(SS_TAP(X_Y) SS_TAP(X_T) SS_TAP(X_U) SS_TAP(X_J) SS_TAP(X_SPACE));
     }
     break;
     case ST_MACRO_31:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_Y) SS_TAP(X_T) SS_TAP(X_U) SS_TAP(X_J) SS_TAP(X_SPACE));
+      SEND_STRING(SS_TAP(X_U) SS_TAP(X_J) SS_TAP(X_D) SS_TAP(X_J) SS_TAP(X_H));
     }
     break;
     case ST_MACRO_32:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_U) SS_TAP(X_J) SS_TAP(X_D) SS_TAP(X_J) SS_TAP(X_H));
+      SEND_STRING(SS_TAP(X_X) SS_TAP(X_N) SS_TAP(X_J) SS_TAP(X_COMMA) SS_TAP(X_S) SS_TAP(X_SPACE));
     }
     break;
     case ST_MACRO_33:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_X) SS_TAP(X_N) SS_TAP(X_J) SS_TAP(X_COMMA) SS_TAP(X_S) SS_TAP(X_SPACE));
+      SEND_STRING(SS_TAP(X_T) SS_TAP(X_O) SS_TAP(X_SLASH) SS_TAP(X_SPACE));
     }
     break;
     case ST_MACRO_34:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_T) SS_TAP(X_O) SS_TAP(X_SLASH) SS_TAP(X_SPACE));
+      SEND_STRING(SS_TAP(X_6) SS_TAP(X_SPACE) SS_TAP(X_L) SS_TAP(X_J) SS_TAP(X_COMMA) SS_TAP(X_H) SS_TAP(X_S) SS_TAP(X_Q) SS_TAP(X_SPACE) SS_TAP(X_L) SS_TAP(X_T) SS_TAP(X_Y) SS_TAP(X_M) SS_TAP(X_MINUS));
     }
     break;
     case ST_MACRO_35:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_6) SS_TAP(X_SPACE) SS_TAP(X_L) SS_TAP(X_J) SS_TAP(X_COMMA) SS_TAP(X_H) SS_TAP(X_S) SS_TAP(X_Q) SS_TAP(X_SPACE) SS_TAP(X_L) SS_TAP(X_T) SS_TAP(X_Y) SS_TAP(X_M) SS_TAP(X_MINUS));
+      SEND_STRING(SS_TAP(X_C) SS_TAP(X_R) SS_TAP(X_F) SS_TAP(X_P) SS_TAP(X_F));
     }
     break;
     case ST_MACRO_36:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_C) SS_TAP(X_R) SS_TAP(X_F) SS_TAP(X_P) SS_TAP(X_F));
+      SEND_STRING(SS_TAP(X_R) SS_TAP(X_J) SS_TAP(X_N) SS_TAP(X_J) SS_TAP(X_H));
     }
     break;
     case ST_MACRO_37:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_R) SS_TAP(X_J) SS_TAP(X_N) SS_TAP(X_J) SS_TAP(X_H));
+      SEND_STRING(SS_TAP(X_T) SS_TAP(X_C) SS_TAP(X_K) SS_TAP(X_B) SS_TAP(X_SPACE));
     }
     break;
     case ST_MACRO_38:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_T) SS_TAP(X_C) SS_TAP(X_K) SS_TAP(X_B) SS_TAP(X_SPACE));
+      SEND_STRING(SS_TAP(X_R) SS_TAP(X_J) SS_TAP(X_U) SS_TAP(X_L) SS_TAP(X_F) SS_TAP(X_SPACE));
     }
     break;
     case ST_MACRO_39:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_R) SS_TAP(X_J) SS_TAP(X_U) SS_TAP(X_L) SS_TAP(X_F) SS_TAP(X_SPACE));
+      SEND_STRING(SS_TAP(X_6) SS_TAP(X_SPACE) SS_TAP(X_G) SS_TAP(X_J) SS_TAP(X_SCLN) SS_TAP(X_F) SS_TAP(X_K) SS_TAP(X_E) SS_TAP(X_Q) SS_TAP(X_C) SS_TAP(X_N) SS_TAP(X_F) SS_TAP(X_6) SS_TAP(X_SPACE));
     }
     break;
     case ST_MACRO_40:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_6) SS_TAP(X_SPACE) SS_TAP(X_G) SS_TAP(X_J) SS_TAP(X_SCLN) SS_TAP(X_F) SS_TAP(X_K) SS_TAP(X_E) SS_TAP(X_Q) SS_TAP(X_C) SS_TAP(X_N) SS_TAP(X_F) SS_TAP(X_6) SS_TAP(X_SPACE));
+      SEND_STRING(SS_TAP(X_N) SS_TAP(X_T) SS_TAP(X_G) SS_TAP(X_T) SS_TAP(X_H) SS_TAP(X_M) SS_TAP(X_SPACE));
     }
     break;
     case ST_MACRO_41:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_N) SS_TAP(X_T) SS_TAP(X_G) SS_TAP(X_T) SS_TAP(X_H) SS_TAP(X_M) SS_TAP(X_SPACE));
+      SEND_STRING(SS_TAP(X_N) SS_TAP(X_J) SS_TAP(X_K) SS_TAP(X_M) SS_TAP(X_R) SS_TAP(X_J) SS_TAP(X_SPACE));
     }
     break;
     case ST_MACRO_42:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_N) SS_TAP(X_J) SS_TAP(X_K) SS_TAP(X_M) SS_TAP(X_R) SS_TAP(X_J) SS_TAP(X_SPACE));
+      SEND_STRING(SS_TAP(X_D) SS_TAP(X_H) SS_TAP(X_T) SS_TAP(X_V) SS_TAP(X_Z) SS_TAP(X_SPACE));
     }
     break;
     case ST_MACRO_43:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_D) SS_TAP(X_H) SS_TAP(X_T) SS_TAP(X_V) SS_TAP(X_Z) SS_TAP(X_SPACE));
+      SEND_STRING(SS_TAP(X_X) SS_TAP(X_T) SS_TAP(X_K) SS_TAP(X_J) SS_TAP(X_D) SS_TAP(X_T));
     }
     break;
     case ST_MACRO_44:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_X) SS_TAP(X_T) SS_TAP(X_K) SS_TAP(X_J) SS_TAP(X_D) SS_TAP(X_T));
+      SEND_STRING(SS_TAP(X_C) SS_TAP(X_G) SS_TAP(X_F) SS_TAP(X_C) SS_TAP(X_B) SS_TAP(X_COMMA) SS_TAP(X_J) SS_TAP(X_SPACE));
     }
     break;
     case ST_MACRO_45:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_C) SS_TAP(X_G) SS_TAP(X_F) SS_TAP(X_C) SS_TAP(X_B) SS_TAP(X_COMMA) SS_TAP(X_J) SS_TAP(X_SPACE));
+      SEND_STRING(SS_TAP(X_COMMA) SS_TAP(X_S) SS_TAP(X_K) SS_TAP(X_F) SS_TAP(X_SPACE));
     }
     break;
     case ST_MACRO_46:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_COMMA) SS_TAP(X_S) SS_TAP(X_K) SS_TAP(X_F) SS_TAP(X_SPACE));
+      SEND_STRING(SS_TAP(X_COMMA) SS_TAP(X_S) SS_TAP(X_K) SS_TAP(X_B) SS_TAP(X_SPACE));
     }
     break;
     case ST_MACRO_47:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_COMMA) SS_TAP(X_S) SS_TAP(X_K) SS_TAP(X_B) SS_TAP(X_SPACE));
+      SEND_STRING(SS_TAP(X_W) SS_TAP(X_H) SS_TAP(X_O) SS_TAP(X_SPACE));
     }
     break;
     case ST_MACRO_48:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_W) SS_TAP(X_H) SS_TAP(X_O) SS_TAP(X_SPACE));
+      SEND_STRING(SS_TAP(X_W) SS_TAP(X_H) SS_TAP(X_A) SS_TAP(X_T) SS_TAP(X_SPACE));
     }
     break;
     case ST_MACRO_49:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_W) SS_TAP(X_H) SS_TAP(X_A) SS_TAP(X_T) SS_TAP(X_SPACE));
+      SEND_STRING(SS_TAP(X_W) SS_TAP(X_I) SS_TAP(X_T) SS_TAP(X_H) SS_TAP(X_SPACE));
     }
     break;
     case ST_MACRO_50:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_W) SS_TAP(X_I) SS_TAP(X_T) SS_TAP(X_H) SS_TAP(X_SPACE));
+      SEND_STRING(SS_TAP(X_F) SS_TAP(X_O) SS_TAP(X_R) SS_TAP(X_SPACE));
     }
     break;
     case ST_MACRO_51:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_F) SS_TAP(X_O) SS_TAP(X_R) SS_TAP(X_SPACE));
+      SEND_STRING(SS_TAP(X_Y) SS_TAP(X_O) SS_TAP(X_U) SS_TAP(X_SPACE));
     }
     break;
     case ST_MACRO_52:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_Y) SS_TAP(X_O) SS_TAP(X_U) SS_TAP(X_SPACE));
+      SEND_STRING(SS_TAP(X_T) SS_TAP(X_H) SS_TAP(X_I) SS_TAP(X_S) SS_TAP(X_SPACE));
     }
     break;
     case ST_MACRO_53:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_T) SS_TAP(X_H) SS_TAP(X_I) SS_TAP(X_S) SS_TAP(X_SPACE));
+      SEND_STRING(SS_TAP(X_N) SS_TAP(X_QUOTE) SS_TAP(X_T) SS_TAP(X_SPACE));
     }
     break;
     case ST_MACRO_54:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_N) SS_TAP(X_QUOTE) SS_TAP(X_T) SS_TAP(X_SPACE));
+      SEND_STRING(SS_TAP(X_A) SS_TAP(X_N) SS_TAP(X_D) SS_TAP(X_SPACE));
     }
     break;
     case ST_MACRO_55:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_A) SS_TAP(X_N) SS_TAP(X_D) SS_TAP(X_SPACE));
+      SEND_STRING(SS_TAP(X_A) SS_TAP(X_R) SS_TAP(X_E) SS_TAP(X_SPACE));
     }
     break;
     case ST_MACRO_56:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_A) SS_TAP(X_R) SS_TAP(X_E) SS_TAP(X_SPACE));
+      SEND_STRING(SS_TAP(X_W) SS_TAP(X_A) SS_TAP(X_S) SS_TAP(X_SPACE));
     }
     break;
     case ST_MACRO_57:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_W) SS_TAP(X_A) SS_TAP(X_S) SS_TAP(X_SPACE));
+      SEND_STRING(SS_TAP(X_T) SS_TAP(X_H) SS_TAP(X_E) SS_TAP(X_SPACE));
     }
     break;
     case ST_MACRO_58:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_T) SS_TAP(X_H) SS_TAP(X_E) SS_TAP(X_SPACE));
+      SEND_STRING(SS_TAP(X_T) SS_TAP(X_H) SS_TAP(X_A) SS_TAP(X_T) SS_TAP(X_SPACE));
     }
     break;
     case ST_MACRO_59:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_T) SS_TAP(X_H) SS_TAP(X_A) SS_TAP(X_T) SS_TAP(X_SPACE));
+      SEND_STRING(SS_TAP(X_A) SS_TAP(X_L) SS_TAP(X_L) SS_TAP(X_SPACE));
     }
     break;
     case ST_MACRO_60:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_A) SS_TAP(X_L) SS_TAP(X_L) SS_TAP(X_SPACE));
+      SEND_STRING(SS_TAP(X_H) SS_TAP(X_I) SS_TAP(X_S) SS_TAP(X_SPACE));
     }
     break;
     case ST_MACRO_61:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_H) SS_TAP(X_I) SS_TAP(X_S) SS_TAP(X_SPACE));
+      SEND_STRING(SS_TAP(X_H) SS_TAP(X_E) SS_TAP(X_R) SS_TAP(X_SPACE));
     }
     break;
     case ST_MACRO_62:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_H) SS_TAP(X_E) SS_TAP(X_R) SS_TAP(X_SPACE));
+      SEND_STRING(SS_TAP(X_S) SS_TAP(X_H) SS_TAP(X_E) SS_TAP(X_SPACE));
     }
     break;
     case ST_MACRO_63:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_S) SS_TAP(X_H) SS_TAP(X_E) SS_TAP(X_SPACE));
+      SEND_STRING(SS_TAP(X_H) SS_TAP(X_A) SS_TAP(X_V) SS_TAP(X_E) SS_TAP(X_SPACE));
     }
     break;
     case ST_MACRO_64:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_H) SS_TAP(X_A) SS_TAP(X_V) SS_TAP(X_E) SS_TAP(X_SPACE));
+      SEND_STRING(SS_TAP(X_B) SS_TAP(X_U) SS_TAP(X_T) SS_TAP(X_SPACE));
     }
     break;
     case ST_MACRO_65:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_B) SS_TAP(X_U) SS_TAP(X_T) SS_TAP(X_SPACE));
+      SEND_STRING(SS_TAP(X_H) SS_TAP(X_A) SS_TAP(X_S) SS_TAP(X_SPACE));
     }
     break;
     case ST_MACRO_66:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_H) SS_TAP(X_A) SS_TAP(X_S) SS_TAP(X_SPACE));
+      SEND_STRING(SS_TAP(X_H) SS_TAP(X_A) SS_TAP(X_D) SS_TAP(X_SPACE));
     }
     break;
     case ST_MACRO_67:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_H) SS_TAP(X_A) SS_TAP(X_D) SS_TAP(X_SPACE));
+      SEND_STRING(SS_TAP(X_L) SS_TAP(X_I) SS_TAP(X_K) SS_TAP(X_E) SS_TAP(X_SPACE));
     }
     break;
     case ST_MACRO_68:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_E) SS_TAP(X_A) SS_TAP(X_S) SS_TAP(X_Y) SS_TAP(X_8) SS_TAP(X_U) SS_TAP(X_S) SS_TAP(X_Y) SS_LSFT(SS_TAP(X_J)) SS_TAP(X_A) SS_TAP(X_P) SS_TAP(X_A) SS_TAP(X_N) SS_TAP(X_E) SS_LSFT(SS_TAP(X_3)) SS_TAP(X_3));
+      SEND_STRING(SS_TAP(X_A) SS_TAP(X_B) SS_TAP(X_O) SS_TAP(X_U) SS_TAP(X_T) SS_TAP(X_SPACE));
     }
     break;
     case ST_MACRO_69:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_L) SS_TAP(X_I) SS_TAP(X_K) SS_TAP(X_E) SS_TAP(X_SPACE));
+      SEND_STRING(SS_TAP(X_Y) SS_TAP(X_O) SS_TAP(X_U) SS_TAP(X_R) SS_TAP(X_SPACE));
     }
     break;
     case ST_MACRO_70:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_A) SS_TAP(X_B) SS_TAP(X_O) SS_TAP(X_U) SS_TAP(X_T) SS_TAP(X_SPACE));
+      SEND_STRING(SS_TAP(X_W) SS_TAP(X_E) SS_TAP(X_R) SS_TAP(X_E) SS_TAP(X_SPACE));
     }
     break;
     case ST_MACRO_71:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_Y) SS_TAP(X_O) SS_TAP(X_U) SS_TAP(X_R) SS_TAP(X_SPACE));
+      SEND_STRING(SS_TAP(X_T) SS_TAP(X_H) SS_TAP(X_E) SS_TAP(X_R) SS_TAP(X_E) SS_TAP(X_SPACE));
     }
     break;
     case ST_MACRO_72:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_W) SS_TAP(X_E) SS_TAP(X_R) SS_TAP(X_E) SS_TAP(X_SPACE));
+      SEND_STRING(SS_TAP(X_N) SS_TAP(X_O) SS_TAP(X_T) SS_TAP(X_SPACE));
     }
     break;
     case ST_MACRO_73:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_H) SS_TAP(X_A) SS_TAP(X_C) SS_TAP(X_K) SS_LSFT(SS_TAP(X_M)) SS_TAP(X_E) SS_TAP(X_1) SS_TAP(X_F) SS_TAP(X_Y) SS_TAP(X_O) SS_TAP(X_U) SS_TAP(X_C) SS_LSFT(SS_TAP(X_2)) SS_TAP(X_N));
+      SEND_STRING(SS_TAP(X_T) SS_TAP(X_H) SS_TAP(X_E) SS_TAP(X_Y) SS_TAP(X_SPACE));
     }
     break;
     case ST_MACRO_74:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_T) SS_TAP(X_H) SS_TAP(X_E) SS_TAP(X_R) SS_TAP(X_E) SS_TAP(X_SPACE));
+      SEND_STRING(SS_TAP(X_T) SS_TAP(X_H) SS_TAP(X_E) SS_TAP(X_I) SS_TAP(X_R) SS_TAP(X_SPACE));
     }
     break;
     case ST_MACRO_75:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_N) SS_TAP(X_O) SS_TAP(X_T) SS_TAP(X_SPACE));
+      SEND_STRING(SS_TAP(X_O) SS_TAP(X_N) SS_TAP(X_E) SS_TAP(X_SPACE));
     }
     break;
     case ST_MACRO_76:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_T) SS_TAP(X_H) SS_TAP(X_E) SS_TAP(X_Y) SS_TAP(X_SPACE));
+      SEND_STRING(SS_TAP(X_C) SS_TAP(X_A) SS_TAP(X_N) SS_TAP(X_SPACE));
     }
     break;
     case ST_MACRO_77:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_T) SS_TAP(X_H) SS_TAP(X_E) SS_TAP(X_I) SS_TAP(X_R) SS_TAP(X_SPACE));
+      SEND_STRING(SS_TAP(X_F) SS_TAP(X_R) SS_TAP(X_O) SS_TAP(X_M) SS_TAP(X_SPACE));
     }
     break;
     case ST_MACRO_78:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_O) SS_TAP(X_N) SS_TAP(X_E) SS_TAP(X_SPACE));
-    }
-    break;
-    case ST_MACRO_79:
-    if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_C) SS_TAP(X_A) SS_TAP(X_N) SS_TAP(X_SPACE));
-    }
-    break;
-    case ST_MACRO_80:
-    if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_F) SS_TAP(X_R) SS_TAP(X_O) SS_TAP(X_M) SS_TAP(X_SPACE));
-    }
-    break;
-    case ST_MACRO_81:
-    if (record->event.pressed) {
       SEND_STRING(SS_TAP(X_COMMA) SS_LSFT(SS_TAP(X_QUOTE)) SS_TAP(X_SPACE));
     }
     break;
-    case ST_MACRO_82:
+    case ST_MACRO_79:
     if (record->event.pressed) {
       clear_oneshot_mods();
       SEND_STRING(SS_TAP(X_DOT) SS_LSFT(SS_TAP(X_QUOTE)) SS_TAP(X_SPACE));
       set_oneshot_mods(MOD_LSFT);
     }
     break;
-    case ST_MACRO_83:
+    case ST_MACRO_80:
     if (record->event.pressed) {
       clear_oneshot_mods();
       SEND_STRING(SS_LSFT(SS_TAP(X_SLASH)) SS_LSFT(SS_TAP(X_QUOTE)) SS_TAP(X_SPACE));
       set_oneshot_mods(MOD_LSFT);
     }
     break;
-    case ST_MACRO_84:
+    case ST_MACRO_81:
     if (record->event.pressed) {
       SEND_STRING(SS_TAP(X_J) SS_TAP(X_U) SS_TAP(X_S) SS_TAP(X_T) SS_TAP(X_SPACE));
     }
     break;
-    case ST_MACRO_85:
+    case ST_MACRO_82:
     if (record->event.pressed) {
       SEND_STRING(SS_TAP(X_O) SS_TAP(X_U) SS_TAP(X_T) SS_TAP(X_SPACE));
     }
