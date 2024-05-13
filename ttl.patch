@@ -1,5 +1,5 @@
---- /home/lh/Downloads/moonlander_current_source/keymap.c	2024-05-12 18:45:56.000000000 +0300
-+++ keyboards/moonlander/keymaps/tutolmin/keymap.c	2024-05-12 22:00:00.338547549 +0300
+--- /home/lh/Downloads/moonlander_current_source/keymap.c	2024-05-13 14:24:42.000000000 +0300
++++ keyboards/moonlander/keymaps/tutolmin/keymap.c	2024-05-13 17:25:22.681550324 +0300
 @@ -3 +3,2 @@
 -#include "i18n.h"
 +//#include "i18n.h"
