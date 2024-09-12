@@ -36,6 +36,7 @@
 #define RU_YU KC_DOT
 #define RU_YO KC_GRV
 #define RU_NUM S(KC_3)
+#define RU_PLUS S(KC_EQL)
 #define RU_SLSH S(KC_BSLS)
 #define RU_LPRN S(KC_9)
 #define RU_SCLN S(KC_4)
@@ -44,5 +45,6 @@
 #define RU_COMM S(KC_SLSH)
 #define RU_RPRN S(KC_0)
 #define RU_UNDS S(KC_MINS)
+#define RU_BSLS KC_BSLS
 #define RU_PERC S(KC_5)
 #define RU_E KC_QUOT
