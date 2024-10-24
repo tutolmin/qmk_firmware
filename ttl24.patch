@@ -1,0 +1,395 @@
+--- keyboards/zsa/moonlander/keymaps/tutolmin/keymap.c.orig	2024-10-24 12:24:01.108645110 +0000
++++ keyboards/zsa/moonlander/keymaps/tutolmin/keymap.c	2024-10-24 12:24:26.561108930 +0000
+@@ -3 +3,2 @@
+-#include "i18n.h"
++//#include "i18n.h"
++#include "keymap_ru_type.h"
+@@ -261 +262 @@
+-      SEND_STRING(SS_TAP(X_COMMA) SS_DELAY(100) SS_TAP(X_SPACE));
++      SEND_STRING(SS_TAP(X_COMMA) SS_TAP(X_SPACE));
+@@ -266 +267,49 @@
+-      SEND_STRING(SS_TAP(X_DOT) SS_DELAY(100) SS_TAP(X_SPACE));
++    // Shift OSM is removed from the layout
++    case KC_DQUO: // \" in English should keep OSM for the next char 
++    if (record->event.pressed) {
++      if (get_oneshot_mods() == MOD_BIT(KC_LSFT)) {
++	SEND_STRING(SS_TAP(X_QUOTE));
++        set_oneshot_mods(MOD_LSFT);
++        return false;
++      }
++    }
++    break;
++    case RU_MINS: // - in Russian should NOT be shifted
++    if (biton32(layer_state) == 1) {
++      clear_oneshot_mods();
++    }
++    break;
++    // Shift OSM is removed from the layout
++    case RU_DQUO: // \" in Russian should NOT be shifted, but should keep OSM
++    if (biton32(layer_state) == 1) {
++      if (record->event.pressed) {
++        if (get_oneshot_mods() == MOD_BIT(KC_LSFT)) {
++          clear_oneshot_mods();
++	  SEND_STRING(SS_TAP(X_4));
++          set_oneshot_mods(MOD_LSFT);
++          return false;
++        }
++      }
++    }
++    break;
++    case TO(0): // this runs when TO(ENG) is pressed (the key to toggle layer 0 on)
++    if (record->event.pressed) {
++        register_code(KC_LALT);
++        register_code(KC_LSFT);
++        tap_code(KC_4);
++        unregister_code(KC_LSFT);
++        unregister_code(KC_LALT);
++    }
++    break;
++    case TO(1): // this runs when TO(RUS) is pressed (the key to toggle layer 1 on)
++    if (record->event.pressed) {
++        register_code(KC_LALT);
++        register_code(KC_LSFT);
++        tap_code(KC_5);
++        unregister_code(KC_LSFT);
++        unregister_code(KC_LALT);
++    }
++    break;
++      clear_oneshot_mods();
++      SEND_STRING(SS_TAP(X_DOT) SS_TAP(X_SPACE));
++      set_oneshot_mods(MOD_LSFT);
+@@ -271 +320,3 @@
+-      SEND_STRING(SS_TAP(X_2) SS_DELAY(100) SS_TAP(X_SPACE));
++      clear_oneshot_mods();
++      SEND_STRING(SS_TAP(X_2) SS_TAP(X_SPACE));
++      set_oneshot_mods(MOD_LSFT);
+@@ -276 +327 @@
+-      SEND_STRING(SS_TAP(X_Y) SS_DELAY(100) SS_TAP(X_F) SS_DELAY(100) SS_TAP(X_SPACE));
++      SEND_STRING(SS_TAP(X_Y) SS_TAP(X_F) SS_TAP(X_SPACE));
+@@ -281 +332 @@
+-      SEND_STRING(SS_TAP(X_B) SS_DELAY(100) SS_TAP(X_SPACE));
++      SEND_STRING(SS_TAP(X_B) SS_TAP(X_SPACE));
+@@ -286 +337 @@
+-      SEND_STRING(SS_TAP(X_6) SS_DELAY(100) SS_TAP(X_SPACE));
++      SEND_STRING(SS_TAP(X_6) SS_TAP(X_SPACE));
+@@ -291 +342 @@
+-      SEND_STRING(SS_TAP(X_J) SS_DELAY(100) SS_TAP(X_Y) SS_DELAY(100) SS_TAP(X_SPACE));
++      SEND_STRING(SS_TAP(X_J) SS_TAP(X_Y) SS_TAP(X_SPACE));
+@@ -296 +347 @@
+-      SEND_STRING(SS_TAP(X_Y) SS_DELAY(100) SS_TAP(X_T) SS_DELAY(100) SS_TAP(X_SPACE));
++      SEND_STRING(SS_TAP(X_Y) SS_TAP(X_T) SS_TAP(X_SPACE));
+@@ -301 +352 @@
+-      SEND_STRING(SS_TAP(X_2) SS_DELAY(100) SS_TAP(X_N) SS_DELAY(100) SS_TAP(X_J) SS_DELAY(100) SS_TAP(X_SPACE));
++      SEND_STRING(SS_TAP(X_2) SS_TAP(X_N) SS_TAP(X_J) SS_TAP(X_SPACE));
+@@ -306 +357,3 @@
+-      SEND_STRING(SS_TAP(X_7) SS_DELAY(100) SS_TAP(X_SPACE));
++      clear_oneshot_mods();
++      SEND_STRING(SS_TAP(X_7) SS_TAP(X_SPACE));
++      set_oneshot_mods(MOD_LSFT);
+@@ -311 +364,2 @@
+-      SEND_STRING(SS_TAP(X_H) SS_DELAY(100) SS_TAP(X_A) SS_DELAY(100) SS_TAP(X_C) SS_DELAY(100) SS_TAP(X_K));
++      SEND_STRING(SS_TAP(X_H) SS_TAP(X_A) SS_TAP(X_C) SS_TAP(X_K) SS_LSFT(SS_TAP(X_M)) SS_TAP(X_E) SS_TAP(X_1) SS_TAP(X_F) SS_TAP(X_Y) SS_TAP(X_O) SS_TAP(X_U) SS_TAP(X_C) SS_LSFT(SS_TAP(X_2)) SS_TAP(X_N));
++
+@@ -316 +370 @@
+-      SEND_STRING(SS_TAP(X_E) SS_DELAY(100) SS_TAP(X_A) SS_DELAY(100) SS_TAP(X_S) SS_DELAY(100) SS_TAP(X_Y));
++      SEND_STRING(SS_TAP(X_E) SS_TAP(X_A) SS_TAP(X_S) SS_TAP(X_Y) SS_TAP(X_8) SS_TAP(X_U) SS_TAP(X_S) SS_TAP(X_Y) SS_LSFT(SS_TAP(X_J)) SS_TAP(X_A) SS_TAP(X_P) SS_TAP(X_A) SS_TAP(X_N) SS_TAP(X_E) SS_LSFT(SS_TAP(X_4)) SS_TAP(X_3));
+@@ -321 +375 @@
+-      SEND_STRING(SS_TAP(X_E) SS_DELAY(100) SS_TAP(X_SCLN) SS_DELAY(100) SS_TAP(X_T) SS_DELAY(100) SS_TAP(X_SPACE));
++      SEND_STRING(SS_TAP(X_E) SS_TAP(X_SCLN) SS_TAP(X_T) SS_TAP(X_SPACE));
+@@ -326 +380 @@
+-      SEND_STRING(SS_TAP(X_QUOTE) SS_DELAY(100) SS_TAP(X_N) SS_DELAY(100) SS_TAP(X_J) SS_DELAY(100) SS_TAP(X_SPACE));
++      SEND_STRING(SS_TAP(X_QUOTE) SS_TAP(X_N) SS_TAP(X_J) SS_TAP(X_SPACE));
+@@ -331 +385 @@
+-      SEND_STRING(SS_TAP(X_T) SS_DELAY(100) SS_TAP(X_V) SS_DELAY(100) SS_TAP(X_E) SS_DELAY(100) SS_TAP(X_SPACE));
++      SEND_STRING(SS_TAP(X_T) SS_TAP(X_V) SS_TAP(X_E) SS_TAP(X_SPACE));
+@@ -336 +390 @@
+-      SEND_STRING(SS_TAP(X_R) SS_DELAY(100) SS_TAP(X_F) SS_DELAY(100) SS_TAP(X_R) SS_DELAY(100) SS_TAP(X_SPACE));
++      SEND_STRING(SS_TAP(X_R) SS_TAP(X_F) SS_TAP(X_R) SS_TAP(X_SPACE));
+@@ -341 +395 @@
+-      SEND_STRING(SS_TAP(X_T) SS_DELAY(100) SS_TAP(X_U) SS_DELAY(100) SS_TAP(X_J) SS_DELAY(100) SS_TAP(X_SPACE));
++      SEND_STRING(SS_TAP(X_T) SS_TAP(X_U) SS_TAP(X_J) SS_TAP(X_SPACE));
+@@ -346 +400 @@
+-      SEND_STRING(SS_TAP(X_COMMA) SS_DELAY(100) SS_TAP(X_S) SS_DELAY(100) SS_TAP(X_K) SS_DELAY(100) SS_TAP(X_SPACE));
++      SEND_STRING(SS_TAP(X_COMMA) SS_TAP(X_S) SS_TAP(X_K) SS_TAP(X_SPACE));
+@@ -351 +405 @@
+-      SEND_STRING(SS_TAP(X_COMMA) SS_DELAY(100) SS_TAP(X_S) SS_DELAY(100) SS_TAP(X_K) SS_DELAY(100) SS_TAP(X_J) SS_DELAY(100) SS_TAP(X_SPACE));
++      SEND_STRING(SS_TAP(X_COMMA) SS_TAP(X_S) SS_TAP(X_K) SS_TAP(X_J) SS_TAP(X_SPACE));
+@@ -356 +410 @@
+-      SEND_STRING(SS_TAP(X_D) SS_DELAY(100) SS_TAP(X_C) SS_DELAY(100) SS_TAP(X_T) SS_DELAY(100) SS_TAP(X_SPACE));
++      SEND_STRING(SS_TAP(X_D) SS_TAP(X_C) SS_TAP(X_T) SS_TAP(X_SPACE));
+@@ -361 +415 @@
+-      SEND_STRING(SS_TAP(X_J) SS_DELAY(100) SS_TAP(X_Y) SS_DELAY(100) SS_TAP(X_F) SS_DELAY(100) SS_TAP(X_SPACE));
++      SEND_STRING(SS_TAP(X_J) SS_TAP(X_Y) SS_TAP(X_F) SS_TAP(X_SPACE));
+@@ -366 +420 @@
+-      SEND_STRING(SS_TAP(X_N) SS_DELAY(100) SS_TAP(X_F) SS_DELAY(100) SS_TAP(X_R) SS_DELAY(100) SS_TAP(X_SPACE));
++      SEND_STRING(SS_TAP(X_N) SS_TAP(X_F) SS_TAP(X_R) SS_TAP(X_SPACE));
+@@ -371 +425 @@
+-      SEND_STRING(SS_TAP(X_D) SS_DELAY(100) SS_TAP(X_J) SS_DELAY(100) SS_TAP(X_N) SS_DELAY(100) SS_TAP(X_SPACE));
++      SEND_STRING(SS_TAP(X_D) SS_TAP(X_J) SS_TAP(X_N) SS_TAP(X_SPACE));
+@@ -376 +430 @@
+-      SEND_STRING(SS_TAP(X_V) SS_DELAY(100) SS_TAP(X_T) SS_DELAY(100) SS_TAP(X_Y) SS_DELAY(100) SS_TAP(X_Z) SS_DELAY(100) SS_TAP(X_SPACE));
++      SEND_STRING(SS_TAP(X_V) SS_TAP(X_T) SS_TAP(X_Y) SS_TAP(X_Z) SS_TAP(X_SPACE));
+@@ -381 +435 @@
+-      SEND_STRING(SS_TAP(X_X) SS_DELAY(100) SS_TAP(X_N) SS_DELAY(100) SS_TAP(X_J) SS_DELAY(100) SS_TAP(X_SPACE));
++      SEND_STRING(SS_TAP(X_X) SS_TAP(X_N) SS_TAP(X_J) SS_TAP(X_SPACE));
+@@ -386 +440 @@
+-      SEND_STRING(SS_TAP(X_G) SS_DELAY(100) SS_TAP(X_T) SS_DELAY(100) SS_TAP(X_H) SS_DELAY(100) SS_TAP(X_T));
++      SEND_STRING(SS_TAP(X_G) SS_TAP(X_T) SS_TAP(X_H) SS_TAP(X_T));
+@@ -391 +445 @@
+-      SEND_STRING(SS_TAP(X_V) SS_DELAY(100) SS_TAP(X_Y) SS_DELAY(100) SS_TAP(X_T) SS_DELAY(100) SS_TAP(X_SPACE));
++      SEND_STRING(SS_TAP(X_V) SS_TAP(X_Y) SS_TAP(X_T) SS_TAP(X_SPACE));
+@@ -396 +450 @@
+-      SEND_STRING(SS_TAP(X_J) SS_DELAY(100) SS_TAP(X_Y) SS_DELAY(100) SS_TAP(X_B) SS_DELAY(100) SS_TAP(X_SPACE));
++      SEND_STRING(SS_TAP(X_J) SS_TAP(X_Y) SS_TAP(X_B) SS_TAP(X_SPACE));
+@@ -401 +455 @@
+-      SEND_STRING(SS_TAP(X_L) SS_DELAY(100) SS_TAP(X_K) SS_DELAY(100) SS_TAP(X_Z) SS_DELAY(100) SS_TAP(X_SPACE));
++      SEND_STRING(SS_TAP(X_L) SS_TAP(X_K) SS_TAP(X_Z) SS_TAP(X_SPACE));
+@@ -406 +460 @@
+-      SEND_STRING(SS_TAP(X_B) SS_DELAY(100) SS_TAP(X_K) SS_DELAY(100) SS_TAP(X_B) SS_DELAY(100) SS_TAP(X_SPACE));
++      SEND_STRING(SS_TAP(X_B) SS_TAP(X_K) SS_TAP(X_B) SS_TAP(X_SPACE));
+@@ -411 +465 @@
+-      SEND_STRING(SS_TAP(X_Y) SS_DELAY(100) SS_TAP(X_T) SS_DELAY(100) SS_TAP(X_U) SS_DELAY(100) SS_TAP(X_J) SS_DELAY(100) SS_TAP(X_SPACE));
++      SEND_STRING(SS_TAP(X_Y) SS_TAP(X_T) SS_TAP(X_U) SS_TAP(X_J) SS_TAP(X_SPACE));
+@@ -416 +470 @@
+-      SEND_STRING(SS_TAP(X_U) SS_DELAY(100) SS_TAP(X_J) SS_DELAY(100) SS_TAP(X_D) SS_DELAY(100) SS_TAP(X_J) SS_DELAY(100) SS_TAP(X_H));
++      SEND_STRING(SS_TAP(X_U) SS_TAP(X_J) SS_TAP(X_D) SS_TAP(X_J) SS_TAP(X_H));
+@@ -421 +475 @@
+-      SEND_STRING(SS_TAP(X_X) SS_DELAY(100) SS_TAP(X_N) SS_DELAY(100) SS_TAP(X_J) SS_DELAY(100) SS_TAP(X_COMMA) SS_DELAY(100) SS_TAP(X_S));
++      SEND_STRING(SS_TAP(X_X) SS_TAP(X_N) SS_TAP(X_J) SS_TAP(X_COMMA) SS_TAP(X_S) SS_TAP(X_SPACE));
+@@ -426 +480 @@
+-      SEND_STRING(SS_TAP(X_T) SS_DELAY(100) SS_TAP(X_O) SS_DELAY(100) SS_TAP(X_SLASH) SS_DELAY(100) SS_TAP(X_SPACE));
++      SEND_STRING(SS_TAP(X_T) SS_TAP(X_O) SS_TAP(X_SLASH) SS_TAP(X_SPACE));
+@@ -431 +485 @@
+-      SEND_STRING(SS_TAP(X_COMMA) SS_DELAY(100) SS_TAP(X_SPACE) SS_DELAY(100) SS_TAP(X_I) SS_DELAY(100) SS_TAP(X_N) SS_DELAY(100) SS_TAP(X_COMMA));
++      SEND_STRING(SS_TAP(X_6) SS_TAP(X_SPACE) SS_TAP(X_L) SS_TAP(X_J) SS_TAP(X_COMMA) SS_TAP(X_H) SS_TAP(X_S) SS_TAP(X_Q) SS_TAP(X_SPACE) SS_TAP(X_L) SS_TAP(X_T) SS_TAP(X_Y) SS_TAP(X_M) SS_TAP(X_MINUS));
+@@ -436 +490 @@
+-      SEND_STRING(SS_TAP(X_C) SS_DELAY(100) SS_TAP(X_R) SS_DELAY(100) SS_TAP(X_F) SS_DELAY(100) SS_TAP(X_P) SS_DELAY(100) SS_TAP(X_F));
++      SEND_STRING(SS_TAP(X_C) SS_TAP(X_R) SS_TAP(X_F) SS_TAP(X_P) SS_TAP(X_F));
+@@ -441 +495 @@
+-      SEND_STRING(SS_TAP(X_R) SS_DELAY(100) SS_TAP(X_J) SS_DELAY(100) SS_TAP(X_N) SS_DELAY(100) SS_TAP(X_J) SS_DELAY(100) SS_TAP(X_H));
++      SEND_STRING(SS_TAP(X_R) SS_TAP(X_J) SS_TAP(X_N) SS_TAP(X_J) SS_TAP(X_H));
+@@ -446 +500 @@
+-      SEND_STRING(SS_TAP(X_T) SS_DELAY(100) SS_TAP(X_C) SS_DELAY(100) SS_TAP(X_K) SS_DELAY(100) SS_TAP(X_B) SS_DELAY(100) SS_TAP(X_SPACE));
++      SEND_STRING(SS_TAP(X_T) SS_TAP(X_C) SS_TAP(X_K) SS_TAP(X_B) SS_TAP(X_SPACE));
+@@ -451 +505 @@
+-      SEND_STRING(SS_TAP(X_R) SS_DELAY(100) SS_TAP(X_J) SS_DELAY(100) SS_TAP(X_U) SS_DELAY(100) SS_TAP(X_L) SS_DELAY(100) SS_TAP(X_F));
++      SEND_STRING(SS_TAP(X_R) SS_TAP(X_J) SS_TAP(X_U) SS_TAP(X_L) SS_TAP(X_F) SS_TAP(X_SPACE));
+@@ -456 +510 @@
+-      SEND_STRING(SS_TAP(X_G) SS_DELAY(100) SS_TAP(X_J) SS_DELAY(100) SS_TAP(X_SCLN) SS_DELAY(100) SS_TAP(X_F) SS_DELAY(100) SS_TAP(X_K));
++      SEND_STRING(SS_TAP(X_6) SS_TAP(X_SPACE) SS_TAP(X_G) SS_TAP(X_J) SS_TAP(X_SCLN) SS_TAP(X_F) SS_TAP(X_K) SS_TAP(X_E) SS_TAP(X_Q) SS_TAP(X_C) SS_TAP(X_N) SS_TAP(X_F) SS_TAP(X_6) SS_TAP(X_SPACE));
+@@ -461 +515 @@
+-      SEND_STRING(SS_TAP(X_N) SS_DELAY(100) SS_TAP(X_T) SS_DELAY(100) SS_TAP(X_G) SS_DELAY(100) SS_TAP(X_T) SS_DELAY(100) SS_TAP(X_H));
++      SEND_STRING(SS_TAP(X_N) SS_TAP(X_T) SS_TAP(X_G) SS_TAP(X_T) SS_TAP(X_H) SS_TAP(X_M) SS_TAP(X_SPACE));
+@@ -466 +520 @@
+-      SEND_STRING(SS_TAP(X_N) SS_DELAY(100) SS_TAP(X_J) SS_DELAY(100) SS_TAP(X_K) SS_DELAY(100) SS_TAP(X_M) SS_DELAY(100) SS_TAP(X_R));
++      SEND_STRING(SS_TAP(X_N) SS_TAP(X_J) SS_TAP(X_K) SS_TAP(X_M) SS_TAP(X_R) SS_TAP(X_J) SS_TAP(X_SPACE));
+@@ -471 +525 @@
+-      SEND_STRING(SS_TAP(X_D) SS_DELAY(100) SS_TAP(X_H) SS_DELAY(100) SS_TAP(X_T) SS_DELAY(100) SS_TAP(X_V) SS_DELAY(100) SS_TAP(X_Z));
++      SEND_STRING(SS_TAP(X_D) SS_TAP(X_H) SS_TAP(X_T) SS_TAP(X_V) SS_TAP(X_Z) SS_TAP(X_SPACE));
+@@ -476 +530 @@
+-      SEND_STRING(SS_TAP(X_X) SS_DELAY(100) SS_TAP(X_T) SS_DELAY(100) SS_TAP(X_K) SS_DELAY(100) SS_TAP(X_J) SS_DELAY(100) SS_TAP(X_D));
++      SEND_STRING(SS_TAP(X_X) SS_TAP(X_T) SS_TAP(X_K) SS_TAP(X_J) SS_TAP(X_D) SS_TAP(X_T));
+@@ -481 +535 @@
+-      SEND_STRING(SS_TAP(X_C) SS_DELAY(100) SS_TAP(X_G) SS_DELAY(100) SS_TAP(X_F) SS_DELAY(100) SS_TAP(X_C) SS_DELAY(100) SS_TAP(X_B));
++      SEND_STRING(SS_TAP(X_C) SS_TAP(X_G) SS_TAP(X_F) SS_TAP(X_C) SS_TAP(X_B) SS_TAP(X_COMMA) SS_TAP(X_J) SS_TAP(X_SPACE));
+@@ -486 +540 @@
+-      SEND_STRING(SS_TAP(X_COMMA) SS_DELAY(100) SS_TAP(X_S) SS_DELAY(100) SS_TAP(X_K) SS_DELAY(100) SS_TAP(X_F) SS_DELAY(100) SS_TAP(X_SPACE));
++      SEND_STRING(SS_TAP(X_COMMA) SS_TAP(X_S) SS_TAP(X_K) SS_TAP(X_F) SS_TAP(X_SPACE));
+@@ -491 +545 @@
+-      SEND_STRING(SS_TAP(X_COMMA) SS_DELAY(100) SS_TAP(X_S) SS_DELAY(100) SS_TAP(X_K) SS_DELAY(100) SS_TAP(X_B) SS_DELAY(100) SS_TAP(X_SPACE));
++      SEND_STRING(SS_TAP(X_COMMA) SS_TAP(X_S) SS_TAP(X_K) SS_TAP(X_B) SS_TAP(X_SPACE));
+@@ -496 +550 @@
+-      SEND_STRING(SS_TAP(X_W) SS_DELAY(100) SS_TAP(X_H) SS_DELAY(100) SS_TAP(X_O) SS_DELAY(100) SS_TAP(X_SPACE));
++      SEND_STRING(SS_TAP(X_W) SS_TAP(X_H) SS_TAP(X_O) SS_TAP(X_SPACE));
+@@ -501 +555 @@
+-      SEND_STRING(SS_TAP(X_W) SS_DELAY(100) SS_TAP(X_H) SS_DELAY(100) SS_TAP(X_A) SS_DELAY(100) SS_TAP(X_T) SS_DELAY(100) SS_TAP(X_SPACE));
++      SEND_STRING(SS_TAP(X_W) SS_TAP(X_H) SS_TAP(X_A) SS_TAP(X_T) SS_TAP(X_SPACE));
+@@ -506 +560 @@
+-      SEND_STRING(SS_TAP(X_W) SS_DELAY(100) SS_TAP(X_I) SS_DELAY(100) SS_TAP(X_T) SS_DELAY(100) SS_TAP(X_H) SS_DELAY(100) SS_TAP(X_SPACE));
++      SEND_STRING(SS_TAP(X_W) SS_TAP(X_I) SS_TAP(X_T) SS_TAP(X_H) SS_TAP(X_SPACE));
+@@ -511 +565 @@
+-      SEND_STRING(SS_TAP(X_F) SS_DELAY(100) SS_TAP(X_O) SS_DELAY(100) SS_TAP(X_R) SS_DELAY(100) SS_TAP(X_SPACE));
++      SEND_STRING(SS_TAP(X_F) SS_TAP(X_O) SS_TAP(X_R) SS_TAP(X_SPACE));
+@@ -516 +570 @@
+-      SEND_STRING(SS_TAP(X_Y) SS_DELAY(100) SS_TAP(X_O) SS_DELAY(100) SS_TAP(X_U) SS_DELAY(100) SS_TAP(X_SPACE));
++      SEND_STRING(SS_TAP(X_Y) SS_TAP(X_O) SS_TAP(X_U) SS_TAP(X_SPACE));
+@@ -521 +575 @@
+-      SEND_STRING(SS_TAP(X_T) SS_DELAY(100) SS_TAP(X_H) SS_DELAY(100) SS_TAP(X_I) SS_DELAY(100) SS_TAP(X_S) SS_DELAY(100) SS_TAP(X_SPACE));
++      SEND_STRING(SS_TAP(X_T) SS_TAP(X_H) SS_TAP(X_I) SS_TAP(X_S) SS_TAP(X_SPACE));
+@@ -526 +580 @@
+-      SEND_STRING(SS_TAP(X_N) SS_DELAY(100) SS_TAP(X_QUOTE) SS_DELAY(100) SS_TAP(X_T) SS_DELAY(100) SS_TAP(X_SPACE));
++      SEND_STRING(SS_TAP(X_N) SS_TAP(X_QUOTE) SS_TAP(X_T) SS_TAP(X_SPACE));
+@@ -531 +585 @@
+-      SEND_STRING(SS_TAP(X_A) SS_DELAY(100) SS_TAP(X_N) SS_DELAY(100) SS_TAP(X_D) SS_DELAY(100) SS_TAP(X_SPACE));
++      SEND_STRING(SS_TAP(X_A) SS_TAP(X_N) SS_TAP(X_D) SS_TAP(X_SPACE));
+@@ -536 +590 @@
+-      SEND_STRING(SS_TAP(X_A) SS_DELAY(100) SS_TAP(X_R) SS_DELAY(100) SS_TAP(X_E) SS_DELAY(100) SS_TAP(X_SPACE));
++      SEND_STRING(SS_TAP(X_A) SS_TAP(X_R) SS_TAP(X_E) SS_TAP(X_SPACE));
+@@ -541 +595 @@
+-      SEND_STRING(SS_TAP(X_W) SS_DELAY(100) SS_TAP(X_A) SS_DELAY(100) SS_TAP(X_S) SS_DELAY(100) SS_TAP(X_SPACE));
++      SEND_STRING(SS_TAP(X_W) SS_TAP(X_A) SS_TAP(X_S) SS_TAP(X_SPACE));
+@@ -546 +600 @@
+-      SEND_STRING(SS_TAP(X_T) SS_DELAY(100) SS_TAP(X_H) SS_DELAY(100) SS_TAP(X_E) SS_DELAY(100) SS_TAP(X_SPACE));
++      SEND_STRING(SS_TAP(X_T) SS_TAP(X_H) SS_TAP(X_E) SS_TAP(X_SPACE));
+@@ -551 +605 @@
+-      SEND_STRING(SS_TAP(X_T) SS_DELAY(100) SS_TAP(X_H) SS_DELAY(100) SS_TAP(X_A) SS_DELAY(100) SS_TAP(X_T) SS_DELAY(100) SS_TAP(X_SPACE));
++      SEND_STRING(SS_TAP(X_T) SS_TAP(X_H) SS_TAP(X_A) SS_TAP(X_T) SS_TAP(X_SPACE));
+@@ -556 +610 @@
+-      SEND_STRING(SS_TAP(X_A) SS_DELAY(100) SS_TAP(X_L) SS_DELAY(100) SS_TAP(X_L) SS_DELAY(100) SS_TAP(X_SPACE));
++      SEND_STRING(SS_TAP(X_A) SS_TAP(X_L) SS_TAP(X_L) SS_TAP(X_SPACE));
+@@ -561 +615 @@
+-      SEND_STRING(SS_TAP(X_H) SS_DELAY(100) SS_TAP(X_I) SS_DELAY(100) SS_TAP(X_S) SS_DELAY(100) SS_TAP(X_SPACE));
++      SEND_STRING(SS_TAP(X_H) SS_TAP(X_I) SS_TAP(X_S) SS_TAP(X_SPACE));
+@@ -566 +620 @@
+-      SEND_STRING(SS_TAP(X_H) SS_DELAY(100) SS_TAP(X_E) SS_DELAY(100) SS_TAP(X_R) SS_DELAY(100) SS_TAP(X_SPACE));
++      SEND_STRING(SS_TAP(X_H) SS_TAP(X_E) SS_TAP(X_R) SS_TAP(X_SPACE));
+@@ -571 +625 @@
+-      SEND_STRING(SS_TAP(X_S) SS_DELAY(100) SS_TAP(X_H) SS_DELAY(100) SS_TAP(X_E) SS_DELAY(100) SS_TAP(X_SPACE));
++      SEND_STRING(SS_TAP(X_S) SS_TAP(X_H) SS_TAP(X_E) SS_TAP(X_SPACE));
+@@ -576 +630 @@
+-      SEND_STRING(SS_TAP(X_H) SS_DELAY(100) SS_TAP(X_A) SS_DELAY(100) SS_TAP(X_V) SS_DELAY(100) SS_TAP(X_E) SS_DELAY(100) SS_TAP(X_SPACE));
++      SEND_STRING(SS_TAP(X_H) SS_TAP(X_A) SS_TAP(X_V) SS_TAP(X_E) SS_TAP(X_SPACE));
+@@ -581 +635 @@
+-      SEND_STRING(SS_TAP(X_B) SS_DELAY(100) SS_TAP(X_U) SS_DELAY(100) SS_TAP(X_T) SS_DELAY(100) SS_TAP(X_SPACE));
++      SEND_STRING(SS_TAP(X_B) SS_TAP(X_U) SS_TAP(X_T) SS_TAP(X_SPACE));
+@@ -586 +640 @@
+-      SEND_STRING(SS_TAP(X_H) SS_DELAY(100) SS_TAP(X_A) SS_DELAY(100) SS_TAP(X_S) SS_DELAY(100) SS_TAP(X_SPACE));
++      SEND_STRING(SS_TAP(X_H) SS_TAP(X_A) SS_TAP(X_S) SS_TAP(X_SPACE));
+@@ -591 +645 @@
+-      SEND_STRING(SS_TAP(X_H) SS_DELAY(100) SS_TAP(X_A) SS_DELAY(100) SS_TAP(X_D) SS_DELAY(100) SS_TAP(X_SPACE));
++      SEND_STRING(SS_TAP(X_H) SS_TAP(X_A) SS_TAP(X_D) SS_TAP(X_SPACE));
+@@ -596 +650 @@
+-      SEND_STRING(SS_TAP(X_L) SS_DELAY(100) SS_TAP(X_I) SS_DELAY(100) SS_TAP(X_K) SS_DELAY(100) SS_TAP(X_E) SS_DELAY(100) SS_TAP(X_SPACE));
++      SEND_STRING(SS_TAP(X_L) SS_TAP(X_I) SS_TAP(X_K) SS_TAP(X_E) SS_TAP(X_SPACE));
+@@ -601 +655 @@
+-      SEND_STRING(SS_TAP(X_A) SS_DELAY(100) SS_TAP(X_B) SS_DELAY(100) SS_TAP(X_O) SS_DELAY(100) SS_TAP(X_U) SS_DELAY(100) SS_TAP(X_T));
++      SEND_STRING(SS_TAP(X_A) SS_TAP(X_B) SS_TAP(X_O) SS_TAP(X_U) SS_TAP(X_T) SS_TAP(X_SPACE));
+@@ -606 +660 @@
+-      SEND_STRING(SS_TAP(X_Y) SS_DELAY(100) SS_TAP(X_O) SS_DELAY(100) SS_TAP(X_U) SS_DELAY(100) SS_TAP(X_R) SS_DELAY(100) SS_TAP(X_SPACE));
++      SEND_STRING(SS_TAP(X_Y) SS_TAP(X_O) SS_TAP(X_U) SS_TAP(X_R) SS_TAP(X_SPACE));
+@@ -611 +665 @@
+-      SEND_STRING(SS_TAP(X_W) SS_DELAY(100) SS_TAP(X_E) SS_DELAY(100) SS_TAP(X_R) SS_DELAY(100) SS_TAP(X_E) SS_DELAY(100) SS_TAP(X_SPACE));
++      SEND_STRING(SS_TAP(X_W) SS_TAP(X_E) SS_TAP(X_R) SS_TAP(X_E) SS_TAP(X_SPACE));
+@@ -616 +670 @@
+-      SEND_STRING(SS_TAP(X_T) SS_DELAY(100) SS_TAP(X_H) SS_DELAY(100) SS_TAP(X_E) SS_DELAY(100) SS_TAP(X_R) SS_DELAY(100) SS_TAP(X_E));
++      SEND_STRING(SS_TAP(X_T) SS_TAP(X_H) SS_TAP(X_E) SS_TAP(X_R) SS_TAP(X_E) SS_TAP(X_SPACE));
+@@ -621 +675 @@
+-      SEND_STRING(SS_TAP(X_N) SS_DELAY(100) SS_TAP(X_O) SS_DELAY(100) SS_TAP(X_T) SS_DELAY(100) SS_TAP(X_SPACE));
++      SEND_STRING(SS_TAP(X_N) SS_TAP(X_O) SS_TAP(X_T) SS_TAP(X_SPACE));
+@@ -626 +680 @@
+-      SEND_STRING(SS_TAP(X_T) SS_DELAY(100) SS_TAP(X_H) SS_DELAY(100) SS_TAP(X_E) SS_DELAY(100) SS_TAP(X_Y) SS_DELAY(100) SS_TAP(X_SPACE));
++      SEND_STRING(SS_TAP(X_T) SS_TAP(X_H) SS_TAP(X_E) SS_TAP(X_Y) SS_TAP(X_SPACE));
+@@ -631 +685 @@
+-      SEND_STRING(SS_TAP(X_T) SS_DELAY(100) SS_TAP(X_H) SS_DELAY(100) SS_TAP(X_E) SS_DELAY(100) SS_TAP(X_I) SS_DELAY(100) SS_TAP(X_R));
++      SEND_STRING(SS_TAP(X_T) SS_TAP(X_H) SS_TAP(X_E) SS_TAP(X_I) SS_TAP(X_R) SS_TAP(X_SPACE));
+@@ -636 +690 @@
+-      SEND_STRING(SS_TAP(X_O) SS_DELAY(100) SS_TAP(X_N) SS_DELAY(100) SS_TAP(X_E) SS_DELAY(100) SS_TAP(X_SPACE));
++      SEND_STRING(SS_TAP(X_O) SS_TAP(X_N) SS_TAP(X_E) SS_TAP(X_SPACE));
+@@ -641 +695 @@
+-      SEND_STRING(SS_TAP(X_C) SS_DELAY(100) SS_TAP(X_A) SS_DELAY(100) SS_TAP(X_N) SS_DELAY(100) SS_TAP(X_SPACE));
++      SEND_STRING(SS_TAP(X_C) SS_TAP(X_A) SS_TAP(X_N) SS_TAP(X_SPACE));
+@@ -646 +700 @@
+-      SEND_STRING(SS_TAP(X_F) SS_DELAY(100) SS_TAP(X_R) SS_DELAY(100) SS_TAP(X_O) SS_DELAY(100) SS_TAP(X_M) SS_DELAY(100) SS_TAP(X_SPACE));
++      SEND_STRING(SS_TAP(X_F) SS_TAP(X_R) SS_TAP(X_O) SS_TAP(X_M) SS_TAP(X_SPACE));
+@@ -651 +705 @@
+-      SEND_STRING(SS_TAP(X_COMMA) SS_DELAY(100) SS_LSFT(SS_TAP(X_QUOTE)) SS_DELAY(100) SS_TAP(X_SPACE));
++      SEND_STRING(SS_TAP(X_COMMA) SS_LSFT(SS_TAP(X_QUOTE)) SS_TAP(X_SPACE));
+@@ -656 +710,3 @@
+-      SEND_STRING(SS_TAP(X_DOT) SS_DELAY(100) SS_LSFT(SS_TAP(X_QUOTE)) SS_DELAY(100) SS_TAP(X_SPACE));
++      clear_oneshot_mods();
++      SEND_STRING(SS_TAP(X_DOT) SS_LSFT(SS_TAP(X_QUOTE)) SS_TAP(X_SPACE));
++      set_oneshot_mods(MOD_LSFT);
+@@ -661 +717,3 @@
+-      SEND_STRING(SS_LSFT(SS_TAP(X_SLASH)) SS_DELAY(100) SS_LSFT(SS_TAP(X_QUOTE)) SS_DELAY(100) SS_TAP(X_SPACE));
++      clear_oneshot_mods();
++      SEND_STRING(SS_LSFT(SS_TAP(X_SLASH)) SS_LSFT(SS_TAP(X_QUOTE)) SS_TAP(X_SPACE));
++      set_oneshot_mods(MOD_LSFT);
+@@ -666 +724 @@
+-      SEND_STRING(SS_TAP(X_J) SS_DELAY(100) SS_TAP(X_U) SS_DELAY(100) SS_TAP(X_S) SS_DELAY(100) SS_TAP(X_T) SS_DELAY(100) SS_TAP(X_SPACE));
++      SEND_STRING(SS_TAP(X_J) SS_TAP(X_U) SS_TAP(X_S) SS_TAP(X_T) SS_TAP(X_SPACE));
+@@ -671 +729 @@
+-      SEND_STRING(SS_TAP(X_O) SS_DELAY(100) SS_TAP(X_U) SS_DELAY(100) SS_TAP(X_T) SS_DELAY(100) SS_TAP(X_SPACE));
++      SEND_STRING(SS_TAP(X_O) SS_TAP(X_U) SS_TAP(X_T) SS_TAP(X_SPACE));
+@@ -676,7 +734,7 @@
+-        if (rawhid_state.rgb_control) {
+-            return false;
+-        }
+-        if (record->event.pressed) {
+-            rgblight_mode(1);
+-        }
+-        return false;
++    if (rawhid_state.rgb_control) {
++      return false;
++    }
++    if (record->event.pressed) {
++      rgblight_mode(1);
++    }
++    return false;
+@@ -684,8 +742,8 @@
+-        if (rawhid_state.rgb_control) {
+-            return false;
+-        }
+-        if (record->event.pressed) {
+-            rgblight_mode(1);
+-            rgblight_sethsv(0,255,255);
+-        }
+-        return false;
++    if (rawhid_state.rgb_control) {
++      return false;
++    }
++    if (record->event.pressed) {
++      rgblight_mode(1);
++      rgblight_sethsv(0,255,255);
++    }
++    return false;
+@@ -693,8 +751,8 @@
+-        if (rawhid_state.rgb_control) {
+-            return false;
+-        }
+-        if (record->event.pressed) {
+-            rgblight_mode(1);
+-            rgblight_sethsv(43,235,219);
+-        }
+-        return false;
++    if (rawhid_state.rgb_control) {
++      return false;
++    }
++    if (record->event.pressed) {
++      rgblight_mode(1);
++      rgblight_sethsv(43,235,219);
++    }
++    return false;
+@@ -702,8 +760,8 @@
+-        if (rawhid_state.rgb_control) {
+-            return false;
+-        }
+-        if (record->event.pressed) {
+-            rgblight_mode(1);
+-            rgblight_sethsv(103,255,163);
+-        }
+-        return false;
++    if (rawhid_state.rgb_control) {
++      return false;
++    }
++    if (record->event.pressed) {
++      rgblight_mode(1);
++      rgblight_sethsv(103,255,163);
++    }
++    return false;
+@@ -711,8 +769,8 @@
+-        if (rawhid_state.rgb_control) {
+-            return false;
+-        }
+-        if (record->event.pressed) {
+-            rgblight_mode(1);
+-            rgblight_sethsv(176,255,255);
+-        }
+-        return false;
++    if (rawhid_state.rgb_control) {
++      return false;
++    }
++    if (record->event.pressed) {
++      rgblight_mode(1);
++      rgblight_sethsv(176,255,255);
++    }
++    return false;
