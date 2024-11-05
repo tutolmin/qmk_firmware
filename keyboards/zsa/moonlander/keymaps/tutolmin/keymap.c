@@ -1,6 +1,5 @@
 #include QMK_KEYBOARD_H
 #include "version.h"
-//#include "i18n.h"
 #include "keymap_ru_type.h"
 #define MOON_LED_LEVEL LED_LEVEL
 #define ML_SAFE_RANGE SAFE_RANGE
@@ -409,7 +408,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case ST_MACRO_18:
     if (record->event.pressed) {
       SEND_STRING(SS_TAP(X_COMMA) SS_TAP(X_S) SS_TAP(X_K) SS_TAP(X_J) SS_TAP(X_SPACE));
-    }
+  }
     break;
     case ST_MACRO_19:
     if (record->event.pressed) {
@@ -725,7 +724,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       set_oneshot_mods(MOD_LSFT);
     }
     break;
-    case _MACRO_81:
+    case ST_MACRO_81:
     if (record->event.pressed) {
       SEND_STRING(SS_TAP(X_J) SS_TAP(X_U) SS_TAP(X_S) SS_TAP(X_T) SS_TAP(X_SPACE));
     }
